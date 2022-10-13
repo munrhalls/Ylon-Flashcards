@@ -1,17 +1,19 @@
 import "./App.css";
 import styled from "@emotion/styled";
 import CssBaseline from "@mui/material/CssBaseline";
+import AppBar from "@mui/material/AppBar";
 import Flashcard from "./Flashcard";
 
 function App() {
   const App = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
   `;
 
   const Header = styled.header`
     padding: 32px;
-    background-color: hotpink;
+    background-color: silver;
     font-size: 24px;
     border-radius: 4px;
     color: black;
@@ -34,10 +36,11 @@ function App() {
       color: white;
     }
   `;
+
   return (
     <App>
       <CssBaseline>
-        <Header>Ylon flashcards</Header>
+        <AppBar></AppBar>
         <Main>
           <Flashcard />
         </Main>
