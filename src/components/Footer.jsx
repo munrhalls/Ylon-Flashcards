@@ -16,7 +16,6 @@ export default function Footer() {
         justifyContent: "center",
         alignItems: "center",
       }}
-      bgColor="text-secondary"
       color="white"
     >
       <Footnote align="center" color="secondary" variant="subtitle2">
