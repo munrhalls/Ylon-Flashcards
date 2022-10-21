@@ -1,6 +1,5 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { makeStyles } from "@material-ui/core";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { black, white } from "@mui/material/colors";
 
@@ -10,13 +9,6 @@ import DecksDashboard from "./components/DecksDashboard";
 import Footer from "./components/Footer";
 
 function App() {
-  const useStyles = makeStyles({
-    page: {
-      width: "100%",
-    },
-  });
-  const classes = useStyles();
-
   const theme = createTheme({
     palette: {
       primary: {
@@ -44,7 +36,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout className={classes.page}>
+      <Layout>
         <Topbar />
         <TwoColumns container>
           <Grid item xs={3}>
