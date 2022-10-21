@@ -38,7 +38,7 @@ function App() {
   `;
 
   const TwoColumns = styled(Grid)`
-    margin-top: 64px;
+    margin-top: 54px;
     flex: 1;
   `;
 
@@ -50,8 +50,20 @@ function App() {
           <Grid item xs={3}>
             <DecksDashboard />
           </Grid>
-          <Grid item xs={9} justify="center">
-            <Flashcard />
+          <Grid item xs={9}>
+            <Grid
+              container
+              justify="center"
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ height: "100%" }}
+            >
+              <Grid item>
+                <Flashcard />
+              </Grid>
+            </Grid>
           </Grid>
         </TwoColumns>
         <Footer />
