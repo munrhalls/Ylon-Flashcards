@@ -1,12 +1,24 @@
-import { Grid, Card } from "@mui/material";
+import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { makeStyles } from "@material-ui/core";
+
 import Topbar from "./Topbar";
-import Flashcard from "./Flashcard";
-import DecksDashboard from "./DecksDashboard";
+import Flashcard from "./components/Flashcard";
+import DecksDashboard from "./components/DecksDashboard";
+import Footer from "./components/Footer";
+
+const useStyles = makeStyles({
+  page: {
+    width: "100%",
+  },
+});
 
 function App() {
+  const classes = useStyles();
+
   const Layout = styled(Grid)`
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -19,7 +31,7 @@ function App() {
   `;
 
   return (
-    <Layout>
+    <Layout className={classes.page}>
       <Topbar />
       <TwoColumns container>
         <Grid item xs={3}>
@@ -29,6 +41,7 @@ function App() {
           <Flashcard />
         </Grid>
       </TwoColumns>
+      <Footer />
     </Layout>
   );
 }
