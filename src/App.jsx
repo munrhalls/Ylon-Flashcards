@@ -15,16 +15,17 @@ function App() {
 
   const TwoColumns = styled(Grid)`
     margin-top: 64px;
+    flex: 1;
   `;
 
   return (
     <Layout>
       <Topbar />
       <TwoColumns container>
-        <Grid item>
+        <Grid item xs={3}>
           <DecksDashboard />
         </Grid>
-        <Grid item>
+        <Grid item xs={9} justify="center">
           <Flashcard />
         </Grid>
       </TwoColumns>
