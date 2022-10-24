@@ -1,70 +1,47 @@
-import { Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { black, white } from "@mui/material/colors";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import React from "react";
+import {
+  CssBaseline,
+  createMuiTheme,
+  ThemeProvider,
+  Container,
+  Box,
+  Grid,
+  Typography,
+  Button,
+  Card,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { sizing } from "@mui/system";
 
-import Topbar from "./components/Topbar";
-import Flashcard from "./components/Flashcard";
-import DecksDashboard from "./components/DecksDashboard";
-import Footer from "./components/Footer";
-
-function App() {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#212121",
-      },
-      secondary: {
-        main: "#616161",
-      },
+const useStyles = makeStyles((themes) => {
+  return {
+    flashcard: {
+      border: "1px solid #000",
+      height: "20rem",
+      width: "15rem",
+      margin: "auto",
     },
-  });
+    center: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100%",
+      width: "100%",
+    },
+    app: {
+      minHeight: "100vh",
+    },
+  };
+});
 
-  const Layout = styled(Grid)`
-    min-height: 100vh;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  `;
-
-  const TwoColumns = styled(Grid)`
-    margin-top: 54px;
-    flex: 1;
-  `;
+export default function App() {
+  const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Topbar />
-        <TwoColumns container>
-          <Grid item xs={3}>
-            <DecksDashboard />
-          </Grid>
-          <Grid item xs={9}>
-            <Grid
-              container
-              justify="center"
-              spacing={0}
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-              style={{ height: "100%" }}
-            >
-              <Grid item>
-                <Flashcard />
-              </Grid>
-            </Grid>
-          </Grid>
-        </TwoColumns>
-        <Footer />
-      </Layout>
-    </ThemeProvider>
+    <Grid className={classes.center}>
+      <Grid item>
+        <Card className={classes.flashcard}>Hey</Card>
+      </Grid>
+    </Grid>
   );
 }
-
-export default App;
