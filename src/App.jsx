@@ -1,5 +1,5 @@
 import React from "react";
-import Flashcard from "./components/Flashcard";
+import Flashcard from "./components/Flashcard/Flashcard";
 
 import {
   CssBaseline,
