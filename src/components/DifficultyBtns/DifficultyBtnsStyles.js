@@ -30,21 +30,37 @@ export const useStyles = makeStyles((themes) => {
       backgroundColor: red[900],
       flex: "1",
       margin: "2.5% 0",
+      [themes.breakpoints.down("xs")]: {
+        maxWidth: "60%",
+        fontSize: "10px",
+      },
     },
     medium: {
       backgroundColor: orange[900],
       flex: "1",
       margin: "2.5% 0",
+      [themes.breakpoints.down("xs")]: {
+        maxWidth: "60%",
+        fontSize: "10px",
+      },
     },
     easy: {
       backgroundColor: blue[900],
       flex: "1",
       margin: "2.5% 0",
+      [themes.breakpoints.down("xs")]: {
+        maxWidth: "60%",
+        fontSize: "12px",
+      },
     },
     pass: {
       backgroundColor: green[900],
       flex: "1",
       margin: "2.5% 0",
+      [themes.breakpoints.down("xs")]: {
+        maxWidth: "60%",
+        fontSize: "10px",
+      },
     },
   };
 });

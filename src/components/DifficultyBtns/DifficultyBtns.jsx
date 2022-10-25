@@ -11,9 +11,11 @@ import {
   Button,
   ButtonGroup,
   Card,
+  Hidden,
 } from "@material-ui/core";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import MouseIcon from "@mui/icons-material/Mouse";
 
 export default function DifficultyBtns() {
   const classes = useStyles();
@@ -21,7 +23,11 @@ export default function DifficultyBtns() {
   return (
     <div className={classes.difficultyButtons}>
       <Button
-        endIcon={<ArrowForwardIosIcon />}
+        endIcon={
+          <Hidden xsDown>
+            <MouseIcon />
+          </Hidden>
+        }
         variant="contained"
         size="large"
         className={classes.hard}
@@ -29,7 +35,11 @@ export default function DifficultyBtns() {
         Hard
       </Button>
       <Button
-        endIcon={<ArrowForwardIosIcon />}
+        endIcon={
+          <Hidden xsDown>
+            <MouseIcon />
+          </Hidden>
+        }
         variant="contained"
         size="large"
         className={classes.medium}
@@ -37,7 +47,11 @@ export default function DifficultyBtns() {
         Medium
       </Button>
       <Button
-        endIcon={<ArrowForwardIosIcon />}
+        endIcon={
+          <Hidden xsDown>
+            <MouseIcon />
+          </Hidden>
+        }
         variant="contained"
         size="large"
         className={classes.easy}
@@ -45,7 +59,11 @@ export default function DifficultyBtns() {
         Easy
       </Button>
       <Button
-        endIcon={<ArrowForwardIosIcon />}
+        endIcon={
+          <Hidden xsDown>
+            <MouseIcon />
+          </Hidden>
+        }
         variant="contained"
         size="large"
         className={classes.pass}
