@@ -4,6 +4,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Box, Button } from "@material-ui/core";
 import { useStyles } from "./FlashcardEditStyles";
+import { Link } from "react-router-dom";
 
 function MyFormHelperText() {
   const { focused } = useFormControl() || {};
@@ -16,48 +17,45 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function UseFormControl({ isEdit, setIsEdit }) {
+export default function UseFormControl() {
   const classes = useStyles();
   return (
-    <>
-      {isEdit ? (
-        <div className={classes.flashcardCell}>
-          <Box
-            className={classes.editFlashcardContainer}
-            component="form"
-            noValidate
-            autoComplete="off"
-          >
-            <FormControl className={classes.editFlashcardForm}>
-              <OutlinedInput
-                color="secondary"
-                multiline
-                maxRows="12"
-                className={classes.editFlashcardInput}
-                placeholder="Please enter text"
-              />
-              <MyFormHelperText className={classes.editFlashcardHelperText} />
-            </FormControl>
-          </Box>
-          <div className={classes.editFlashcardSubmitButtonContainer}>
-            <Button
-              className={classes.editFlashcardSubmitButton}
-              type="submit"
-              variant="contained"
-            >
-              Save
-            </Button>
-            <Button
-              className={classes.editFlashcardDiscardButton}
-              type="submit"
-              variant="contained"
-              onClick={() => setIsEdit(() => false)}
-            >
-              Discard
-            </Button>
-          </div>
-        </div>
-      ) : null}
-    </>
+    <div className={classes.flashcardCell}>
+      <Box
+        className={classes.editFlashcardContainer}
+        component="form"
+        noValidate
+        autoComplete="off"
+      >
+        <FormControl className={classes.editFlashcardForm}>
+          <OutlinedInput
+            color="secondary"
+            multiline
+            maxRows="12"
+            className={classes.editFlashcardInput}
+            placeholder="Please enter text"
+          />
+          <MyFormHelperText className={classes.editFlashcardHelperText} />
+        </FormControl>
+      </Box>
+      <div className={classes.editFlashcardSubmitButtonContainer}>
+        <Button
+          className={classes.editFlashcardSubmitButton}
+          type="submit"
+          variant="contained"
+        >
+          Save
+        </Button>
+        <Button
+          component={Link}
+          to={"/"}
+          className={classes.editFlashcardDiscardButton}
+          type="submit"
+          variant="contained"
+        >
+          Discard
+        </Button>
+      </div>
+    </div>
   );
 }
