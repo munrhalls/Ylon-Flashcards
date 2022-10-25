@@ -1,4 +1,6 @@
 import React from "react";
+import Flashcard from "./components/Flashcard";
+
 import {
   CssBaseline,
   createMuiTheme,
@@ -38,10 +40,8 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.center}>
-      <Grid item>
-        <Card className={classes.flashcard}>Hey</Card>
-      </Grid>
-    </Grid>
+    <>
+      <Flashcard />
+    </>
   );
 }
