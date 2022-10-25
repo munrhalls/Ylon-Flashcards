@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
 
-export default function Flashcard() {
+export default function Flashcard({ children }) {
   const [flip, setFlip] = React.useState(false);
   const [isEdit, setIsEdit] = React.useState(false);
 
@@ -32,30 +32,27 @@ export default function Flashcard() {
   };
 
   return (
-    <div className={classes.container}>
-      <UseFormControl isEdit={isEdit} setIsEdit={() => setIsEdit()} />
-      {isEdit ? null : (
-        <div className={classes.flashcardCell}>
-          <Card
-            variant="elevation"
-            onClick={() => setFlip(!flip)}
-            className={classes.flashcard}
-            style={frontFlip}
-          >
-            Flashcard
-          </Card>
-          <Card
-            variant="elevation"
-            onClick={() => setFlip(!flip)}
-            className={classes.flashcard}
-            style={backFlip}
-          >
-            Answer
-          </Card>
-          <DifficultyBtns />
-        </div>
-      )}
+    <>
+      <div className={classes.flashcardCell}>
+        <Card
+          variant="elevation"
+          onClick={() => setFlip(!flip)}
+          className={classes.flashcard}
+          style={frontFlip}
+        >
+          Flashcard
+        </Card>
+        <Card
+          variant="elevation"
+          onClick={() => setFlip(!flip)}
+          className={classes.flashcard}
+          style={backFlip}
+        >
+          Answer
+        </Card>
+        <DifficultyBtns />
+      </div>
       <FlashcardEditBtns setIsEdit={() => setIsEdit(() => true)} />
-    </div>
+    </>
   );
 }
