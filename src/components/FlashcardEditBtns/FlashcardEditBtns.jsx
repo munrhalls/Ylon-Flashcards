@@ -21,36 +21,25 @@ import { Routes, Route, Link } from "react-router-dom";
 export default function FlashcardEditBtns({ setIsEdit }) {
   const classes = useStyles();
 
-  const LinkOne = (props) => {
-    return (
-      <Button
-        variant="contained"
-        size="large"
-        className={classes.deleteBtn}
-        startIcon={<AddBoxIcon />}
-      >
-        <Hidden xsDown>Add</Hidden>
-      </Button>
-    );
-  };
-
   return (
     <div className={classes.editBtnsCell}>
       <div className={classes.editBtnsCell}>
         <ButtonGroup>
-          {/* <Button
+          <Button
+            component={Link}
+            to={"/link-one"}
             variant="contained"
             size="large"
-            className={classes.deleteBtn}
+            className={classes.addBtn}
             startIcon={<AddBoxIcon />}
           >
             <Hidden xsDown>Add</Hidden>
-          </Button> */}
-          <LinkOne></LinkOne>
+          </Button>
+
           <Button
             variant="contained"
             size="large"
-            className={classes.deleteBtn}
+            className={classes.editBtn}
             startIcon={<EditIcon />}
           >
             <Hidden xsDown>Edit</Hidden>
