@@ -9,9 +9,14 @@ import {
   Grid,
   Typography,
   Button,
+  ButtonGroup,
   Card,
 } from "@material-ui/core";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+
 import { useStyles } from "./FlashcardStyles";
 
 export default function Flashcard() {
@@ -34,7 +39,7 @@ export default function Flashcard() {
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
         <Card
-          variant="contained"
+          variant="elevation"
           onClick={() => setFlip(!flip)}
           className={classes.flashcard}
           style={frontFlip}
@@ -42,7 +47,7 @@ export default function Flashcard() {
           Flashcard
         </Card>
         <Card
-          variant="contained"
+          variant="elevation"
           onClick={() => setFlip(!flip)}
           className={classes.flashcard}
           style={backFlip}
@@ -86,17 +91,33 @@ export default function Flashcard() {
         </div>
       </div>
       <div className={classes.editBtnsCell}>
-        <Button variant="contained" size="large" className={classes.deleteBtn}>
-          Edit
-        </Button>
-        <Button
-          className={classes.editBtn}
-          variant="contained"
-          size="large"
-          className={classes.deleteBtn}
-        >
-          Delete
-        </Button>
+        <ButtonGroup>
+          <Button
+            variant="contained"
+            size="large"
+            className={classes.deleteBtn}
+            startIcon={<AddBoxIcon />}
+          >
+            Add
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
+            className={classes.deleteBtn}
+            startIcon={<EditIcon />}
+          >
+            Edit
+          </Button>
+          <Button
+            className={classes.editBtn}
+            variant="contained"
+            size="large"
+            className={classes.deleteBtn}
+            startIcon={<DeleteIcon />}
+          >
+            Delete
+          </Button>
+        </ButtonGroup>
       </div>
     </div>
   );
