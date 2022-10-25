@@ -43,9 +43,16 @@ export default function UseFormControl({ isEdit }) {
             <Button
               className={classes.editFlashcardSubmitButton}
               type="submit"
-              variant="outlined"
+              variant="contained"
             >
               Save
+            </Button>
+            <Button
+              className={classes.editFlashcardDiscardButton}
+              type="submit"
+              variant="contained"
+            >
+              Discard
             </Button>
           </div>
         </div>

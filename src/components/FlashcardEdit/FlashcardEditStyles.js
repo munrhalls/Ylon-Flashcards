@@ -1,8 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  green,
-
-} from "@mui/material/colors";
+import { green, red } from "@mui/material/colors";
 
 export const useStyles = makeStyles((themes) => {
   return {
@@ -46,16 +43,28 @@ export const useStyles = makeStyles((themes) => {
       height: "100%",
       width: "40%",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "space-around",
     },
     editFlashcardSubmitButton: {
       backgroundColor: "#fff",
       zIndex: "10",
       height: "25%",
       width: "75%",
+      backgroundColor: green[700],
       "&:hover": {
         backgroundColor: green[900],
+      },
+    },
+    editFlashcardDiscardButton: {
+      backgroundColor: "#fff",
+      zIndex: "10",
+      height: "25%",
+      width: "75%",
+      backgroundColor: red[700],
+      "&:hover": {
+        backgroundColor: red[900],
       },
     },
   };
