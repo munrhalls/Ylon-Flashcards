@@ -12,7 +12,15 @@ import {
   Card,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { grid } from "@mui/system";
+import {
+  purple,
+  blue,
+  green,
+  orange,
+  red,
+  yellow,
+  grey,
+} from "@mui/material/colors";
 
 const useStyles = makeStyles((themes) => {
   return {
@@ -33,6 +41,7 @@ const useStyles = makeStyles((themes) => {
       perspective: "1000px",
       position: "relative",
       zIndex: "1",
+      backgroundColor: "#000",
     },
     flashcard: {
       cursor: "pointer",
@@ -51,17 +60,31 @@ const useStyles = makeStyles((themes) => {
       backfaceVisibility: "hidden",
     },
     buttonsCol: {
-      height: "100%",
+      height: "95%",
       width: "25%",
       zIndex: "2",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
       position: "absolute",
-      right: "0",
+      top: "2.5%",
+      bottom: "2.5%",
+      right: "2.5%",
     },
     button: {
       textAlign: "left",
+    },
+    hard: {
+      backgroundColor: red[900],
+    },
+    medium: {
+      backgroundColor: orange[900],
+    },
+    easy: {
+      backgroundColor: blue[900],
+    },
+    pass: {
+      backgroundColor: green[900],
     },
   };
 });
@@ -103,12 +126,18 @@ export default function Flashcard() {
         </Card>
 
         <div className={classes.buttonsCol}>
-          <Button variant="outlined" className={classes.button}>
+          <Button variant="contained" size="large" className={classes.hard}>
             Hard
           </Button>
-          <Button variant="outlined">Medium</Button>
-          <Button variant="outlined">Easy</Button>
-          <Button variant="outlined">Pass</Button>
+          <Button variant="contained" size="large" className={classes.medium}>
+            Medium
+          </Button>
+          <Button variant="contained" size="large" className={classes.easy}>
+            Easy
+          </Button>
+          <Button variant="contained" size="large" className={classes.pass}>
+            Pass
+          </Button>
         </div>
       </div>
     </div>
