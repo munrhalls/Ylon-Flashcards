@@ -50,7 +50,7 @@ export default function Flashcard() {
           Answer
         </Card>
 
-        <div className={classes.buttonsCol}>
+        <div className={classes.difficultyButtons}>
           <Button variant="contained" size="large" className={classes.hard}>
             Hard
           </Button>
@@ -64,6 +64,14 @@ export default function Flashcard() {
             Pass
           </Button>
         </div>
+      </div>
+      <div className={classes.editButtons}>
+        <Button variant="contained" size="large" className={classes.pass}>
+          Pass
+        </Button>
+        <Button variant="contained" size="large" className={classes.pass}>
+          Pass
+        </Button>
       </div>
     </div>
   );

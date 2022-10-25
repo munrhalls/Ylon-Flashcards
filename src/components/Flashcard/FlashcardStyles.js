@@ -48,7 +48,7 @@ export const useStyles = makeStyles((themes) => {
       webkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
     },
-    buttonsCol: {
+    difficultyButtons: {
       height: "95%",
       width: "35%",
       zIndex: "2",
