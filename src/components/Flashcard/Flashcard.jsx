@@ -21,6 +21,7 @@ import { useStyles } from "./FlashcardStyles";
 
 export default function Flashcard() {
   const [flip, setFlip] = React.useState(false);
+  const [isEdit, setIsEdit] = React.useState(false);
 
   const classes = useStyles();
   const frontFlip = {
@@ -37,27 +38,29 @@ export default function Flashcard() {
 
   return (
     <div className={classes.container}>
-      <UseFormControl />
-      {/* <div className={classes.flashcardCell}>
-        <Card
-          variant="elevation"
-          onClick={() => setFlip(!flip)}
-          className={classes.flashcard}
-          style={frontFlip}
-        >
-          Flashcard
-        </Card>
-        <Card
-          variant="elevation"
-          onClick={() => setFlip(!flip)}
-          className={classes.flashcard}
-          style={backFlip}
-        >
-          Answer
-        </Card>
-        <DifficultyBtns />
-      </div> */}
-      <FlashcardEditBtns />
+      <UseFormControl isEdit={isEdit} />
+      {isEdit ? null : (
+        <div className={classes.flashcardCell}>
+          <Card
+            variant="elevation"
+            onClick={() => setFlip(!flip)}
+            className={classes.flashcard}
+            style={frontFlip}
+          >
+            Flashcard
+          </Card>
+          <Card
+            variant="elevation"
+            onClick={() => setFlip(!flip)}
+            className={classes.flashcard}
+            style={backFlip}
+          >
+            Answer
+          </Card>
+          <DifficultyBtns />
+        </div>
+      )}
+      <FlashcardEditBtns setIsEdit={() => setIsEdit(() => true)} />
     </div>
   );
 }

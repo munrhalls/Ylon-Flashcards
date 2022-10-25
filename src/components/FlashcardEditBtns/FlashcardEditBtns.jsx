@@ -17,7 +17,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
-export default function FlashcardEditBtns() {
+export default function FlashcardEditBtns({ setIsEdit }) {
   const classes = useStyles();
 
   return (
@@ -25,6 +25,10 @@ export default function FlashcardEditBtns() {
       <div className={classes.editBtnsCell}>
         <ButtonGroup>
           <Button
+            onClick={() => {
+              console.log("x");
+              setIsEdit(() => true);
+            }}
             variant="contained"
             size="large"
             className={classes.deleteBtn}
