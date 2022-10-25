@@ -17,7 +17,7 @@ export const useStyles = makeStyles((themes) => {
       zIndex: "2",
       display: "flex",
       flexDirection: "column",
-      alignItems: "space-between",
+      alignItems: "center",
       justifyContent: "space-between",
 
       position: "absolute",
@@ -29,37 +29,41 @@ export const useStyles = makeStyles((themes) => {
     hard: {
       backgroundColor: red[900],
       flex: "1",
+      width: "80%",
       margin: "2.5% 0",
       [themes.breakpoints.down("xs")]: {
-        maxWidth: "60%",
-        fontSize: "10px",
+        maxWidth: "80%",
+        fontSize: "12px",
       },
     },
     medium: {
       backgroundColor: orange[900],
       flex: "1",
+      width: "80%",
       margin: "2.5% 0",
       [themes.breakpoints.down("xs")]: {
-        maxWidth: "60%",
-        fontSize: "10px",
+        maxWidth: "80%",
+        fontSize: "12px",
       },
     },
     easy: {
       backgroundColor: blue[900],
       flex: "1",
+      width: "80%",
       margin: "2.5% 0",
       [themes.breakpoints.down("xs")]: {
-        maxWidth: "60%",
+        maxWidth: "80%",
         fontSize: "12px",
       },
     },
     pass: {
       backgroundColor: green[900],
       flex: "1",
+      width: "80%",
       margin: "2.5% 0",
       [themes.breakpoints.down("xs")]: {
-        maxWidth: "60%",
-        fontSize: "10px",
+        maxWidth: "80%",
+        fontSize: "12px",
       },
     },
   };

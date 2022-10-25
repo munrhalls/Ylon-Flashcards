@@ -14,7 +14,6 @@ import {
   Hidden,
 } from "@material-ui/core";
 
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MouseIcon from "@mui/icons-material/Mouse";
 
 export default function DifficultyBtns() {
