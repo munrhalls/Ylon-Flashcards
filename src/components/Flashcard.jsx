@@ -16,20 +16,31 @@ const useStyles = makeStyles((themes) => {
   return {
     flashcard: {
       border: "1px solid #000",
-      minHeight: "15rem",
-      minWidth: "10rem",
-      margin: "auto",
+      height: "100%",
+      width: "70%",
     },
-    center: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "100%",
+    container: {
+      height: "100%",
       width: "100%",
+      display: "grid",
+      gridTemplateColumns: "25% 50% 75%",
+      gridTemplateRows: "25% 50% 75%",
     },
-    btnColumn: {
+    flashcardCell: {
+      gridColumnStart: "2",
+      gridColumnEnd: "2",
+      gridRowStart: "2",
+      gridRowEnd: "2",
+      display: "flex",
+      zIndex: "1",
+    },
+    buttonsCol: {
+      height: "100%",
+      width: "30%",
+      zIndex: "2",
       display: "flex",
       flexDirection: "column",
+      justifyContent: "space-between",
     },
   };
 });
@@ -38,25 +49,15 @@ export default function Flashcard() {
   const classes = useStyles();
 
   return (
-    <div
-      style={{
-        height: "100%",
-        width: "100%",
-        display: "grid",
-        gridTemplateColumns: "25% 50% 75%",
-        gridTemplateRows: "25% 50% 75%",
-      }}
-    >
-      <div
-        style={{
-          gridColumnStart: "2",
-          gridColumnEnd: "2",
-          gridRowStart: "2",
-          gridRowEnd: "2",
-          background: "#000",
-        }}
-      >
+    <div className={classes.container}>
+      <div className={classes.flashcardCell}>
         <Card className={classes.flashcard}>Flashcard</Card>
+        <div className={classes.buttonsCol}>
+          <Button>Hard</Button>
+          <Button>Hard</Button>
+          <Button>Hard</Button>
+          <Button>Hard</Button>
+        </div>
       </div>
     </div>
   );
