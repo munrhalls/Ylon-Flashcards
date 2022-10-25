@@ -11,7 +11,7 @@ import {
   Button,
   Card,
 } from "@material-ui/core";
-
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useStyles } from "./FlashcardStyles";
 
 export default function Flashcard() {
@@ -51,16 +51,36 @@ export default function Flashcard() {
         </Card>
 
         <div className={classes.difficultyButtons}>
-          <Button variant="contained" size="large" className={classes.hard}>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            variant="contained"
+            size="large"
+            className={classes.hard}
+          >
             Hard
           </Button>
-          <Button variant="contained" size="large" className={classes.medium}>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            variant="contained"
+            size="large"
+            className={classes.medium}
+          >
             Medium
           </Button>
-          <Button variant="contained" size="large" className={classes.easy}>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            variant="contained"
+            size="large"
+            className={classes.easy}
+          >
             Easy
           </Button>
-          <Button variant="contained" size="large" className={classes.pass}>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            variant="contained"
+            size="large"
+            className={classes.pass}
+          >
             Pass
           </Button>
         </div>
