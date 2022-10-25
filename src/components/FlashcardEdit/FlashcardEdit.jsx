@@ -31,9 +31,12 @@ export default function UseFormControl() {
         noValidate
         autoComplete="off"
       >
-        <FormControl sx={{ width: "25ch" }}>
-          <OutlinedInput placeholder="Please enter text" />
-          <MyFormHelperText />
+        <FormControl className={classes.editFlashcardForm}>
+          <OutlinedInput
+            className={classes.editFlashcardInput}
+            placeholder="Please enter text"
+          />
+          <MyFormHelperText className={classes.editFlashcardHelperText} />
         </FormControl>
       </Box>
     </div>

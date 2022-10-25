@@ -25,6 +25,8 @@ export const useStyles = makeStyles((themes) => {
       backgroundColor: "#000",
     },
     editFlashcardContainer: {
+      display: "flex",
+      alignItems: "center",
       zIndex: "10",
       height: "90%",
       width: "60%",
@@ -34,6 +36,16 @@ export const useStyles = makeStyles((themes) => {
       },
       backgroundColor: "#fff",
       left: "0",
+    },
+    editFlashcardForm: {
+      display: "flex",
+      alignItems: "center",
+      height: "90%",
+      width: "90%",
+    },
+    editFlashcardInput: {
+      height: "90%",
+      width: "90%",
     },
   };
 });
