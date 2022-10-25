@@ -32,15 +32,19 @@ const useStyles = makeStyles((themes) => {
       gridRowStart: "2",
       gridRowEnd: "2",
       display: "flex",
+      justifyContent: "space-between",
       zIndex: "1",
     },
     buttonsCol: {
       height: "100%",
-      width: "30%",
+      width: "25%",
       zIndex: "2",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+    },
+    button: {
+      textAlign: "left",
     },
   };
 });
@@ -53,10 +57,12 @@ export default function Flashcard() {
       <div className={classes.flashcardCell}>
         <Card className={classes.flashcard}>Flashcard</Card>
         <div className={classes.buttonsCol}>
-          <Button>Hard</Button>
-          <Button>Hard</Button>
-          <Button>Hard</Button>
-          <Button>Hard</Button>
+          <Button variant="outlined" className={classes.button}>
+            Hard
+          </Button>
+          <Button variant="outlined">Medium</Button>
+          <Button variant="outlined">Easy</Button>
+          <Button variant="outlined">Pass</Button>
         </div>
       </div>
     </div>
