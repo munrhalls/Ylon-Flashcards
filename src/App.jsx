@@ -4,7 +4,6 @@ import Flashcard from "./components/Flashcard/Flashcard";
 import {
   CssBaseline,
   createMuiTheme,
-  ThemeProvider,
   Container,
   Box,
   Grid,
@@ -13,10 +12,11 @@ import {
   Card,
   AppBar,
   Toolbar,
-  
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { sizing } from "@mui/system";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { theme } from "./Theme";
 
 const useStyles = makeStyles((themes) => {
   return {
@@ -43,13 +43,11 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AppBar>
-        <Toolbar>
-
-        </Toolbar>
+        <Toolbar></Toolbar>
       </AppBar>
       <Flashcard />
-    </>
+    </ThemeProvider>
   );
 }
