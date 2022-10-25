@@ -80,6 +80,7 @@ export default function Flashcard() {
           className={classes.flashcard}
           style={{
             backfaceVisibility: "hidden",
+            transition: "transform 1s ease",
             transform: `rotateY(${flip ? "0.5" : "0"}turn)`,
           }}
         >
@@ -91,6 +92,7 @@ export default function Flashcard() {
           className={classes.flashcard}
           style={{
             backfaceVisibility: "hidden",
+            transition: "transform 1s ease",
             transform: `rotateY(${flip ? "0" : "-0.5"}turn)`,
           }}
         >
