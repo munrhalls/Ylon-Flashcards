@@ -30,6 +30,7 @@ const useStyles = makeStyles((themes) => {
       gridRowEnd: "2",
       display: "flex",
       justifyContent: "flex-end",
+      perspective: "1000px",
       position: "relative",
       zIndex: "1",
     },
@@ -75,26 +76,27 @@ export default function Flashcard() {
       <div className={classes.flashcardCell}>
         <Card
           variant="contained"
-          onClick={() => setFlip((flip) => (flip ? 0 : 180))}
+          onClick={() => setFlip(!flip)}
           className={classes.flashcard}
           style={{
             backfaceVisibility: "hidden",
-            transform: `rotateY(${flip}deg)`,
+            transform: `rotateY(${flip ? "0.5" : "0"}turn)`,
           }}
         >
           Flashcard
         </Card>
         <Card
           variant="contained"
-          onClick={() => setFlip((flip) => (flip ? 0 : 180))}
+          onClick={() => setFlip(!flip)}
           className={classes.flashcard}
           style={{
-            backfaceVisibility: "visible",
-            transform: `rotateY(${flip}deg)`,
+            backfaceVisibility: "hidden",
+            transform: `rotateY(${flip ? "0" : "-0.5"}turn)`,
           }}
         >
-          Flashcard
+          Answer
         </Card>
+
         <div className={classes.buttonsCol}>
           <Button variant="outlined" className={classes.button}>
             Hard
