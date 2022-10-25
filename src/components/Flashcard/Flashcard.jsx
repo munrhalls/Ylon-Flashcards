@@ -1,5 +1,6 @@
 import React from "react";
 import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
+import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
 
 import {
   CssBaseline,
@@ -13,7 +14,6 @@ import {
   ButtonGroup,
   Card,
 } from "@material-ui/core";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { useStyles } from "./FlashcardStyles";
 
@@ -52,8 +52,8 @@ export default function Flashcard() {
         >
           Answer
         </Card>
-
-        <div className={classes.difficultyButtons}>
+        <DifficultyBtns />
+        {/* <div className={classes.difficultyButtons}>
           <Button
             endIcon={<ArrowForwardIosIcon />}
             variant="contained"
@@ -86,37 +86,8 @@ export default function Flashcard() {
           >
             Pass
           </Button>
-        </div>
+        </div> */}
       </div>
-      {/* <div className={classes.editBtnsCell}>
-        <ButtonGroup>
-          <Button
-            variant="contained"
-            size="large"
-            className={classes.deleteBtn}
-            startIcon={<AddBoxIcon />}
-          >
-            Add
-          </Button>
-          <Button
-            variant="contained"
-            size="large"
-            className={classes.deleteBtn}
-            startIcon={<EditIcon />}
-          >
-            Edit
-          </Button>
-          <Button
-            className={classes.editBtn}
-            variant="contained"
-            size="large"
-            className={classes.deleteBtn}
-            startIcon={<DeleteIcon />}
-          >
-            Delete
-          </Button>
-        </ButtonGroup>
-      </div> */}
       <FlashcardEditBtns />
     </div>
   );
