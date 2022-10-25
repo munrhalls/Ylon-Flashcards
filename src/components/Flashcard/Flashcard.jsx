@@ -1,4 +1,5 @@
 import React from "react";
+import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 
 import {
   CssBaseline,
@@ -13,9 +14,6 @@ import {
   Card,
 } from "@material-ui/core";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import AddBoxIcon from "@mui/icons-material/AddBox";
 
 import { useStyles } from "./FlashcardStyles";
 
@@ -90,7 +88,7 @@ export default function Flashcard() {
           </Button>
         </div>
       </div>
-      <div className={classes.editBtnsCell}>
+      {/* <div className={classes.editBtnsCell}>
         <ButtonGroup>
           <Button
             variant="contained"
@@ -118,7 +116,8 @@ export default function Flashcard() {
             Delete
           </Button>
         </ButtonGroup>
-      </div>
+      </div> */}
+      <FlashcardEditBtns />
     </div>
   );
 }
