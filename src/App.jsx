@@ -4,7 +4,6 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./Theme";
-import { Routes, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((themes) => {
   return {

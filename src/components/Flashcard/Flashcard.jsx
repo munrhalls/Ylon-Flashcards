@@ -2,11 +2,7 @@ import React from "react";
 import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
 import UseFormControl from "../FlashcardEdit/FlashcardEdit";
-
 import {
-  CssBaseline,
-  createMuiTheme,
-  ThemeProvider,
   Container,
   Box,
   Grid,
@@ -16,7 +12,6 @@ import {
   Card,
   TextField,
 } from "@material-ui/core";
-
 import { useStyles } from "./FlashcardStyles";
 
 export default function Flashcard() {
