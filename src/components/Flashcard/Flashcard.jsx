@@ -65,12 +65,17 @@ export default function Flashcard() {
           </Button>
         </div>
       </div>
-      <div className={classes.editButtons}>
-        <Button variant="contained" size="large" className={classes.pass}>
-          Pass
+      <div className={classes.editBtnsCell}>
+        <Button variant="contained" size="large" className={classes.deleteBtn}>
+          Edit
         </Button>
-        <Button variant="contained" size="large" className={classes.pass}>
-          Pass
+        <Button
+          className={classes.editBtn}
+          variant="contained"
+          size="large"
+          className={classes.deleteBtn}
+        >
+          Delete
         </Button>
       </div>
     </div>

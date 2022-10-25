@@ -15,8 +15,12 @@ export const useStyles = makeStyles((themes) => {
       height: "100%",
       width: "100%",
       display: "grid",
-      gridTemplateColumns: "15% 75% 90%",
-      gridTemplateRows: "15% 75% 90%",
+      gridTemplateColumns: "15% 50% 85%",
+      gridTemplateRows: "15% 65% 85%",
+      [themes.breakpoints.down("md")]: {
+        gridTemplateColumns: "15% 70% 85%",
+        gridTemplateRows: "15% 70% 85%",
+      },
     },
     flashcardCell: {
       gridColumnStart: "2",
@@ -83,5 +87,12 @@ export const useStyles = makeStyles((themes) => {
       flex: "1",
       margin: "2.5% 0",
     },
+    editBtnsCell: {
+      gridColumnStart: "2",
+      gridColumnEnd: "2",
+      gridRowStart: "3",
+      gridRowEnd: "3",
+    },
+    
   };
 });
