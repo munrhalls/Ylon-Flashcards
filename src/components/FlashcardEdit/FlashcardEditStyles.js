@@ -9,7 +9,7 @@ export const useStyles = makeStyles((themes) => {
       gridRowStart: "2",
       gridRowEnd: "2",
       display: "flex",
-      justifyContent: "flex-start",
+      justifyContent: "center",
       alignItems: "center",
       perspective: "1000px",
       position: "relative",
@@ -19,6 +19,7 @@ export const useStyles = makeStyles((themes) => {
     editFlashcardContainer: {
       display: "flex",
       alignItems: "center",
+      justifyContent: "center",
       zIndex: "10",
       height: "90%",
       width: "60%",
