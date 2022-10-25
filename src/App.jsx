@@ -1,22 +1,10 @@
 import React from "react";
 import Flashcard from "./components/Flashcard/Flashcard";
-
-import {
-  CssBaseline,
-  createMuiTheme,
-  Container,
-  Box,
-  Grid,
-  Typography,
-  Button,
-  Card,
-  AppBar,
-  Toolbar,
-} from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { sizing } from "@mui/system";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./Theme";
+import { Routes, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((themes) => {
   return {
