@@ -20,22 +20,6 @@ const useStyles = makeStyles((themes) => {
         gridTemplateRows: "15% 70% 85%",
       },
     },
-    flashcard: {
-      border: "1px solid #000",
-      height: "20rem",
-      width: "15rem",
-      margin: "auto",
-    },
-    center: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "100%",
-      width: "100%",
-    },
-    app: {
-      minHeight: "100vh",
-    },
   };
 });
 
@@ -54,14 +38,7 @@ export default function App() {
       <div className={classes.container}>
         <Routes>
           <Route path="/" element={<Flashcard />} />
-          <Route
-            path="/link-one"
-            element={
-              <Flashcard>
-                <UseFormControl />
-              </Flashcard>
-            }
-          />
+          <Route path="/link-one" element={<UseFormControl />} />
         </Routes>
       </div>
     </ThemeProvider>
