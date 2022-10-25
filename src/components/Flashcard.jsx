@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   CssBaseline,
   createMuiTheme,
@@ -14,11 +16,6 @@ import { grid } from "@mui/system";
 
 const useStyles = makeStyles((themes) => {
   return {
-    flashcard: {
-      border: "1px solid #000",
-      height: "100%",
-      width: "70%",
-    },
     container: {
       height: "100%",
       width: "100%",
@@ -32,8 +29,25 @@ const useStyles = makeStyles((themes) => {
       gridRowStart: "2",
       gridRowEnd: "2",
       display: "flex",
-      justifyContent: "space-between",
+      justifyContent: "flex-end",
+      position: "relative",
       zIndex: "1",
+    },
+    flashcard: {
+      cursor: "pointer",
+      border: "1px solid #000",
+      height: "100%",
+      width: "70%",
+      position: "absolute",
+      left: "0",
+    },
+    flashcardFlipped: {
+      cursor: "pointer",
+      border: "1px solid #000",
+      height: "100%",
+      width: "70%",
+      webkitBackfaceVisibility: "hidden",
+      backfaceVisibility: "hidden",
     },
     buttonsCol: {
       height: "100%",
@@ -42,6 +56,8 @@ const useStyles = makeStyles((themes) => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+      position: "absolute",
+      right: "0",
     },
     button: {
       textAlign: "left",
@@ -50,12 +66,35 @@ const useStyles = makeStyles((themes) => {
 });
 
 export default function Flashcard() {
+  const [flip, setFlip] = React.useState(false);
+
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <Card className={classes.flashcard}>Flashcard</Card>
+        <Card
+          variant="contained"
+          onClick={() => setFlip((flip) => (flip ? 0 : 180))}
+          className={classes.flashcard}
+          style={{
+            backfaceVisibility: "hidden",
+            transform: `rotateY(${flip}deg)`,
+          }}
+        >
+          Flashcard
+        </Card>
+        <Card
+          variant="contained"
+          onClick={() => setFlip((flip) => (flip ? 0 : 180))}
+          className={classes.flashcard}
+          style={{
+            backfaceVisibility: "visible",
+            transform: `rotateY(${flip}deg)`,
+          }}
+        >
+          Flashcard
+        </Card>
         <div className={classes.buttonsCol}>
           <Button variant="outlined" className={classes.button}>
             Hard
