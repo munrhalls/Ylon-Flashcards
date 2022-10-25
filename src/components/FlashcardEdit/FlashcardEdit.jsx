@@ -16,7 +16,7 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function UseFormControl({ isEdit }) {
+export default function UseFormControl({ isEdit, setIsEdit }) {
   const classes = useStyles();
   return (
     <>
@@ -51,6 +51,7 @@ export default function UseFormControl({ isEdit }) {
               className={classes.editFlashcardDiscardButton}
               type="submit"
               variant="contained"
+              onClick={() => setIsEdit(() => false)}
             >
               Discard
             </Button>

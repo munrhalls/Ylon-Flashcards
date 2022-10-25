@@ -26,7 +26,6 @@ export default function FlashcardEditBtns({ setIsEdit }) {
         <ButtonGroup>
           <Button
             onClick={() => {
-              console.log("x");
               setIsEdit(() => true);
             }}
             variant="contained"

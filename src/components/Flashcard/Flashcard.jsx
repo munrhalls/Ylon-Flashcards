@@ -38,7 +38,7 @@ export default function Flashcard() {
 
   return (
     <div className={classes.container}>
-      <UseFormControl isEdit={isEdit} />
+      <UseFormControl isEdit={isEdit} setIsEdit={() => setIsEdit()} />
       {isEdit ? null : (
         <div className={classes.flashcardCell}>
           <Card
