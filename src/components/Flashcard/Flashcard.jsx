@@ -1,6 +1,7 @@
 import React from "react";
 import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
+import UseFormControl from "../FlashcardEdit/FlashcardEdit";
 
 import {
   CssBaseline,
@@ -13,6 +14,7 @@ import {
   Button,
   ButtonGroup,
   Card,
+  TextField,
 } from "@material-ui/core";
 
 import { useStyles } from "./FlashcardStyles";
@@ -35,7 +37,8 @@ export default function Flashcard() {
 
   return (
     <div className={classes.container}>
-      <div className={classes.flashcardCell}>
+      <UseFormControl />
+      {/* <div className={classes.flashcardCell}>
         <Card
           variant="elevation"
           onClick={() => setFlip(!flip)}
@@ -53,41 +56,7 @@ export default function Flashcard() {
           Answer
         </Card>
         <DifficultyBtns />
-        {/* <div className={classes.difficultyButtons}>
-          <Button
-            endIcon={<ArrowForwardIosIcon />}
-            variant="contained"
-            size="large"
-            className={classes.hard}
-          >
-            Hard
-          </Button>
-          <Button
-            endIcon={<ArrowForwardIosIcon />}
-            variant="contained"
-            size="large"
-            className={classes.medium}
-          >
-            Medium
-          </Button>
-          <Button
-            endIcon={<ArrowForwardIosIcon />}
-            variant="contained"
-            size="large"
-            className={classes.easy}
-          >
-            Easy
-          </Button>
-          <Button
-            endIcon={<ArrowForwardIosIcon />}
-            variant="contained"
-            size="large"
-            className={classes.pass}
-          >
-            Pass
-          </Button>
-        </div> */}
-      </div>
+      </div> */}
       <FlashcardEditBtns />
     </div>
   );
