@@ -11,6 +11,7 @@ import {
   Button,
   ButtonGroup,
   Card,
+  Hidden,
 } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -18,6 +19,7 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 
 export default function FlashcardEditBtns() {
   const classes = useStyles();
+
   return (
     <div className={classes.editBtnsCell}>
       <div className={classes.editBtnsCell}>
@@ -28,7 +30,7 @@ export default function FlashcardEditBtns() {
             className={classes.deleteBtn}
             startIcon={<AddBoxIcon />}
           >
-            Add
+            <Hidden xsDown>Add</Hidden>
           </Button>
           <Button
             variant="contained"
@@ -36,7 +38,7 @@ export default function FlashcardEditBtns() {
             className={classes.deleteBtn}
             startIcon={<EditIcon />}
           >
-            Edit
+            <Hidden xsDown>Edit</Hidden>
           </Button>
           <Button
             className={classes.editBtn}
@@ -45,7 +47,7 @@ export default function FlashcardEditBtns() {
             className={classes.deleteBtn}
             startIcon={<DeleteIcon />}
           >
-            Delete
+            <Hidden xsDown>Delete</Hidden>
           </Button>
         </ButtonGroup>
       </div>
