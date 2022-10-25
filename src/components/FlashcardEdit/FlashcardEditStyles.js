@@ -47,5 +47,21 @@ export const useStyles = makeStyles((themes) => {
       height: "90%",
       width: "90%",
     },
+    editFlashcardSubmitButtonContainer: {
+      height: "100%",
+      width: "40%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    editFlashcardSubmitButton: {
+      backgroundColor: "#fff",
+      zIndex: "10",
+      height: "25%",
+      width: "75%",
+      "&:hover": {
+        backgroundColor: green[900],
+      },
+    },
   };
 });
