@@ -3,26 +3,21 @@ import FormControl, { useFormControl } from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Box, Button } from "@material-ui/core";
-
 import { useStyles } from "./FlashcardEditStyles";
 
 function MyFormHelperText() {
   const { focused } = useFormControl() || {};
-
   const helperText = React.useMemo(() => {
     if (focused) {
       return "Editing flashcard...";
     }
-
     return "Type to edit flashcard";
   }, [focused]);
-
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
 export default function UseFormControl({ isEdit }) {
   const classes = useStyles();
-
   return (
     <>
       {isEdit ? (
