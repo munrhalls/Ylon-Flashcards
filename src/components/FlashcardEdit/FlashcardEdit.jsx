@@ -47,7 +47,7 @@ export default function UseFormControl() {
           <OutlinedInput
             color="secondary"
             multiline
-            maxRows="10"
+            maxRows="12"
             className={classes.editFlashcardInput}
             placeholder="Please enter text"
           />
