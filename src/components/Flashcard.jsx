@@ -70,6 +70,17 @@ export default function Flashcard() {
   const [flip, setFlip] = React.useState(false);
 
   const classes = useStyles();
+  const frontFlip = {
+    backfaceVisibility: "hidden",
+    transition: "transform 1s ease",
+    transform: `rotateY(${flip ? "0.5" : "0"}turn)`,
+  };
+
+  const backFlip = {
+    backfaceVisibility: "hidden",
+    transition: "transform 1s ease",
+    transform: `rotateY(${flip ? "0" : "-0.5"}turn)`,
+  };
 
   return (
     <div className={classes.container}>
@@ -78,11 +89,7 @@ export default function Flashcard() {
           variant="contained"
           onClick={() => setFlip(!flip)}
           className={classes.flashcard}
-          style={{
-            backfaceVisibility: "hidden",
-            transition: "transform 1s ease",
-            transform: `rotateY(${flip ? "0.5" : "0"}turn)`,
-          }}
+          style={frontFlip}
         >
           Flashcard
         </Card>
@@ -90,11 +97,7 @@ export default function Flashcard() {
           variant="contained"
           onClick={() => setFlip(!flip)}
           className={classes.flashcard}
-          style={{
-            backfaceVisibility: "hidden",
-            transition: "transform 1s ease",
-            transform: `rotateY(${flip ? "0" : "-0.5"}turn)`,
-          }}
+          style={backFlip}
         >
           Answer
         </Card>
