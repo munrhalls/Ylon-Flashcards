@@ -106,20 +106,28 @@ export default function UseFormControl() {
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
+            size="large"
             className={classes.editFlashcardSubmitButton}
             type="submit"
             variant="contained"
+            startIcon={<SaveIcon />}
           >
-            Save
+            <Hidden xsDown>
+              <Typography variant="subtitle">Save</Typography>
+            </Hidden>
           </Button>
           <Button
+            size="large"
             component={Link}
             to={"/"}
             className={classes.editFlashcardDiscardButton}
             type="submit"
             variant="contained"
+            startIcon={<DiscardIcon />}
           >
-            Discard
+            <Hidden xsDown>
+              <Typography variant="subtitle">Discard</Typography>
+            </Hidden>
           </Button>
         </div>
       </div>
