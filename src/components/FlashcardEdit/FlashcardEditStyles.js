@@ -15,25 +15,39 @@ export const useStyles = makeStyles((themes) => {
       position: "relative",
       zIndex: "1",
       backgroundColor: "#000",
+      [themes.breakpoints.down("sm")]: {
+        gridColumnStart: "0",
+        gridColumnEnd: "3",
+        gridRowStart: "0",
+        gridRowEnd: "3",
+      },
+    },
+    editFlashcardTitle: {
+      [themes.breakpoints.down("sm")]: {
+        fontSize: "5",
+      },
     },
     editFlashcardContainer: {
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       zIndex: "10",
       height: "90%",
       width: "60%",
       marginLeft: "2.5%",
-      [themes.breakpoints.down("xs")]: {
-        width: "90%",
-      },
       backgroundColor: "#fff",
       left: "0",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      [themes.breakpoints.down("xs")]: {
+        width: "100%",
+      },
     },
     editFlashcardForm: {
       display: "flex",
       alignItems: "center",
-      height: "90%",
+      height: "80%",
       width: "90%",
     },
     editFlashcardInput: {
