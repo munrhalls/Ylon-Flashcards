@@ -2,13 +2,15 @@ import * as React from "react";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, Hidden } from "@material-ui/core";
 import { FormControlLabel, Checkbox, Typography } from "@mui/material";
 import { useStyles } from "./FlashcardEditStyles";
+import { IconButton } from "@mui/material";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { grey } from "@mui/material/colors";
 
 function MyFormHelperText() {
   const { focused } = useFormControl() || {};
@@ -16,7 +18,7 @@ function MyFormHelperText() {
     if (focused) {
       return "Editing flashcard...";
     }
-    return "Type to edit flashcard";
+    return "Question/Answer";
   }, [focused]);
   return <FormHelperText>{helperText}</FormHelperText>;
 }
@@ -36,7 +38,7 @@ export default function UseFormControl() {
           noValidate
           autoComplete="off"
         >
-          <Typography className={classes.editFlashcardTitle} variant="h5">
+          <Typography className={classes.editFlashcardTitle} variant="h6">
             Edit flashcard
           </Typography>
           <FormControlLabel
@@ -84,14 +86,10 @@ export default function UseFormControl() {
 
             <MyFormHelperText className={classes.editFlashcardHelperText} />
           </FormControl>
-          <Button
-            onClick={() => setFlip(!flip)}
-            variant="contained"
-            size="large"
-            startIcon={<FlipIcon />}
-          >
-            Flip
-          </Button>
+
+          <IconButton variant="contained" onClick={() => setFlip(!flip)}>
+            <FlipIcon color="grey-900" />
+          </IconButton>
         </Box>
 
         <div className={classes.editFlashcardSubmitButtonContainer}>

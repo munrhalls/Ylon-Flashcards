@@ -12,8 +12,8 @@ export const useStyles = makeStyles((themes) => {
       [themes.breakpoints.down("sm")]: {
         justifyItems: "stretch",
         alignItems: "stretch",
-        gridTemplateColumns: "2.5% 97.5%",
-        gridTemplateRows: "2.5% 97.5%",
+        gridTemplateColumns: "5% 90%",
+        gridTemplateRows: "20% 75%",
       },
     },
     flashcardCell: {
