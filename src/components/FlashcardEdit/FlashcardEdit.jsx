@@ -9,6 +9,8 @@ import { IconButton } from "@mui/material";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
+import SaveIcon from "@mui/icons-material/SaveSharp";
+import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { grey } from "@mui/material/colors";
 
