@@ -32,14 +32,13 @@ export default function App() {
       <AppBar>
         <Toolbar></Toolbar>
       </AppBar>
-      <div className={classes.container}>
-        <Routes>
-          <Route path="/" element={<Flashcard />} />
-          <Route path="/flashcard/add" element={<UseFormControl />} />
-          <Route path="/flashcard/edit" element={<UseFormControl />} />
-          <Route path="/flashcard/delete" element={<UseFormControl />} />
-        </Routes>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Flashcard />} />
+        <Route path="/flashcard/add" element={<UseFormControl />} />
+        <Route path="/flashcard/edit" element={<UseFormControl />} />
+        <Route path="/flashcard/delete" element={<UseFormControl />} />
+      </Routes>
     </ThemeProvider>
   );
 }

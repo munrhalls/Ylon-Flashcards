@@ -23,42 +23,40 @@ export default function FlashcardEditBtns({ currFlashcard }) {
 
   return (
     <div className={classes.editBtnsCell}>
-      <div className={classes.editBtnsCell}>
-        <ButtonGroup>
-          <Button
-            component={Link}
-            to={"/flashcard/add"}
-            variant="contained"
-            size="large"
-            className={classes.addBtn}
-            startIcon={<AddBoxIcon />}
-          >
-            <Hidden xsDown>Add</Hidden>
-          </Button>
+      <ButtonGroup>
+        <Button
+          component={Link}
+          to={"/flashcard/add"}
+          variant="contained"
+          size="large"
+          className={classes.addBtn}
+          startIcon={<AddBoxIcon />}
+        >
+          <Hidden xsDown>Add</Hidden>
+        </Button>
 
-          <Button
-            component={Link}
-            to={"/flashcard/edit"}
-            state={currFlashcard}
-            variant="contained"
-            size="large"
-            className={classes.editBtn}
-            startIcon={<EditIcon />}
-          >
-            <Hidden xsDown>Edit</Hidden>
-          </Button>
-          <Button
-            component={Link}
-            to={"/flashcard/delete"}
-            variant="contained"
-            size="large"
-            className={classes.deleteBtn}
-            startIcon={<DeleteIcon />}
-          >
-            <Hidden xsDown>Delete</Hidden>
-          </Button>
-        </ButtonGroup>
-      </div>
+        <Button
+          component={Link}
+          to={"/flashcard/edit"}
+          state={currFlashcard}
+          variant="contained"
+          size="large"
+          className={classes.editBtn}
+          startIcon={<EditIcon />}
+        >
+          <Hidden xsDown>Edit</Hidden>
+        </Button>
+        <Button
+          component={Link}
+          to={"/flashcard/delete"}
+          variant="contained"
+          size="large"
+          className={classes.deleteBtn}
+          startIcon={<DeleteIcon />}
+        >
+          <Hidden xsDown>Delete</Hidden>
+        </Button>
+      </ButtonGroup>
     </div>
   );
 }

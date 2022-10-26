@@ -3,6 +3,19 @@ import { green, red } from "@mui/material/colors";
 
 export const useStyles = makeStyles((themes) => {
   return {
+    container: {
+      height: "100%",
+      width: "100%",
+      display: "grid",
+      gridTemplateColumns: "15% 50% 85%",
+      gridTemplateRows: "15% 65% 85%",
+      [themes.breakpoints.down("sm")]: {
+        justifyItems: "stretch",
+        alignItems: "stretch",
+        gridTemplateColumns: "2.5% 97.5%",
+        gridTemplateRows: "2.5% 97.5%",
+      },
+    },
     flashcardCell: {
       gridColumnStart: "2",
       gridColumnEnd: "2",
@@ -16,9 +29,9 @@ export const useStyles = makeStyles((themes) => {
       zIndex: "1",
       backgroundColor: "#000",
       [themes.breakpoints.down("sm")]: {
-        gridColumnStart: "0",
+        gridColumnStart: "2",
         gridColumnEnd: "3",
-        gridRowStart: "0",
+        gridRowStart: "2",
         gridRowEnd: "3",
       },
     },

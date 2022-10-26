@@ -28,85 +28,90 @@ export default function UseFormControl() {
 
   const classes = useStyles();
   return (
-    <div className={classes.flashcardCell}>
-      <Box
-        className={classes.editFlashcardContainer}
-        component="form"
-        noValidate
-        autoComplete="off"
-      >
-        <Typography className={classes.editFlashcardTitle} variant="h5">
-          Edit flashcard
-        </Typography>
-        <FormControlLabel
-          label={flip ? "Answer" : "Question"}
-          control={
-            <Checkbox
-              checked={flip}
-              icon={<QMarkIcon />}
-              checkedIcon={<AnswerIcon />}
-            />
-          }
-        />
-        <FormControl className={classes.editFlashcardForm}>
-          {flip ? (
-            <OutlinedInput
-              value={currFlashcard?.answer || ""}
-              onChange={(e) => {
-                setCurrFlashcard({ ...currFlashcard, answer: e.target.value });
-              }}
-              color="secondary"
-              multiline
-              maxRows="12"
-              className={classes.editFlashcardInput}
-              placeholder="Please enter text"
-            />
-          ) : (
-            <OutlinedInput
-              value={currFlashcard?.question || ""}
-              onChange={(e) => {
-                setCurrFlashcard({
-                  ...currFlashcard,
-                  question: e.target.value,
-                });
-              }}
-              color="secondary"
-              multiline
-              maxRows="12"
-              className={classes.editFlashcardInput}
-              placeholder="Please enter text"
-            />
-          )}
+    <div className={classes.container}>
+      <div className={classes.flashcardCell}>
+        <Box
+          className={classes.editFlashcardContainer}
+          component="form"
+          noValidate
+          autoComplete="off"
+        >
+          <Typography className={classes.editFlashcardTitle} variant="h5">
+            Edit flashcard
+          </Typography>
+          <FormControlLabel
+            label={flip ? "Answer" : "Question"}
+            control={
+              <Checkbox
+                checked={flip}
+                icon={<QMarkIcon />}
+                checkedIcon={<AnswerIcon />}
+              />
+            }
+          />
+          <FormControl className={classes.editFlashcardForm}>
+            {flip ? (
+              <OutlinedInput
+                value={currFlashcard?.answer || ""}
+                onChange={(e) => {
+                  setCurrFlashcard({
+                    ...currFlashcard,
+                    answer: e.target.value,
+                  });
+                }}
+                color="secondary"
+                multiline
+                maxRows="12"
+                className={classes.editFlashcardInput}
+                placeholder="Please enter text"
+              />
+            ) : (
+              <OutlinedInput
+                value={currFlashcard?.question || ""}
+                onChange={(e) => {
+                  setCurrFlashcard({
+                    ...currFlashcard,
+                    question: e.target.value,
+                  });
+                }}
+                color="secondary"
+                multiline
+                maxRows="12"
+                className={classes.editFlashcardInput}
+                placeholder="Please enter text"
+              />
+            )}
 
-          <MyFormHelperText className={classes.editFlashcardHelperText} />
-        </FormControl>
-        <Button
-          onClick={() => setFlip(!flip)}
-          variant="contained"
-          size="large"
-          startIcon={<FlipIcon />}
-        >
-          Flip
-        </Button>
-      </Box>
+            <MyFormHelperText className={classes.editFlashcardHelperText} />
+          </FormControl>
+          <Button
+            onClick={() => setFlip(!flip)}
+            variant="contained"
+            size="large"
+            startIcon={<FlipIcon />}
+          >
+            Flip
+          </Button>
+        </Box>
 
-      <div className={classes.editFlashcardSubmitButtonContainer}>
-        <Button
-          className={classes.editFlashcardSubmitButton}
-          type="submit"
-          variant="contained"
-        >
-          Save
-        </Button>
-        <Button
-          component={Link}
-          to={"/"}
-          className={classes.editFlashcardDiscardButton}
-          type="submit"
-          variant="contained"
-        >
-          Discard
-        </Button>
+        <div className={classes.editFlashcardSubmitButtonContainer}>
+          <Button
+            className={classes.editFlashcardSubmitButton}
+            type="submit"
+            variant="contained"
+          >
+            Save
+          </Button>
+          <Button
+            component={Link}
+            to={"/"}
+            className={classes.editFlashcardDiscardButton}
+            type="submit"
+            variant="contained"
+          >
+            Discard
+          </Button>
+        </div>
       </div>
     </div>
   );

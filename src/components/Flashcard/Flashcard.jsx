@@ -36,7 +36,7 @@ export default function Flashcard({ children }) {
   };
 
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.flashcardCell}>
         <Card
           variant="elevation"
@@ -57,6 +57,6 @@ export default function Flashcard({ children }) {
         <DifficultyBtns />
       </div>
       <FlashcardEditBtns currFlashcard={currFlashcard} />
-    </>
+    </div>
   );
 }
