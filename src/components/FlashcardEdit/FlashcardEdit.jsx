@@ -19,7 +19,8 @@ function MyFormHelperText() {
 
 export default function UseFormControl() {
   const location = useLocation();
-  console.log(location);
+  const [currFlashcard, setCurrFlashcard] = React.useState(location.state);
+  console.log(currFlashcard);
 
   const classes = useStyles();
   return (
@@ -32,6 +33,10 @@ export default function UseFormControl() {
       >
         <FormControl className={classes.editFlashcardForm}>
           <OutlinedInput
+            value={currFlashcard.question}
+            onChange={(e) =>
+              setCurrFlashcard({ ...currFlashcard, question: e.target.value })
+            }
             color="secondary"
             multiline
             maxRows="12"
