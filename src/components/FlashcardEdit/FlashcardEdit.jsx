@@ -4,7 +4,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Box, Button } from "@material-ui/core";
 import { useStyles } from "./FlashcardEditStyles";
-import { Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 function MyFormHelperText() {
   const { focused } = useFormControl() || {};
@@ -18,6 +18,9 @@ function MyFormHelperText() {
 }
 
 export default function UseFormControl() {
+  const location = useLocation();
+  console.log(location);
+
   const classes = useStyles();
   return (
     <div className={classes.flashcardCell}>

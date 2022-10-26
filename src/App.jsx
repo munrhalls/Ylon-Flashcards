@@ -4,8 +4,9 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./Theme";
-import { Routes, Route, Link } from "react-router-dom";
 import UseFormControl from "./components/FlashcardEdit/FlashcardEdit";
+
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((themes) => {
   return {
@@ -26,10 +27,6 @@ const useStyles = makeStyles((themes) => {
 export default function App() {
   const classes = useStyles();
 
-  const LinkOne = (props) => {
-    return <div>Link One, inside of it</div>;
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar>
@@ -39,6 +36,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Flashcard />} />
           <Route path="/flashcard/add" element={<UseFormControl />} />
+          <Route path="/flashcard/edit" element={<UseFormControl />} />
+          <Route path="/flashcard/delete" element={<UseFormControl />} />
         </Routes>
       </div>
     </ThemeProvider>

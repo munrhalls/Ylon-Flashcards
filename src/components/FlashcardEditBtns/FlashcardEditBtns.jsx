@@ -16,9 +16,9 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
-export default function FlashcardEditBtns({ setIsEdit }) {
+export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
 
   return (
@@ -39,6 +39,7 @@ export default function FlashcardEditBtns({ setIsEdit }) {
           <Button
             component={Link}
             to={"/flashcard/edit"}
+            state={currFlashcard}
             variant="contained"
             size="large"
             className={classes.editBtn}

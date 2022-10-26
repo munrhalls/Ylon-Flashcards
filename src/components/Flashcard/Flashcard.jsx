@@ -14,10 +14,14 @@ import {
 } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
 
+const currFlashcard = {
+  id: "1",
+  question: "Question",
+  answer: "Answer",
+};
 export default function Flashcard({ children }) {
   const [flip, setFlip] = React.useState(false);
   const [isEdit, setIsEdit] = React.useState(false);
-
   const classes = useStyles();
   const frontFlip = {
     backfaceVisibility: "hidden",
@@ -40,7 +44,7 @@ export default function Flashcard({ children }) {
           className={classes.flashcard}
           style={frontFlip}
         >
-          Flashcard
+          {currFlashcard.question}
         </Card>
         <Card
           variant="elevation"
@@ -48,11 +52,11 @@ export default function Flashcard({ children }) {
           className={classes.flashcard}
           style={backFlip}
         >
-          Answer
+          {currFlashcard.answer}
         </Card>
         <DifficultyBtns />
       </div>
-      <FlashcardEditBtns setIsEdit={() => setIsEdit(() => true)} />
+      <FlashcardEditBtns currFlashcard={currFlashcard} />
     </>
   );
 }
