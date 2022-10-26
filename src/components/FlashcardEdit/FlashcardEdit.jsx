@@ -38,9 +38,14 @@ export default function UseFormControl() {
           noValidate
           autoComplete="off"
         >
-          <Typography className={classes.editFlashcardTitle} variant="h6">
+          <Typography
+            className={classes.editFlashcardTitle}
+            variant="h6"
+            sx={{ typography: { sm: "body1", xs: "body2" } }}
+          >
             Edit flashcard
           </Typography>
+
           <FormControlLabel
             label={flip ? "Answer" : "Question"}
             control={
@@ -63,7 +68,8 @@ export default function UseFormControl() {
                 }}
                 color="secondary"
                 multiline
-                maxRows="12"
+                maxRows="6"
+                inputProps={{ style: { fontSize: 14 } }}
                 className={classes.editFlashcardInput}
                 placeholder="Please enter text"
               />
@@ -78,7 +84,8 @@ export default function UseFormControl() {
                 }}
                 color="secondary"
                 multiline
-                maxRows="12"
+                maxRows="6"
+                inputProps={{ style: { fontSize: 14 } }}
                 className={classes.editFlashcardInput}
                 placeholder="Please enter text"
               />
@@ -86,10 +93,13 @@ export default function UseFormControl() {
 
             <MyFormHelperText className={classes.editFlashcardHelperText} />
           </FormControl>
-
-          <IconButton variant="contained" onClick={() => setFlip(!flip)}>
-            <FlipIcon color="grey-900" />
-          </IconButton>
+          <Button
+            size="small"
+            variant="contained"
+            onClick={() => setFlip(!flip)}
+          >
+            <FlipIcon />
+          </Button>
         </Box>
 
         <div className={classes.editFlashcardSubmitButtonContainer}>

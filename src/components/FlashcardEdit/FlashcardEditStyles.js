@@ -36,8 +36,8 @@ export const useStyles = makeStyles((themes) => {
       },
     },
     editFlashcardTitle: {
-      [themes.breakpoints.down("sm")]: {
-        fontSize: "5",
+      [themes.breakpoints.down("xs")]: {
+        fontSize: "6",
       },
     },
     editFlashcardContainer: {
@@ -53,8 +53,9 @@ export const useStyles = makeStyles((themes) => {
       left: "0",
       paddingTop: "10px",
       paddingBottom: "10px",
-      [themes.breakpoints.down("xs")]: {
+      [themes.breakpoints.down("sm")]: {
         width: "100%",
+        alignItems: "space-between",
       },
     },
     editFlashcardForm: {
@@ -66,6 +67,10 @@ export const useStyles = makeStyles((themes) => {
     editFlashcardInput: {
       height: "90%",
       width: "90%",
+      [themes.breakpoints.down("sm")]: {
+        maxHeight: "70%",
+        fontSize: "10",
+      },
     },
     editFlashcardSubmitButtonContainer: {
       height: "100%",
@@ -74,6 +79,9 @@ export const useStyles = makeStyles((themes) => {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "space-around",
+      [themes.breakpoints.down("sm")]: {
+        width: "30%",
+      },
     },
     editFlashcardSubmitButton: {
       backgroundColor: "#fff",
