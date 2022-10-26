@@ -27,7 +27,7 @@ export default function FlashcardEditBtns({ setIsEdit }) {
         <ButtonGroup>
           <Button
             component={Link}
-            to={"/link-one"}
+            to={"/flashcard/add"}
             variant="contained"
             size="large"
             className={classes.addBtn}
@@ -37,6 +37,8 @@ export default function FlashcardEditBtns({ setIsEdit }) {
           </Button>
 
           <Button
+            component={Link}
+            to={"/flashcard/edit"}
             variant="contained"
             size="large"
             className={classes.editBtn}
@@ -45,7 +47,8 @@ export default function FlashcardEditBtns({ setIsEdit }) {
             <Hidden xsDown>Edit</Hidden>
           </Button>
           <Button
-            className={classes.editBtn}
+            component={Link}
+            to={"/flashcard/delete"}
             variant="contained"
             size="large"
             className={classes.deleteBtn}

@@ -38,7 +38,7 @@ export default function App() {
       <div className={classes.container}>
         <Routes>
           <Route path="/" element={<Flashcard />} />
-          <Route path="/link-one" element={<UseFormControl />} />
+          <Route path="/flashcard/add" element={<UseFormControl />} />
         </Routes>
       </div>
     </ThemeProvider>
