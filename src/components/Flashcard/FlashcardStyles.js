@@ -21,6 +21,10 @@ export const useStyles = makeStyles((themes) => {
         gridTemplateColumns: "15% 70% 85%",
         gridTemplateRows: "15% 70% 85%",
       },
+      [themes.breakpoints.down("sm")]: {
+        gridTemplateColumns: "5% 90% 95%",
+        gridTemplateRows: "15% 70% 95%",
+      },
     },
     flashcardCell: {
       gridColumnStart: "2",
