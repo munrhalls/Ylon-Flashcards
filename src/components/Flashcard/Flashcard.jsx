@@ -2,28 +2,23 @@ import React from "react";
 import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
 import UseFormControl from "../FlashcardEdit/FlashcardEdit";
-import {
-  Container,
-  Box,
-  Grid,
-  Typography,
-  Button,
-  ButtonGroup,
-  Card,
-  TextField,
-  Hidden,
-} from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
+import { useDispatch, useSelector } from "react-redux";
 
 const currFlashcard = {
   id: "1",
   question: "Question",
   answer: "Answer",
 };
+
 export default function Flashcard({ children }) {
-  const [flip, setFlip] = React.useState(false);
-  const [isEdit, setIsEdit] = React.useState(false);
+  const dispatch = useDispatch();
+  const flip = useSelector((state) => state.flip);
+  console.log(flip);
+
   const classes = useStyles();
+
   const frontFlip = {
     backfaceVisibility: "hidden",
     transition: "transform 1s ease",
@@ -41,7 +36,12 @@ export default function Flashcard({ children }) {
       <div className={classes.flashcardCell}>
         <Card
           variant="elevation"
-          onClick={() => setFlip(!flip)}
+          onClick={() =>
+            dispatch({
+              type: "FLIP__FLASHCARD",
+              payload: flip,
+            })
+          }
           className={classes.flashcard}
           style={frontFlip}
         >
@@ -49,7 +49,12 @@ export default function Flashcard({ children }) {
         </Card>
         <Card
           variant="elevation"
-          onClick={() => setFlip(!flip)}
+          onClick={() =>
+            dispatch({
+              type: "FLIP__FLASHCARD",
+              payload: flip,
+            })
+          }
           className={classes.flashcard}
           style={backFlip}
         >

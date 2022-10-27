@@ -20,6 +20,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
+  
 
   return (
     <div className={classes.editBtnsCell}>

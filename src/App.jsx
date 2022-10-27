@@ -7,32 +7,14 @@ import { theme } from "./Theme";
 import UseFormControl from "./components/FlashcardEdit/FlashcardEdit";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
-const useStyles = makeStyles((themes) => {
-  return {
-    container: {
-      height: "100%",
-      width: "100%",
-      display: "grid",
-      gridTemplateColumns: "15% 50% 85%",
-      gridTemplateRows: "15% 65% 85%",
-      [themes.breakpoints.down("md")]: {
-        gridTemplateColumns: "15% 70% 85%",
-        gridTemplateRows: "15% 70% 85%",
-      },
-    },
-  };
-});
-
 export default function App() {
-  const classes = useStyles();
-
   const stateReducer = (
     state = {
       decks: [],
-      currentDeck: [],
+      currentDeck: [{ id: 1, question: "Question...", answer: "Answer..." }],
+      flip: false,
     },
     { type, payload }
   ) => {
@@ -42,11 +24,18 @@ export default function App() {
           ...state,
           currentDeck: [payload, ...state.currentDeck],
         };
+      case "FLIP__FLASHCARD":
+        return {
+          ...state,
+          flip: !payload,
+        };
+      default:
+        return state;
     }
   };
-
   const store = createStore(stateReducer);
 
+  
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
