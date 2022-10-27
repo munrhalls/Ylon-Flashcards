@@ -1,21 +1,14 @@
 import React from "react";
 import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
-import UseFormControl from "../FlashcardEdit/FlashcardEdit";
 import { Card } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
 import { useDispatch, useSelector } from "react-redux";
 
-const currFlashcard = {
-  id: "1",
-  question: "Question",
-  answer: "Answer",
-};
-
 export default function Flashcard({ children }) {
   const dispatch = useDispatch();
   const flip = useSelector((state) => state.flip);
-  console.log(flip);
+  const currFlashcard = useSelector((state) => state.decks[0][0]);
 
   const classes = useStyles();
 
