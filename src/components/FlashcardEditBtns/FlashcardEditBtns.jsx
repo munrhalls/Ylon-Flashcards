@@ -34,7 +34,6 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         >
           <Hidden xsDown>Add</Hidden>
         </Button>
-
         <Button
           component={Link}
           to={"/flashcard/edit"}
@@ -56,6 +55,7 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         >
           <Hidden xsDown>Delete</Hidden>
         </Button>
+        )
       </ButtonGroup>
     </div>
   );
