@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Flashcard({ children }) {
   const dispatch = useDispatch();
   const flip = useSelector((state) => state.flip);
-  const currFlashcard = useSelector((state) => state.decks[0][0]);
+  const currFlashcard = useSelector((state) =>
+    state.flashcards.allIds.find((id) => id === "flashcard1")
+  );
 
   const classes = useStyles();
 

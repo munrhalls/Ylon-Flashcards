@@ -12,30 +12,26 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 export default function App() {
   const stateReducer = (
     state = {
-      decks: [[{ id: 1, question: "Question...", answer: "Answer..." }]],
+      flashcards: {
+        byId: {
+          flashcard1: {
+            question: "",
+            answer: "",
+          },
+        },
+        allIds: ["flashcard1"],
+      },
       flip: false,
     },
     { type, payload }
   ) => {
-    let currentDeck = state.decks[0];
+    console.log(state.flashcards.byId.flashcard1);
 
     switch (type) {
-      case "ADD__FLASHCARD":
-        currentDeck = [payload, ...currentDeck];
-        return {
-          ...state,
-          decks: [currentDeck, ...state.decks],
-        };
       case "FLIP__FLASHCARD":
         return {
           ...state,
           flip: !payload,
-        };
-      case "EDIT__FLASHCARD":
-        currentDeck = [payload, ...currentDeck];
-        return {
-          ...state,
-          decks: [currentDeck, ...state.decks],
         };
       default:
         return state;
