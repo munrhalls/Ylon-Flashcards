@@ -2,7 +2,9 @@ https://ylon-flashcards.netlify.app
 
 Electronic flashcards.
 
-React/CSS Grid/Material-UI.
+React / Redux / React Router / Firebase / CSS Grid / Material-UI.
+
+This is a learning and training project. In development.
 
 ---
 
