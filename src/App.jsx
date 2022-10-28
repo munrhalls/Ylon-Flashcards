@@ -7,22 +7,7 @@ import UseFormControl from "./components/FlashcardManage/FlashcardManage";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Provider, useDispatch, useSelector } from "react-redux";
 
-import { configureStore } from "@reduxjs/toolkit";
-import { createAction, createReducer } from "@reduxjs/toolkit";
-
-export const add = createAction("flashcard/add");
-
-const initialState = {
-  flashcards: [{ question: "Question...", answer: "Answer..." }],
-};
-
-const flashcardsReducer = createReducer(initialState, (builder) => {
-  builder.addCase(add, (state, action) => {
-    state.flashcards = [action.payload, ...state.flashcards];
-  });
-});
-
-const store = configureStore({ reducer: flashcardsReducer });
+import { store } from "./components/store/store";
 
 export default function App() {
   return (

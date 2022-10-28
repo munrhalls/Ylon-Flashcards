@@ -7,7 +7,7 @@ import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
 import { useDispatch } from "react-redux";
-import { add } from "./../../App";
+import { add } from "./../store/store";
 
 export default function UseFormControl() {
   const dispatch = useDispatch();

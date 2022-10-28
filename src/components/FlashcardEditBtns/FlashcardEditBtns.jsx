@@ -18,7 +18,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { add } from "./../../App";
+import { add } from "./../store/store";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
@@ -28,9 +28,6 @@ export default function FlashcardEditBtns({ currFlashcard }) {
     <div className={classes.editBtnsCell}>
       <ButtonGroup>
         <Button
-          onClick={() =>
-            dispatch(add({ question: "Question...", answer: "Answer..." }))
-          }
           component={Link}
           to={"/flashcard/add"}
           variant="contained"
