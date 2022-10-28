@@ -23,12 +23,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { add } from "./../store/store";
 import { dbUpdateDeck } from "./../store/store";
 
-
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const currentDeck = useSelector(state => state.deck)
-  
+  const currentDeck = useSelector((state) => state.deck);
+
   return (
     <div className={classes.editBtnsCell}>
       <ButtonGroup>
@@ -65,7 +64,9 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         </Button>
 
         <Button
-          onClick={() => dbUpdateDeck(currentDeck)}
+          onClick={() =>
+            dispatch({ type: "DECK__UPDATE__REQUESTED", payload: currentDeck })
+          }
           component={Link}
           variant="contained"
           size="large"
