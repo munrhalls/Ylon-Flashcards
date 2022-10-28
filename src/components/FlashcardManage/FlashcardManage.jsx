@@ -6,8 +6,12 @@ import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
+import { useDispatch } from "react-redux";
+import { add } from "./../../App";
 
 export default function UseFormControl() {
+  const dispatch = useDispatch();
+
   const classes = useStyles();
   return (
     <div className={classes.container}>
@@ -16,6 +20,7 @@ export default function UseFormControl() {
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
+            onClick={() => dispatch(add({ question: "Q2", answer: "A2" }))}
             size="large"
             className={classes.editFlashcardSubmitButton}
             type="submit"

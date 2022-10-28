@@ -7,11 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Flashcard({ children }) {
   const dispatch = useDispatch();
+  
   const flip = useSelector((state) => state.flip);
-  const currFlashcard = useSelector(
-    (state) => state.flashcards.byId.flashcard1
-  );
-  console.log(currFlashcard);
+  const currFlashcard = useSelector((state) => state.flashcards[0]);
 
   const classes = useStyles();
 

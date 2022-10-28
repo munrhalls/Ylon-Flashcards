@@ -17,16 +17,20 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { add } from "./../../App";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
 
   return (
     <div className={classes.editBtnsCell}>
       <ButtonGroup>
         <Button
-        
+          onClick={() =>
+            dispatch(add({ question: "Question...", answer: "Answer..." }))
+          }
           component={Link}
           to={"/flashcard/add"}
           variant="contained"

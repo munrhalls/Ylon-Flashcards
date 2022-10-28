@@ -24,9 +24,7 @@ function MyFormHelperText() {
 
 export default function FlashcardForm() {
   const dispatch = useDispatch();
-  const currFlashcard = useSelector(
-    (state) => state.flashcards.byId.flashcard1
-  );
+  const currFlashcard = useSelector((state) => state.flashcards[0]);
   const flip = useSelector((state) => state.flip);
 
   const classes = useStyles();
@@ -61,7 +59,6 @@ export default function FlashcardForm() {
           <OutlinedInput
             value={currFlashcard?.answer || ""}
             onChange={(e) => {
-              
               dispatch({
                 type: "EDIT__FLASHCARD",
                 payload: { ...currFlashcard, answer: e.target.value },
