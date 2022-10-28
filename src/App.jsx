@@ -18,7 +18,7 @@ const initialState = {
 
 const flashcardsReducer = createReducer(initialState, (builder) => {
   builder.addCase(add, (state, action) => {
-    state.flashcards = [action.payload, state.flashcards];
+    state.flashcards = [action.payload, ...state.flashcards];
   });
 });
 
