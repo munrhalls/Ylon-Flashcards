@@ -1,7 +1,7 @@
-import { configureStore, applyMiddleware  } from "@reduxjs/toolkit";
-import { createAction, createReducer  } from "@reduxjs/toolkit";
+import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
+import { createAction, createReducer } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import dbHandlingSaga from './sagas'
+import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,6 +22,6 @@ const store = configureStore({
   middleware: sagaMiddleware,
 });
 
-sagaMiddleware.run(dbHandlingSaga)
+sagaMiddleware.run(rootSaga);
 
 export { store };

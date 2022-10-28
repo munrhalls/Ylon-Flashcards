@@ -1,16 +1,23 @@
 import { db } from "./Database";
-import { collection, addDoc } from "firebase/firestore"; 
-import { call, put, takeEvery } from 'redux-saga/effects';
-import {v4 as uuid} from 'uuid'
+import { doc, setDoc } from "firebase/firestore";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { v4 as uuid } from "uuid";
 
-async function dbAddDeck() {
-    await addDoc(collection(db, "decksForUserId"), {
-       flashcards: [{question: 'atDB_Question', answer: 'atDB_Answer'}]
-      });
-} 
-function* dbUpdateDeck(action) {
-    try {
-       const deckUpdate = yield.call(dbAddDeck, action.payload.deck);
-       
-    }
+function* requestDeckUpdate() {
+  try {
+    const user = yield call(
+      setDoc(doc(db, "decksForUserId"), action.payload.deck.id)
+    );
+    yield put({ type: "DECK__UPDATE__SUCCEEDED", user: user });
+  } catch (e) {
+    yield put({ type: "DECK__UPDATE__FAILED", message: e.message });
   }
+}
+
+function* watchRequestDeckUpdate() {
+  yield takeEvery("REQUEST__DECK__UPDATE", requestDeckUpdate);
+}
+
+export default function* rootSaga() {
+  yield all([helloSaga(), watchRequestDeckUpdate()]);
+}
