@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, Hidden } from "@material-ui/core";
 import { Typography } from "@mui/material";
-import { useStyles } from "./FlashcardEditStyles";
+import { useStyles } from "./FlashcardManageStyles";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
