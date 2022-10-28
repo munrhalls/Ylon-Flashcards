@@ -1,16 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
-export const add = createAction("flashcard/add");
+export const add = createAction("deck/add");
 
 const initialState = {
-  flashcards: [{ question: "Question...", answer: "Answer..." }],
+  deck: [{ question: "Question...", answer: "Answer..." }],
 };
 
 const deckReducer = createReducer(initialState, (builder) => {
   builder.addCase(add, (state, action) => {
-    state.flashcards = [action.payload, ...state.flashcards];
+    state.deck = [action.payload, ...state.deck];
   });
 });
 
-export const store = configureStore({ reducer: deckReducer });
+const store = configureStore({ reducer: deckReducer });
+export { store };

@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Flashcard({ children }) {
   const dispatch = useDispatch();
-  
+  const state = useSelector((state) => state);
+  console.log(state);
   const flip = useSelector((state) => state.flip);
-  const currFlashcard = useSelector((state) => state.flashcards[0]);
+  const currFlashcard = useSelector((state) => state.deck[0]);
 
   const classes = useStyles();
 
@@ -30,12 +31,12 @@ export default function Flashcard({ children }) {
       <div className={classes.flashcardCell}>
         <Card
           variant="elevation"
-          onClick={() =>
-            dispatch({
-              type: "FLIP__FLASHCARD",
-              payload: flip,
-            })
-          }
+          // onClick={() =>
+          //   dispatch({
+          //     type: "FLIP__FLASHCARD",
+          //     payload: flip,
+          //   })
+          // }
           className={classes.flashcard}
           style={frontFlip}
         >
@@ -43,12 +44,12 @@ export default function Flashcard({ children }) {
         </Card>
         <Card
           variant="elevation"
-          onClick={() =>
-            dispatch({
-              type: "FLIP__FLASHCARD",
-              payload: flip,
-            })
-          }
+          // onClick={() =>
+          //   dispatch({
+          //     type: "FLIP__FLASHCARD",
+          //     payload: flip,
+          //   })
+          // }
           className={classes.flashcard}
           style={backFlip}
         >
