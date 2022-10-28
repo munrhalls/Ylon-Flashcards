@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import { useStyles } from "./FlashcardManageStyles";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
 import { useDispatch } from "react-redux";
 import { add } from "./../store/store";

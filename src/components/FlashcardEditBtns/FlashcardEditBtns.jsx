@@ -15,8 +15,10 @@ import {
 } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/SaveSharp";
+
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { add } from "./../store/store";
 
@@ -58,7 +60,17 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         >
           <Hidden xsDown>Delete</Hidden>
         </Button>
-        )
+
+        <Button
+          component={Link}
+          to={"/flashcard/delete"}
+          variant="contained"
+          size="large"
+          className={classes.deleteBtn}
+          startIcon={<SaveIcon />}
+        >
+          <Hidden xsDown>Save changes</Hidden>
+        </Button>
       </ButtonGroup>
     </div>
   );

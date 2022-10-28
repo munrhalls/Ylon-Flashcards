@@ -2,7 +2,7 @@ import React from "react";
 import Flashcard from "./components/Flashcard/Flashcard";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { theme } from "./components/theme/Theme";
+import { theme } from "./components/Theme/Theme";
 import UseFormControl from "./components/FlashcardManage/FlashcardManage";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Provider, useDispatch, useSelector } from "react-redux";
