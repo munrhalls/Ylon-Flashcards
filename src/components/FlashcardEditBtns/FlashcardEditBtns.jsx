@@ -19,19 +19,22 @@ import SaveIcon from "@mui/icons-material/SaveSharp";
 
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "./../store/store";
+import { dbUpdateDeck } from "./../store/store";
+
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-
+  const currentDeck = useSelector(state => state.deck)
+  
   return (
     <div className={classes.editBtnsCell}>
       <ButtonGroup>
         <Button
           component={Link}
-          to={"/flashcard/add"}
+          to={"/deck/add"}
           variant="contained"
           size="large"
           className={classes.addBtn}
@@ -41,7 +44,7 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         </Button>
         <Button
           component={Link}
-          to={"/flashcard/edit"}
+          to={"/deck/edit"}
           state={currFlashcard}
           variant="contained"
           size="large"
@@ -52,7 +55,7 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         </Button>
         <Button
           component={Link}
-          to={"/flashcard/delete"}
+          to={"/deck/delete"}
           variant="contained"
           size="large"
           className={classes.deleteBtn}
@@ -62,8 +65,8 @@ export default function FlashcardEditBtns({ currFlashcard }) {
         </Button>
 
         <Button
+          onClick={() => dbUpdateDeck(currentDeck)}
           component={Link}
-          to={"/flashcard/delete"}
           variant="contained"
           size="large"
           className={classes.deleteBtn}
