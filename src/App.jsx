@@ -4,7 +4,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./Theme";
-import UseFormControl from "./components/FlashcardEdit/FlashcardEdit";
+import UseFormControl from "./components/FlashcardManage/FlashcardManage";
 import { createStore } from "redux";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
@@ -15,8 +15,9 @@ export default function App() {
       flashcards: {
         byId: {
           flashcard1: {
-            question: "",
-            answer: "",
+            id: "flashcard1",
+            question: "Question...",
+            answer: "Answer...",
           },
         },
         allIds: ["flashcard1"],
@@ -25,14 +26,22 @@ export default function App() {
     },
     { type, payload }
   ) => {
-    console.log(state.flashcards.byId.flashcard1);
-
+    console.log(state.flashcards);
     switch (type) {
       case "FLIP__FLASHCARD":
         return {
           ...state,
           flip: !payload,
         };
+      case "ADD__FLASHCARD":
+        const addedFlashcards = { ...state.flashcards };
+        addedFlashcards.byId.flashcard1 = payload;
+        
+        return {
+          ...state,
+          flashcards: addedFlashcards,
+        };
+
       default:
         return state;
     }
