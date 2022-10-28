@@ -7,11 +7,10 @@ const initialState = {
   flashcards: [{ question: "Question...", answer: "Answer..." }],
 };
 
-const flashcardsReducer = createReducer(initialState, (builder) => {
+const deckReducer = createReducer(initialState, (builder) => {
   builder.addCase(add, (state, action) => {
     state.flashcards = [action.payload, ...state.flashcards];
   });
 });
 
-export const store = configureStore({ reducer: flashcardsReducer });
-
+export const store = configureStore({ reducer: deckReducer });
