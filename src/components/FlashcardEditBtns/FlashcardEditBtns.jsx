@@ -16,51 +16,58 @@ export default function FlashcardEditBtns({ currFlashcard }) {
 
   return (
     <div className={classes.editBtnsCell}>
-      <ButtonGroup>
-        <Button
-          component={Link}
-          to={"/deck/add"}
-          variant="contained"
-          size="medium"
-          className={classes.addBtn}
-          startIcon={<AddBoxIcon />}
-        >
-          <Hidden xsDown>Add</Hidden>
-        </Button>
-        <Button
-          component={Link}
-          to={"/deck/edit"}
-          state={currFlashcard}
-          variant="contained"
-          size="medium"
-          className={classes.editBtn}
-          startIcon={<EditIcon />}
-        >
-          <Hidden xsDown>Edit</Hidden>
-        </Button>
-        <Button
-          component={Link}
-          to={"/deck/delete"}
-          variant="contained"
-          size="medium"
-          className={classes.deleteBtn}
-          startIcon={<DeleteIcon />}
-        >
-          <Hidden xsDown>Delete</Hidden>
-        </Button>
-        <Button
-          onClick={() =>
-            dispatch({ type: "DECK__UPDATE__REQUESTED", payload: currentDeck })
-          }
-          component={Link}
-          variant="contained"
-          size="medium"
-          className={classes.saveBtnActive}
-          startIcon={<SaveIcon />}
-        >
-          <Hidden xsDown>Save changes</Hidden>
-        </Button>
-      </ButtonGroup>
+      <div className={classes.buttonGroupsWrapper}>
+        <ButtonGroup className={classes.btnGroup1}>
+          <Button
+            component={Link}
+            to={"/deck/add"}
+            variant="contained"
+            size="medium"
+            className={classes.addBtn}
+            startIcon={<AddBoxIcon />}
+          >
+            <Hidden xsDown>Add</Hidden>
+          </Button>
+          <Button
+            component={Link}
+            to={"/deck/edit"}
+            state={currFlashcard}
+            variant="contained"
+            size="medium"
+            className={classes.editBtn}
+            startIcon={<EditIcon />}
+          >
+            <Hidden xsDown>Edit</Hidden>
+          </Button>
+          <Button
+            component={Link}
+            to={"/deck/delete"}
+            variant="contained"
+            size="medium"
+            className={classes.deleteBtn}
+            startIcon={<DeleteIcon />}
+          >
+            <Hidden xsDown>Delete</Hidden>
+          </Button>
+        </ButtonGroup>
+        <ButtonGroup className={classes.btnGroup2}>
+          <Button
+            onClick={() =>
+              dispatch({
+                type: "DECK__UPDATE__REQUESTED",
+                payload: currentDeck,
+              })
+            }
+            component={Link}
+            variant="contained"
+            size="medium"
+            className={classes.saveBtnActive}
+            startIcon={<SaveIcon />}
+          >
+            <Hidden xsDown>Save changes</Hidden>
+          </Button>
+        </ButtonGroup>
+      </div>
     </div>
   );
 }

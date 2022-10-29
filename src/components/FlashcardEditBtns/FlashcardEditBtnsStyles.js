@@ -16,8 +16,19 @@ export const useStyles = makeStyles((themes) => {
       gridColumnEnd: "2",
       gridRowStart: "3",
       gridRowEnd: "3",
+      minWidth: "0",
+    },
+    buttonGroupsWrapper: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "nowrap",
+    },
+    btnGroup2: {
+      marginLeft: "auto",
     },
     saveBtnActive: {
+      width: "100%",
       background: orange[900],
     },
   };
