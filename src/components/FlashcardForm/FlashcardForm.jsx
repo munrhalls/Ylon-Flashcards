@@ -8,7 +8,6 @@ import { useStyles } from "./FlashcardFormStyles";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
-import { Routes, Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function MyFormHelperText() {

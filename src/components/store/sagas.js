@@ -1,19 +1,13 @@
 import { db } from "./../../data/Database";
 import { collection, addDoc } from "firebase/firestore";
-import {
-  call,
-  put,
-  takeEvery,
-  all,
-  select,
-  takeLatest,
-} from "redux-saga/effects";
-import { v4 as uuid } from "uuid";
+import { call, put, all, takeLatest } from "redux-saga/effects";
 
 function* requestDeckUpdate(action) {
   try {
-    yield call(addDoc(collection(db, "decksForUserId"), action.payload));
-    yield put({ type: "DECK__UPDATE__SUCCEEDED", payload: true });
+    const deck = yield call(
+      addDoc(collection(db, "decksForUserId"), action.payload)
+    );
+    yield put({ type: "SET__UNSAVED__CHANGES", payload: false });
   } catch (e) {
     yield put({ type: "DECK__UPDATE__FAILED", message: e.message });
   }

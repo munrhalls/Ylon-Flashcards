@@ -1,18 +1,6 @@
 import React from "react";
 import { useStyles } from "./FlashcardEditBtnsStyles";
-import {
-  CssBaseline,
-  createMuiTheme,
-  ThemeProvider,
-  Container,
-  Box,
-  Grid,
-  Typography,
-  Button,
-  ButtonGroup,
-  Card,
-  Hidden,
-} from "@material-ui/core";
+import { Button, ButtonGroup, Hidden } from "@material-ui/core";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/SaveSharp";
@@ -20,7 +8,7 @@ import SaveIcon from "@mui/icons-material/SaveSharp";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "./../store/store";
+// import { add } from "./../store/store";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();

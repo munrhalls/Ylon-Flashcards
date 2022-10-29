@@ -5,20 +5,21 @@ import rootSaga from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const add = createAction("deck/add");
-export const setCurrentDeck = createAction("deck/setCurrentDeck");
-
 const initialState = {
   decks: [],
   currentDeck: {
     title: "Starter deck",
     flashcards: [{ question: "Question...", answer: "Answer..." }],
   },
+  unsavedChanges: true,
 };
+export const addFlashcard = createAction("ADD__FLASHCARD");
+export const setCurrentDeck = createAction("SET__CURRENT__DECK");
+export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 
 const deckReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(add, (state, action) => {
+    .addCase(addFlashcard, (state, action) => {
       state.currentDeck.flashcards = [
         action.payload,
         ...state.currentDeck.flashcards,
@@ -26,6 +27,9 @@ const deckReducer = createReducer(initialState, (builder) => {
     })
     .addCase(setCurrentDeck, (state, action) => {
       state.currentDeck = action.payload;
+    })
+    .addCase(setUnsavedChanges, (state, action) => {
+      state.unsavedChanges = action.payload;
     });
 });
 

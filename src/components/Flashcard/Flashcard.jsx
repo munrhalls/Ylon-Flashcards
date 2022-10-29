@@ -3,11 +3,11 @@ import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
 import { Card } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Flashcard({ children }) {
-  const dispatch = useDispatch();
   const state = useSelector((state) => state);
+
   console.log(state);
   const flip = useSelector((state) => state.flip);
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
