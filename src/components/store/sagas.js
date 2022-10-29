@@ -4,9 +4,7 @@ import { call, put, all, takeLatest } from "redux-saga/effects";
 
 function* requestDeckUpdate(action) {
   try {
-    const deck = yield call(
-      addDoc(collection(db, "decksForUserId"), action.payload)
-    );
+    yield call(addDoc(collection(db, "decksForUserId"), action.payload));
     yield put({ type: "SET__UNSAVED__CHANGES", payload: false });
   } catch (e) {
     yield put({ type: "DECK__UPDATE__FAILED", message: e.message });

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
 import { useDispatch } from "react-redux";
 import { addFlashcard } from "./../store/store";
+import { setUnsavedChanges } from "./../store/store";
 
 export default function UseFormControl() {
   const dispatch = useDispatch();
@@ -20,9 +21,10 @@ export default function UseFormControl() {
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
-            onClick={() =>
-              dispatch(addFlashcard({ question: "Q2", answer: "A2" }))
-            }
+            onClick={() => {
+              dispatch(addFlashcard({ question: "Q2", answer: "A2" }));
+              dispatch(setUnsavedChanges(true));
+            }}
             size="large"
             className={classes.editFlashcardSubmitButton}
             type="submit"

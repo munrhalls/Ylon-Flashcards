@@ -61,7 +61,7 @@ export default function FlashcardEditBtns({ currFlashcard }) {
             component={Link}
             variant="contained"
             size="medium"
-            className={classes.saveBtnActive}
+            className={unsavedChanges && classes.saveBtnActive}
             startIcon={<SaveIcon />}
           >
             <Hidden xsDown>Save changes</Hidden>
