@@ -12,7 +12,7 @@ const initialState = {
     flashcards: [{ question: "Question...", answer: "Answer..." }],
   },
   flipped: false,
-  unsavedChanges: true,
+  unsavedChanges: false,
 };
 export const flip = createAction("FLIP");
 
