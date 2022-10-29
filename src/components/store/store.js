@@ -19,7 +19,7 @@ const deckReducer = createReducer(initialState, (builder) => {
 
 const store = configureStore({
   reducer: deckReducer,
-  middleware: sagaMiddleware,
+  middleware: [sagaMiddleware],
 });
 
 sagaMiddleware.run(rootSaga);
