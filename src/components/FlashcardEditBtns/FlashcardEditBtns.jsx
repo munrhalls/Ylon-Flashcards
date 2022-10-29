@@ -21,12 +21,11 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "./../store/store";
-import { dbUpdateDeck } from "./../store/store";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const currentDeck = useSelector((state) => state.deck);
+  const currentDeck = useSelector((state) => state.currentDeck);
 
   return (
     <div className={classes.editBtnsCell}>

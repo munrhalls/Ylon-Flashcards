@@ -4,8 +4,8 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./components/Theme/Theme";
 import UseFormControl from "./components/FlashcardManage/FlashcardManage";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import { store } from "./components/store/store";
 

@@ -24,7 +24,7 @@ function MyFormHelperText() {
 
 export default function FlashcardForm() {
   const dispatch = useDispatch();
-  const currFlashcard = useSelector((state) => state.deck[0]);
+  const currFlashcard = useSelector((state) => state.currentDeck[0]);
   const flip = useSelector((state) => state.flip);
 
   const classes = useStyles();
