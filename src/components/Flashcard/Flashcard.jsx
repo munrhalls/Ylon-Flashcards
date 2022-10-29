@@ -3,27 +3,27 @@ import FlashcardEditBtns from "../FlashcardEditBtns/FlashcardEditBtns";
 import DifficultyBtns from "../DifficultyBtns/DifficultyBtns";
 import { Card } from "@material-ui/core";
 import { useStyles } from "./FlashcardStyles";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { flip } from "../store/store";
 
-export default function Flashcard({ children }) {
+export default function Flashcard() {
+  const dispatch = useDispatch();
+
   const state = useSelector((state) => state);
-
   console.log(state);
-  const flip = useSelector((state) => state.flip);
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
-
   const classes = useStyles();
 
+  const flipped = useSelector((state) => state.flipped);
   const frontFlip = {
     backfaceVisibility: "hidden",
     transition: "transform 1s ease",
-    transform: `rotateY(${flip ? "0.5" : "0"}turn)`,
+    transform: `rotateY(${flipped ? "0.5" : "0"}turn)`,
   };
-
   const backFlip = {
     backfaceVisibility: "hidden",
     transition: "transform 1s ease",
-    transform: `rotateY(${flip ? "0" : "-0.5"}turn)`,
+    transform: `rotateY(${flipped ? "0" : "-0.5"}turn)`,
   };
 
   return (
@@ -31,30 +31,22 @@ export default function Flashcard({ children }) {
       <div className={classes.flashcardCell}>
         <Card
           variant="elevation"
-          // onClick={() =>
-          //   dispatch({
-          //     type: "FLIP__FLASHCARD",
-          //     payload: flip,
-          //   })
-          // }
+          onClick={() => dispatch(flip(flipped))}
           className={classes.flashcard}
           style={frontFlip}
         >
           {currFlashcard.question}
         </Card>
+
         <Card
           variant="elevation"
-          // onClick={() =>
-          //   dispatch({
-          //     type: "FLIP__FLASHCARD",
-          //     payload: flip,
-          //   })
-          // }
+          onClick={() => dispatch(flip(flipped))}
           className={classes.flashcard}
           style={backFlip}
         >
           {currFlashcard.answer}
         </Card>
+
         <DifficultyBtns />
       </div>
       <FlashcardEditBtns currFlashcard={currFlashcard} />

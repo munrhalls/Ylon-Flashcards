@@ -11,8 +11,11 @@ const initialState = {
     title: "Starter deck",
     flashcards: [{ question: "Question...", answer: "Answer..." }],
   },
+  flipped: false,
   unsavedChanges: true,
 };
+export const flip = createAction("FLIP");
+
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
@@ -30,6 +33,9 @@ const deckReducer = createReducer(initialState, (builder) => {
     })
     .addCase(setUnsavedChanges, (state, action) => {
       state.unsavedChanges = action.payload;
+    })
+    .addCase(flip, (state, action) => {
+      state.flipped = !action.payload;
     });
 });
 
