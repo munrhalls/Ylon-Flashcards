@@ -6,28 +6,29 @@ import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Link } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
 import { editFlashcard } from "../store/store";
 
 import { setUnsavedChanges } from "../store/store";
 
-export default function UseFormControl({ title }) {
+export default function UseFormControl({ addMode }) {
   const dispatch = useDispatch();
+  const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
 
   const classes = useStyles();
-  const Title = function () {
-    return <span>'Edit Flashcard'</span>;
-  };
+
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <FlashcardForm title={title} />
-        88
+        <FlashcardForm title={addMode ? "Add flashcard" : "Edit flashcard"} />
+
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => {
-              dispatch(addFlashcard({ question: "Q2", answer: "A2" }));
+              if (addMode) {
+                dispatch(addFlashcard({ ...currFlashcard }));
+              }
               dispatch(setUnsavedChanges(true));
             }}
             size="large"
@@ -37,7 +38,7 @@ export default function UseFormControl({ title }) {
             startIcon={<SaveIcon />}
           >
             <Hidden xsDown>
-              <Typography variant="subtitle">Save</Typography>
+              <Typography variant="subtitle">{addMode ? 'Add' : 'Save'}</Typography>
             </Hidden>
           </Button>
           <Button

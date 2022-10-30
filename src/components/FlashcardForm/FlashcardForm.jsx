@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -23,15 +23,16 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function FlashcardForm() {
+export default function FlashcardForm({title}) {
+  const [q, setQ] = useState("");
+  const [a, setA] = useState("");
   const dispatch = useDispatch();
-  const location = useLocation();
-  const mode =
-    location.pathname.split("/")[location.pathname.split("/").length - 1];
-  console.log(mode);
-  const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
+  const location = useLocation();
+  const pathname = location.pathname.split("/")
+  const mode = pathname[pathname.length - 1];
+  
 
   return (
     <Box
@@ -44,7 +45,7 @@ export default function FlashcardForm() {
         className={classes.editFlashcardTitle}
         variant="h6"
         sx={{ typography: { sm: "body1", xs: "body2" } }}
-      ></Typography>
+      >{title}</Typography>
 
       <FormControlLabel
         label={flipped ? "Answer" : "Question"}
@@ -59,12 +60,9 @@ export default function FlashcardForm() {
       <FormControl className={classes.editFlashcardForm}>
         {flipped ? (
           <OutlinedInput
-            value={currFlashcard?.answer || ""}
+            value={q}
             onChange={(e) => {
-              dispatch({
-                type: "EDIT__FLASHCARD",
-                payload: { ...currFlashcard, answer: e.target.value },
-              });
+              setQ(() => e.target.value);
             }}
             color="secondary"
             multiline
@@ -75,12 +73,9 @@ export default function FlashcardForm() {
           />
         ) : (
           <OutlinedInput
-            value={currFlashcard?.question || ""}
+            value={a}
             onChange={(e) => {
-              dispatch({
-                type: "EDIT__FLASHCARD",
-                payload: { ...currFlashcard, question: e.target.value },
-              });
+              setA(() => e.target.value);
             }}
             color="secondary"
             multiline

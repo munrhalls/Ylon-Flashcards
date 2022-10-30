@@ -19,8 +19,8 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Flashcard />} />
-          <Route path="/deck/add" element={<UseFormControl />} />
-          <Route path="/deck/edit" element={<UseFormControl />} />
+          <Route path="/deck/add" element={<UseFormControl addMode={true} />} />
+          <Route path="/deck/edit" element={<UseFormControl addMode={false} />} />
           <Route path="/deck/delete" element={<Flashcard />} />
         </Routes>
       </ThemeProvider>
