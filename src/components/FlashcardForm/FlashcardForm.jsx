@@ -24,7 +24,7 @@ function MyFormHelperText() {
 export default function FlashcardForm() {
   const dispatch = useDispatch();
   const currFlashcard = useSelector((state) => state.currentDeck[0]);
-  const flip = useSelector((state) => state.flipped);
+  const flipped = useSelector((state) => state.flipped);
 
   const classes = useStyles();
 
@@ -44,17 +44,17 @@ export default function FlashcardForm() {
       </Typography>
 
       <FormControlLabel
-        label={flip ? "Answer" : "Question"}
+        label={flipped ? "Answer" : "Question"}
         control={
           <Checkbox
-            checked={flip}
+            checked={flipped}
             icon={<QMarkIcon />}
             checkedIcon={<AnswerIcon />}
           />
         }
       />
       <FormControl className={classes.editFlashcardForm}>
-        {flip ? (
+        {flipped ? (
           <OutlinedInput
             value={currFlashcard?.answer || ""}
             onChange={(e) => {
@@ -93,7 +93,7 @@ export default function FlashcardForm() {
       <Button
         size="small"
         variant="contained"
-        onClick={() => dispatch({ type: "FLIP", payload: flip })}
+        onClick={() => dispatch({ type: "FLIP", payload: flipped })}
       >
         <FlipIcon />
       </Button>
