@@ -26,6 +26,7 @@ const rootReducer = createReducer(initialState, (builder) => {
         action.payload,
         ...state.currentDeck.flashcards,
       ];
+      state.unsavedChanges = true;
     })
     .addCase(setCurrentDeck, (state, action) => {
       state.currentDeck = action.payload;

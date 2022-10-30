@@ -29,7 +29,12 @@ export const useStyles = makeStyles((themes) => {
     },
     saveBtnActive: {
       width: "100%",
-      background: orange[900],
+      background: `${orange[700]} `,
+      backgroundColor: `${orange[700]} `,
+      "&$disabled": {
+        cursor: "not-allowed",
+        pointerEvents: "auto",
+      },
     },
   };
 });
