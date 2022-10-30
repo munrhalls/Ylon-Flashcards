@@ -15,12 +15,11 @@ const initialState = {
   unsavedChanges: false,
 };
 export const flip = createAction("FLIP");
-
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 
-const deckReducer = createReducer(initialState, (builder) => {
+const rootReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(addFlashcard, (state, action) => {
       state.currentDeck.flashcards = [
@@ -40,7 +39,7 @@ const deckReducer = createReducer(initialState, (builder) => {
 });
 
 const store = configureStore({
-  reducer: deckReducer,
+  reducer: rootReducer,
   middleware: [sagaMiddleware],
 });
 

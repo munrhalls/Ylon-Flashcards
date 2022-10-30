@@ -10,7 +10,6 @@ import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
 import { useDispatch, useSelector } from "react-redux";
 
-
 function MyFormHelperText() {
   const { focused } = useFormControl() || {};
   const helperText = React.useMemo(() => {
@@ -25,7 +24,7 @@ function MyFormHelperText() {
 export default function FlashcardForm() {
   const dispatch = useDispatch();
   const currFlashcard = useSelector((state) => state.currentDeck[0]);
-  const flip = useSelector((state) => state.flip);
+  const flip = useSelector((state) => state.flipped);
 
   const classes = useStyles();
 
@@ -94,7 +93,7 @@ export default function FlashcardForm() {
       <Button
         size="small"
         variant="contained"
-        onClick={() => dispatch({ type: "FLIP__FLASHCARD", payload: flip })}
+        onClick={() => dispatch({ type: "FLIP", payload: flip })}
       >
         <FlipIcon />
       </Button>
