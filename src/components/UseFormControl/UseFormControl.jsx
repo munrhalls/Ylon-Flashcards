@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Button, Hidden } from "@material-ui/core";
 import { Typography } from "@mui/material";
-import { useStyles } from "./FlashcardManageStyles";
+import { useStyles } from "./UseFormControlStyles";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Link } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
 import { useDispatch } from "react-redux";
-import { addFlashcard } from "./../store/store";
-import { editFlashcard } from "./../store/store";
+import { addFlashcard } from "../store/store";
+import { editFlashcard } from "../store/store";
 
-import { setUnsavedChanges } from "./../store/store";
+import { setUnsavedChanges } from "../store/store";
 
 export default function UseFormControl({ title }) {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default function UseFormControl({ title }) {
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
         <FlashcardForm title={title} />
-
+        88
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => {

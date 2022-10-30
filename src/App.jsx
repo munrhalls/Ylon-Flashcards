@@ -3,7 +3,7 @@ import Flashcard from "./components/Flashcard/Flashcard";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./components/Theme/Theme";
-import UseFormControl from "./components/FlashcardManage/FlashcardManage";
+import UseFormControl from "./components/UseFormControl/UseFormControl";
 import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
