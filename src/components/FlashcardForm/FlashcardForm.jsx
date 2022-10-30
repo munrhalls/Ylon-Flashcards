@@ -9,6 +9,7 @@ import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import { Title } from "@mui/icons-material";
 
 function MyFormHelperText() {
@@ -22,8 +23,12 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function FlashcardForm({ title }) {
+export default function FlashcardForm() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const mode =
+    location.pathname.split("/")[location.pathname.split("/").length - 1];
+  console.log(mode);
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
@@ -39,9 +44,7 @@ export default function FlashcardForm({ title }) {
         className={classes.editFlashcardTitle}
         variant="h6"
         sx={{ typography: { sm: "body1", xs: "body2" } }}
-      >
-        {title}
-      </Typography>
+      ></Typography>
 
       <FormControlLabel
         label={flipped ? "Answer" : "Question"}
