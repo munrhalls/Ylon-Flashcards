@@ -10,7 +10,7 @@ export default function Flashcard() {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state);
-  console.log(state);
+  console.log(state.currentDeck.flashcards);
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
   const classes = useStyles();
 

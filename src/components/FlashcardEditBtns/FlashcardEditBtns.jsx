@@ -16,7 +16,7 @@ export default function FlashcardEditBtns({ currFlashcard }) {
   const dispatch = useDispatch();
   const currentDeck = useSelector((state) => state.currentDeck);
   const unsavedChanges = useSelector((state) => state.unsavedChanges);
-
+  
   return (
     <div className={classes.editBtnsCell}>
       <div className={classes.buttonGroupsWrapper}>

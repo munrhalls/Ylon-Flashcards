@@ -16,6 +16,7 @@ const initialState = {
 };
 export const flip = createAction("FLIP");
 export const addFlashcard = createAction("ADD__FLASHCARD");
+export const editFlashcard = createAction("EDIT__FLASHCARD");
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 
@@ -26,6 +27,10 @@ const rootReducer = createReducer(initialState, (builder) => {
         action.payload,
         ...state.currentDeck.flashcards,
       ];
+      state.unsavedChanges = true;
+    })
+    .addCase(editFlashcard, (state, action) => {
+      state.currentDeck.flashcards[0] = action.payload;
       state.unsavedChanges = true;
     })
     .addCase(setCurrentDeck, (state, action) => {

@@ -8,16 +8,21 @@ import { Link } from "react-router-dom";
 import FlashcardForm from "../FlashcardForm/FlashcardForm";
 import { useDispatch } from "react-redux";
 import { addFlashcard } from "./../store/store";
+import { editFlashcard } from "./../store/store";
+
 import { setUnsavedChanges } from "./../store/store";
 
-export default function UseFormControl() {
+export default function UseFormControl({ title }) {
   const dispatch = useDispatch();
 
   const classes = useStyles();
+  const Title = function () {
+    return <span>'Edit Flashcard'</span>;
+  };
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <FlashcardForm />
+        <FlashcardForm title={title} />
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
