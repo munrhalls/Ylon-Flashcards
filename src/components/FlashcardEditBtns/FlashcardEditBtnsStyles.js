@@ -26,15 +26,13 @@ export const useStyles = makeStyles((themes) => {
     },
     btnGroup2: {
       marginLeft: "auto",
+      background: `${blue[900]} !important `,
+      backgroundColor: `${blue[900]} !important `,
     },
     saveBtnActive: {
       width: "100%",
-      background: `${orange[700]} `,
-      backgroundColor: `${orange[700]} `,
-      "&$disabled": {
-        cursor: "not-allowed",
-        pointerEvents: "auto",
-      },
+      background: `${blue[900]} !important `,
+      backgroundColor: `${blue[900]} !important `,
     },
   };
 });

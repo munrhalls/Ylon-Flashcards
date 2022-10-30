@@ -53,24 +53,25 @@ export default function FlashcardEditBtns({ currFlashcard }) {
             <Hidden xsDown>Delete</Hidden>
           </Button>
         </ButtonGroup>
-        <ButtonGroup className={classes.btnGroup2}>
-          <Button
-            className={classes.saveBtnActive}
-            onClick={() =>
-              dispatch({
-                type: "DECK__UPDATE__REQUESTED",
-                payload: currentDeck,
-              })
-            }
-            component={Link}
-            variant="contained"
-            size="medium"
-            disabled={!unsavedChanges}
-            startIcon={<SaveIcon />}
-          >
-            <Hidden xsDown>Save changes</Hidden>
-          </Button>
-        </ButtonGroup>
+        {unsavedChanges && (
+          <ButtonGroup className={classes.btnGroup2}>
+            <Button
+              className={classes.saveBtnActive}
+              onClick={() =>
+                dispatch({
+                  type: "DECK__UPDATE__REQUESTED",
+                  payload: currentDeck,
+                })
+              }
+              component={Link}
+              variant="contained"
+              size="medium"
+              startIcon={<SaveIcon />}
+            >
+              <Hidden xsDown>Save changes</Hidden>
+            </Button>
+          </ButtonGroup>
+        )}
       </div>
     </div>
   );
