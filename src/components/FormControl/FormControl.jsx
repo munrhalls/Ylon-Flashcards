@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { Button, Hidden } from "@material-ui/core";
 import { Typography } from "@mui/material";
 import { useStyles } from "./FormControlStyles";
@@ -9,17 +9,24 @@ import FlashcardForm from "../Form/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
 import { editFlashcard } from "../store/store";
+import { setFlashcardDraft } from "../store/store";
+
+
 
 import { setUnsavedChanges } from "../store/store";
 
 export default function FormControl() {
-  const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/");
   const mode = path[path.length - 1];
-  console.log(mode);
+  
+  useEffect(() => {
+    
+  }, []);
 
-  const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
+  const dispatch = useDispatch();
+
+  console.log(mode);
 
   const classes = useStyles();
 
@@ -28,14 +35,12 @@ export default function FormControl() {
       <div className={classes.flashcardCell}>
         <FlashcardForm
           title={mode === "add" ? "Add flashcard" : "Edit flashcard"}
+          flashcard={editFlashcard}
         />
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => {
-              if (mode === "add") {
-                dispatch(addFlashcard({ ...currFlashcard }));
-              }
               dispatch(setUnsavedChanges(true));
             }}
             size="large"

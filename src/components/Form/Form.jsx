@@ -23,15 +23,12 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function Form({ title }) {
+export default function Form({ title, flashcard }) {
   const [q, setQ] = useState("");
   const [a, setA] = useState("");
   const dispatch = useDispatch();
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
-  const location = useLocation();
-  const pathname = location.pathname.split("/");
-  const mode = pathname[pathname.length - 1];
 
   return (
     <Box
