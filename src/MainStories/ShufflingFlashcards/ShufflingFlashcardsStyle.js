@@ -1,13 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  purple,
-  blue,
-  green,
-  orange,
-  red,
-  yellow,
-  grey,
-} from "@mui/material/colors";
 
 export const useStyles = makeStyles((themes) => {
   return {
@@ -38,23 +29,6 @@ export const useStyles = makeStyles((themes) => {
       position: "relative",
       zIndex: "1",
       backgroundColor: "#000",
-    },
-    flashcard: {
-      cursor: "pointer",
-      border: "1px solid #000",
-      height: "95%",
-      margin: "auto 2.5%",
-      width: "55%",
-      position: "absolute",
-      left: "0",
-    },
-    flashcardFlipped: {
-      cursor: "pointer",
-      border: "1px solid #000",
-      height: "100%",
-      width: "60%",
-      webkitBackfaceVisibility: "hidden",
-      backfaceVisibility: "hidden",
     },
   };
 });

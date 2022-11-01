@@ -49,6 +49,7 @@ const rootReducer = createReducer(initialState, (builder) => {
       state.unsavedChanges = true;
     })
     .addCase(flip, (state, action) => {
+      console.log("flip");
       state.flipped = !action.payload;
     });
 });
