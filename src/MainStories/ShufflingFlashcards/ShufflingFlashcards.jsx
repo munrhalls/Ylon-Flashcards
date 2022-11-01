@@ -56,7 +56,7 @@
 
 import FlippingCard from "./FlippingCard";
 import React from "react";
-// import MarkingDifficultyLevel from ".. MarkingDifficultyLevel";
+import MarkingDifficultyLevel from "./MarkingLevel";
 import { Card } from "@material-ui/core";
 import { useStyles } from "./ShufflingFlashcardsStyle";
 import { useSelector, useDispatch } from "react-redux";
@@ -68,8 +68,7 @@ export default function ShufflingFlashcards() {
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
         <FlippingCard />
-
-        {/* <DifficultyBtns /> */}
+        <MarkingDifficultyLevel />
       </div>
     </div>
   );
