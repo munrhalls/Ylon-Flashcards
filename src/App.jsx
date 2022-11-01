@@ -3,7 +3,7 @@ import Flashcard from "./components/Flashcard/Flashcard";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./components/Theme/Theme";
-import UseFormControl from "./components/UseFormControl/UseFormControl";
+import FormControl from "./components/FormControl/FormControl";
 import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
@@ -19,8 +19,8 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Flashcard />} />
-          <Route path="/deck/add" element={<UseFormControl addMode={true} />} />
-          <Route path="/deck/edit" element={<UseFormControl addMode={false} />} />
+          <Route path="/deck/add" element={<FormControl addMode={true} />} />
+          <Route path="/deck/edit" element={<FormControl addMode={false} />} />
           <Route path="/deck/delete" element={<Flashcard />} />
         </Routes>
       </ThemeProvider>

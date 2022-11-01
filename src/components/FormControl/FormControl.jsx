@@ -1,18 +1,18 @@
 import * as React from "react";
 import { Button, Hidden } from "@material-ui/core";
 import { Typography } from "@mui/material";
-import { useStyles } from "./UseFormControlStyles";
+import { useStyles } from "./FormControlStyles";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
 import { Link } from "react-router-dom";
-import FlashcardForm from "../FlashcardForm/FlashcardForm";
+import FlashcardForm from "../Form/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
 import { editFlashcard } from "../store/store";
 
 import { setUnsavedChanges } from "../store/store";
 
-export default function UseFormControl({ addMode }) {
+export default function FormControl({ addMode }) {
   const dispatch = useDispatch();
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
 
@@ -38,7 +38,9 @@ export default function UseFormControl({ addMode }) {
             startIcon={<SaveIcon />}
           >
             <Hidden xsDown>
-              <Typography variant="subtitle">{addMode ? 'Add' : 'Save'}</Typography>
+              <Typography variant="subtitle">
+                {addMode ? "Add" : "Save"}
+              </Typography>
             </Hidden>
           </Button>
           <Button

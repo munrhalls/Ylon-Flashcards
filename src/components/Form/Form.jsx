@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Box, Button } from "@material-ui/core";
 import { FormControlLabel, Checkbox, Typography } from "@mui/material";
-import { useStyles } from "./FlashcardFormStyles";
+import { useStyles } from "./FormStyles";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
@@ -23,16 +23,15 @@ function MyFormHelperText() {
   return <FormHelperText>{helperText}</FormHelperText>;
 }
 
-export default function FlashcardForm({title}) {
+export default function Form({ title }) {
   const [q, setQ] = useState("");
   const [a, setA] = useState("");
   const dispatch = useDispatch();
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
   const location = useLocation();
-  const pathname = location.pathname.split("/")
+  const pathname = location.pathname.split("/");
   const mode = pathname[pathname.length - 1];
-  
 
   return (
     <Box
@@ -45,7 +44,9 @@ export default function FlashcardForm({title}) {
         className={classes.editFlashcardTitle}
         variant="h6"
         sx={{ typography: { sm: "body1", xs: "body2" } }}
-      >{title}</Typography>
+      >
+        {title}
+      </Typography>
 
       <FormControlLabel
         label={flipped ? "Answer" : "Question"}
