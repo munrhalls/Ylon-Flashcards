@@ -2,7 +2,7 @@ import { Card } from "@material-ui/core";
 import { useStyles } from "./FlippingCardStyle";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { flip } from "./../../store/store";
+import { flip } from "../../../store/store";
 
 export default function FlippingCard() {
   const classes = useStyles();

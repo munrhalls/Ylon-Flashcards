@@ -1,7 +1,7 @@
 import React from "react";
-import { useStyles } from "./MarkingLevelStyle";
 import { Button, Hidden } from "@material-ui/core";
 import MouseIcon from "@mui/icons-material/Mouse";
+import { useStyles } from "./MarkingLevelStyle";
 
 export default function MarkingDifficultyLevel() {
   const classes = useStyles();
