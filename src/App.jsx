@@ -19,7 +19,7 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Flashcard />} />
-          <Route path="/deck/add" element={<FormControl addMode={true} />} />
+          <Route path="/deck/add" element={<FormControl />} />
           <Route path="/deck/edit" element={<FormControl addMode={false} />} />
           <Route path="/deck/delete" element={<Flashcard />} />
         </Routes>

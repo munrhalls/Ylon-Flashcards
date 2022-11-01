@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import { useStyles } from "./FormControlStyles";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import DiscardIcon from "@mui/icons-material/BackspaceSharp";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import FlashcardForm from "../Form/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
@@ -12,8 +12,13 @@ import { editFlashcard } from "../store/store";
 
 import { setUnsavedChanges } from "../store/store";
 
-export default function FormControl({ addMode }) {
+export default function FormControl() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const path = location.pathname.split("/");
+  const mode = path[path.length - 1];
+  console.log(mode);
+
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
 
   const classes = useStyles();
@@ -21,12 +26,14 @@ export default function FormControl({ addMode }) {
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <FlashcardForm title={addMode ? "Add flashcard" : "Edit flashcard"} />
+        <FlashcardForm
+          title={mode === "add" ? "Add flashcard" : "Edit flashcard"}
+        />
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => {
-              if (addMode) {
+              if (mode === "add") {
                 dispatch(addFlashcard({ ...currFlashcard }));
               }
               dispatch(setUnsavedChanges(true));
@@ -39,7 +46,7 @@ export default function FormControl({ addMode }) {
           >
             <Hidden xsDown>
               <Typography variant="subtitle">
-                {addMode ? "Add" : "Save"}
+                {mode === "add" ? "Add" : "Save"}
               </Typography>
             </Hidden>
           </Button>
