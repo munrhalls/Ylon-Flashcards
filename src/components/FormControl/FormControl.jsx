@@ -10,26 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
 import { editFlashcard } from "../store/store";
 import { setFlashcardDraft } from "../store/store";
-
-
-
 import { setUnsavedChanges } from "../store/store";
 
 export default function FormControl() {
+  const classes = useStyles();
   const location = useLocation();
   const path = location.pathname.split("/");
   const mode = path[path.length - 1];
-  
-  useEffect(() => {
-    
-  }, []);
-
   const dispatch = useDispatch();
-
-  console.log(mode);
-
-  const classes = useStyles();
-
+  dispatch(setFlashcardDraft(mode));
+  
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
