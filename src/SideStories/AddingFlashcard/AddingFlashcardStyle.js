@@ -14,14 +14,14 @@ export const useStyles = makeStyles((themes) => {
       },
       [themes.breakpoints.down("sm")]: {
         gridTemplateColumns: "5% 90% 95%",
-        gridTemplateRows: "15% 70% 95%",
+        gridTemplateRows: "17.5% 80% 95%",
       },
     },
     flashcardCell: {
       gridColumnStart: "2",
       gridColumnEnd: "2",
       gridRowStart: "2",
-      gridRowEnd: "2",
+      gridRowEnd: "3",
       display: "flex",
       justifyContent: "flex-end",
       alignItems: "center",

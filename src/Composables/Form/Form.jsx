@@ -55,16 +55,6 @@ export default function Form({ title, flashcard }) {
         }
       />
 
-
-
-
-
-
-
-
-
-
-
       <FormControl className={classes.editFlashcardForm}>
         {flipped ? (
           <OutlinedInput

@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 
 import ShufflingFlashcards from "./MainStories/ShufflingFlashcards/ShufflingFlashcards";
-import AddingFlashcard from "./SideStories/AddingFlashcard";
+import AddingFlashcard from "./SideStories/AddingFlashcard/AddingFlashcard";
 
 export default function AppStory() {
   return (
