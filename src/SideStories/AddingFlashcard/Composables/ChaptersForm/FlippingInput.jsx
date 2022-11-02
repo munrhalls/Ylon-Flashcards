@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import { Button } from "@material-ui/core";
-import { flip } from "../../../store/store";
+import { flip } from "../../../../store/store";
 
 export default function FlippingInput() {
   const [q, setQ] = useState("");
@@ -42,6 +42,7 @@ export default function FlippingInput() {
         />
       )}
       <Button
+        className={classes.flipBtn}
         size="small"
         variant="contained"
         onClick={() => dispatch(flip(flipped))}

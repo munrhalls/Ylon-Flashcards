@@ -4,7 +4,6 @@ import { useStyles } from "./FormStyle";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import FlippingInput from "./FlippingInput";
-import FlipBtn from "./FlipBtn";
 import { HelperText } from "./HelperText";
 
 export default function Form() {

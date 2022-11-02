@@ -21,5 +21,8 @@ export const useStyles = makeStyles((themes) => {
       height: "100%",
       width: "100%",
     },
+    flipBtn: {
+      marginTop: "1rem",
+    },
   };
 });
