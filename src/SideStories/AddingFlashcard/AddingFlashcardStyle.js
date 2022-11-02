@@ -16,19 +16,24 @@ export const useStyles = makeStyles((themes) => {
         gridTemplateColumns: "5% 90% 95%",
         gridTemplateRows: "17.5% 80% 95%",
       },
+      backgroundColor: "#000",
     },
     flashcardCell: {
       gridColumnStart: "2",
       gridColumnEnd: "2",
       gridRowStart: "2",
       gridRowEnd: "3",
+
       display: "flex",
-      justifyContent: "flex-end",
+      flexDirection: "column",
+      justifyContent: "flex-start",
       alignItems: "center",
+
       perspective: "1000px",
       position: "relative",
       zIndex: "1",
-      backgroundColor: "#000",
+      backgroundColor: "#eee",
+      padding: "0.5rem",
     },
     linksCell: {
       gridColumnStart: "2",

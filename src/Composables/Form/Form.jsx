@@ -6,6 +6,7 @@ import { Box, Button } from "@material-ui/core";
 import { FormControlLabel, Checkbox, Typography } from "@mui/material";
 import { useStyles } from "./FormStyles";
 import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
+
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
 import { useDispatch, useSelector } from "react-redux";
@@ -94,13 +95,7 @@ export default function Form({ title, flashcard }) {
 
 
 
-      <Button
-        size="small"
-        variant="contained"
-        onClick={() => dispatch({ type: "FLIP", payload: flipped })}
-      >
-        <FlipIcon />
-      </Button>
+      
     </Box>
   );
 }
