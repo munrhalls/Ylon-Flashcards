@@ -17,8 +17,7 @@ export const useStyles = makeStyles((themes) => {
       position: "absolute",
       left: "0",
     },
-    outlinedInput: {
-        
-    }
+    outlinedInput: {},
+    helperText: {},
   };
 });

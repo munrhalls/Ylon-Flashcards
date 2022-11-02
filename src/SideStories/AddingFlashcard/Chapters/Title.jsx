@@ -12,15 +12,16 @@ export default function Title({ title }) {
   const flipped = useSelector((state) => state.flipped);
 
   return (
-    <>
+    <div className={classes.title}>
       <Typography
-        className={classes.title}
+        className={classes.text}
         variant="h4"
         sx={{ typography: { sm: "body1", xs: "body2" } }}
       >
         {title}
       </Typography>
       <FormControlLabel
+        className={classes.icon}
         label={flipped ? "Answer" : "Question"}
         control={
           <Checkbox
@@ -30,6 +31,6 @@ export default function Title({ title }) {
           />
         }
       />
-    </>
+    </div>
   );
 }

@@ -3,7 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((themes) => {
   return {
     title: {
-      marginTop: "1rem",
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
     },
+    text: {
+      marginRight: "1rem",
+    },
+    icon: {},
   };
 });
