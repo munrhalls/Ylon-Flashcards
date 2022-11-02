@@ -42,6 +42,22 @@ export const Nav = {
       </Button>
     );
   },
+  ToDeletingFlashcard: function () {
+    const classes = useStyles();
+
+    return (
+      <Button
+        component={Link}
+        to={"/deck/delete"}
+        variant="contained"
+        size="medium"
+        className={classes.deleteBtn}
+        startIcon={<DeleteIcon />}
+      >
+        <Hidden xsDown>Delete</Hidden>
+      </Button>
+    );
+  },
   Group: function ({ children }) {
     const classes = useStyles();
     const dispatch = useDispatch();
