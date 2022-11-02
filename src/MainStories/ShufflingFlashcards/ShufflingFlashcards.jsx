@@ -2,7 +2,6 @@ import FlippingCard from "./Chapters/FlippingCard";
 import React from "react";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
 import { useStyles } from "./ShufflingFlashcardsStyle";
-import AddingFlashcard from "../../SideStories/AddingFlashcard/AddingFlashcard";
 import { Nav } from "./Nav/Nav";
 
 export default function ShufflingFlashcards() {
