@@ -11,7 +11,10 @@ const initialState = {
     title: "Starter deck",
     flashcards: [{ question: "Question...", answer: "Answer..." }],
   },
-  flashcardDraft: {},
+  flashcardDraft: {
+    question: "",
+    answer: "",
+  },
   flipped: false,
   unsavedChanges: false,
 };
@@ -19,7 +22,7 @@ export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 export const addFlashcard = createAction("ADD__FLASHCARD");
-export const editFlashcard = createAction("EDIT__FLASHCARD");
+export const setFlashcard = createAction("SET__FLASHCARD");
 export const flip = createAction("FLIP");
 
 const rootReducer = createReducer(initialState, (builder) => {
@@ -28,11 +31,7 @@ const rootReducer = createReducer(initialState, (builder) => {
       state.currentDeck = action.payload;
     })
     .addCase(setFlashcardDraft, (state, action) => {
-      if (action.payload === "add")
-        state.flashcardDraft = { question: "Question...", answer: "Answer..." };
-      if (action.payload === "edit") {
-        state.flashcardDraft = state.currentDeck.flashcards[0];
-      }
+      state.flashcardDraft = action.payload;
     })
     .addCase(setUnsavedChanges, (state, action) => {
       state.unsavedChanges = action.payload;
@@ -44,7 +43,7 @@ const rootReducer = createReducer(initialState, (builder) => {
       ];
       state.unsavedChanges = true;
     })
-    .addCase(editFlashcard, (state, action) => {
+    .addCase(setFlashcard, (state, action) => {
       state.currentDeck.flashcards[0] = action.payload;
       state.unsavedChanges = true;
     })

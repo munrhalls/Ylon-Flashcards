@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { Button, Hidden } from "@material-ui/core";
 import { Typography } from "@mui/material";
 import { useStyles } from "./FormControlStyle";
@@ -8,29 +8,51 @@ import { Link } from "react-router-dom";
 import Form from "./Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addFlashcard } from "../store/store";
-import { editFlashcard } from "../store/store";
+import { setFlashcard } from "../store/store";
+import { setFlashcardDraft } from "../store/store";
 
 import { setUnsavedChanges } from "../store/store";
 
-export default function FormControl({ addMode }) {
+export default function FormControl({ mode }) {
+  const state = useSelector((state) => state);
+  console.log(state.currentDeck.flashcards);
+
   const dispatch = useDispatch();
-  const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
+  const currentFlashcard = useSelector(
+    (state) => state.currentDeck.flashcards[0]
+  );
+  const flashcardDraft = useSelector((state) => state.flashcardDraft);
 
   const classes = useStyles();
+
+  function handleDraft() {
+    if (mode === "edit") {
+      dispatch(setFlashcardDraft({ ...currentFlashcard }));
+    }
+  }
+
+  function handleDispatch() {
+    if (mode === "add") {
+      dispatch(addFlashcard(flashcardDraft));
+    }
+    if (mode === "edit") {
+      dispatch(setFlashcard(flashcardDraft));
+    }
+    dispatch(setUnsavedChanges(true));
+  }
+
+  useEffect(() => {
+    handleDraft();
+  }, []);
 
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <Form title={addMode ? "Add flashcard" : "Edit flashcard"} />
+        <Form title={mode === "add" ? "Add flashcard" : "Edit flashcard"} />
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
-            onClick={() => {
-              if (addMode) {
-                dispatch(addFlashcard({ ...currFlashcard }));
-              }
-              dispatch(setUnsavedChanges(true));
-            }}
+            onClick={() => handleDispatch()}
             size="large"
             className={classes.editFlashcardSubmitButton}
             type="submit"
@@ -39,7 +61,7 @@ export default function FormControl({ addMode }) {
           >
             <Hidden xsDown>
               <Typography variant="subtitle">
-                {addMode ? "Add" : "Save"}
+                {mode === "add" ? "Add" : "Save"}
               </Typography>
             </Hidden>
           </Button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FormControl, { useFormControl } from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -9,23 +9,11 @@ import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
 import QMarkIcon from "@mui/icons-material/PsychologyAltSharp";
 import AnswerIcon from "@mui/icons-material/QuestionAnswerSharp";
 import { useDispatch, useSelector } from "react-redux";
-import { Title } from "@mui/icons-material";
-
-function MyFormHelperText() {
-  const { focused } = useFormControl() || {};
-  const helperText = React.useMemo(() => {
-    if (focused) {
-      return "Editing flashcard...";
-    }
-    return "Question/Answer";
-  }, [focused]);
-  return <FormHelperText>{helperText}</FormHelperText>;
-}
+import { setFlashcardDraft } from "./../store/store";
 
 export default function Form({ title }) {
-  const [q, setQ] = useState("");
-  const [a, setA] = useState("");
   const dispatch = useDispatch();
+  const flashcardDraft = useSelector((state) => state.flashcardDraft);
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
 
@@ -57,9 +45,11 @@ export default function Form({ title }) {
       <FormControl className={classes.editFlashcardForm}>
         {flipped ? (
           <OutlinedInput
-            value={q}
+            value={flashcardDraft?.answer}
             onChange={(e) => {
-              setQ(() => e.target.value);
+              let draft = { ...flashcardDraft };
+              draft.answer = e.target.value;
+              dispatch(setFlashcardDraft(draft));
             }}
             color="secondary"
             multiline
@@ -70,9 +60,11 @@ export default function Form({ title }) {
           />
         ) : (
           <OutlinedInput
-            value={a}
+            value={flashcardDraft?.question}
             onChange={(e) => {
-              setA(() => e.target.value);
+              let draft = { ...flashcardDraft };
+              draft.question = e.target.value;
+              dispatch(setFlashcardDraft(draft));
             }}
             color="secondary"
             multiline
@@ -94,4 +86,15 @@ export default function Form({ title }) {
       </Button>
     </Box>
   );
+}
+
+function MyFormHelperText() {
+  const { focused } = useFormControl() || {};
+  const helperText = React.useMemo(() => {
+    if (focused) {
+      return "Editing flashcard...";
+    }
+    return "Question/Answer";
+  }, [focused]);
+  return <FormHelperText>{helperText}</FormHelperText>;
 }
