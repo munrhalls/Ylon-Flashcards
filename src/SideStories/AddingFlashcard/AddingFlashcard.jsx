@@ -1,7 +1,7 @@
 import React from "react";
 import { useStyles } from "./AddingFlashcardStyle";
-import Title from "./Composables/ChaptersForm/Title";
-import Form from "./Composables/ChaptersForm/Form";
+import Title from "./../../Composables/Title";
+import Form from "./../../Composables/Form";
 
 export default function AddingFlashcard({ children }) {
   const classes = useStyles();
