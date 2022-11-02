@@ -17,6 +17,7 @@ export default function ShufflingFlashcards() {
       <div className={classes.linksCell}>
         <Nav.Group>
           <Nav.ToAddingFlashcard />
+          <Nav.ToEditingFlashcard />
         </Nav.Group>
       </div>
     </div>

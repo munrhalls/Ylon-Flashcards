@@ -26,6 +26,22 @@ export const Nav = {
       </Button>
     );
   },
+  ToEditingFlashcard: function () {
+    const classes = useStyles();
+
+    return (
+      <Button
+        component={Link}
+        to={"/deck/edit"}
+        variant="contained"
+        size="medium"
+        className={classes.editBtn}
+        startIcon={<EditIcon />}
+      >
+        <Hidden xsDown>Edit</Hidden>
+      </Button>
+    );
+  },
   Group: function ({ children }) {
     const classes = useStyles();
     const dispatch = useDispatch();
