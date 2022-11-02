@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function AddingFlashcard({ children }) {
-  return <div></div>;
+  return <div>add</div>;
 }

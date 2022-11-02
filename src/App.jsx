@@ -1,14 +1,14 @@
-import React from "react";
-import Flashcard from "./components/Flashcard/Flashcard";
-import ShufflingFlashcards from "./MainStories/ShufflingFlashcards/ShufflingFlashcards";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./components/Theme/Theme";
-import FormControl from "./components/FormControl/FormControl";
+
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-
 import { store } from "./store/store";
+
+import ShufflingFlashcards from "./MainStories/ShufflingFlashcards/ShufflingFlashcards";
+import AddingFlashcard from "./SideStories/AddingFlashcard";
 
 export default function AppStory() {
   return (
@@ -20,7 +20,7 @@ export default function AppStory() {
 
         <Routes>
           <Route path="/" element={<ShufflingFlashcards />} />
-          <Route path="/deck/add" />
+          <Route path="/deck/add" element={<AddingFlashcard />} />
           <Route path="/deck/edit" />
           <Route path="/deck/delete" />
         </Routes>
