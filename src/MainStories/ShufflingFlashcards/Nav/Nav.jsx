@@ -1,18 +1,18 @@
 import { Button, ButtonGroup, Hidden } from "@material-ui/core";
-import {
-  AddBoxIcon,
-  DeleteIcon,
-  EditIcon,
-  SaveIcon,
-} from "@mui/icons-material";
-import { useStyles } from "./NavLinksStyle";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/SaveSharp";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import { useStyles } from "./NavStyle";
 
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-export const NavLinks = {
-  toAddingFlashcard: function () {
+export const Nav = {
+  ToAddingFlashcard: function () {
+    const classes = useStyles();
+
     return (
       <Button
         component={Link}
@@ -26,11 +26,11 @@ export const NavLinks = {
       </Button>
     );
   },
-  btnsGroup: function () {
+  Group: function ({ children }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const currentDeck = useSelector((state) => state.currentDeck);
     const unsavedChanges = useSelector((state) => state.unsavedChanges);
-    return <ButtonGroup></ButtonGroup>;
+    return <ButtonGroup>{children}</ButtonGroup>;
   },
 };

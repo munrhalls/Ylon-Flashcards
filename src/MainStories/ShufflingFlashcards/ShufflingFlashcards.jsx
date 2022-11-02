@@ -3,6 +3,7 @@ import React from "react";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
 import { useStyles } from "./ShufflingFlashcardsStyle";
 import AddingFlashcard from "../../SideStories/AddingFlashcard";
+import { Nav } from "./Nav/Nav";
 
 export default function ShufflingFlashcards() {
   const classes = useStyles();
@@ -14,7 +15,9 @@ export default function ShufflingFlashcards() {
         <MarkingDifficultyLevel />
       </div>
       <div className={classes.linksCell}>
-        <AddingFlashcard />
+        <Nav.Group>
+          <Nav.ToAddingFlashcard />
+        </Nav.Group>
       </div>
     </div>
   );
