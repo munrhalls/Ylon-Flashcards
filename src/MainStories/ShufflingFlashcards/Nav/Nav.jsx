@@ -58,11 +58,31 @@ export const Nav = {
       </Button>
     );
   },
-  Group: function ({ children }) {
+  SavingChanges: function () {
     const classes = useStyles();
     const dispatch = useDispatch();
     const currentDeck = useSelector((state) => state.currentDeck);
-    const unsavedChanges = useSelector((state) => state.unsavedChanges);
-    return <ButtonGroup>{children}</ButtonGroup>;
+
+    return (
+      <Button
+        className={classes.saveBtnActive}
+        onClick={() =>
+          dispatch({
+            type: "DECK__UPDATE__REQUESTED",
+            payload: currentDeck,
+          })
+        }
+        component={Link}
+        variant="contained"
+        size="medium"
+        startIcon={<SaveIcon />}
+      >
+        <Hidden xsDown>Save changes</Hidden>
+      </Button>
+    );
+  },
+  Group: function ({ children }) {
+    const classes = useStyles();
+    return <ButtonGroup className={classes.btnGroup}>{children}</ButtonGroup>;
   },
 };

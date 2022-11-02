@@ -18,7 +18,7 @@ export const useStyles = makeStyles((themes) => {
       gridRowEnd: "3",
       minWidth: "0",
     },
-    buttonGroupsWrapper: {
+    btnGroup: {
       width: "100%",
       display: "flex",
       justifyContent: "space-between",
@@ -30,9 +30,10 @@ export const useStyles = makeStyles((themes) => {
       backgroundColor: `${blue[900]} !important `,
     },
     saveBtnActive: {
-      width: "100%",
+      // width: "100%",
       background: `${blue[900]} !important `,
       backgroundColor: `${blue[900]} !important `,
+      marginLeft: "auto",
     },
   };
 });

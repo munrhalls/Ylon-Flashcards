@@ -19,6 +19,7 @@ export default function ShufflingFlashcards() {
           <Nav.ToAddingFlashcard />
           <Nav.ToEditingFlashcard />
           <Nav.ToDeletingFlashcard />
+          <Nav.SavingChanges />
         </Nav.Group>
       </div>
     </div>
