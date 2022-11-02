@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function FlashcardEditBtns({ currFlashcard }) {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const currentDeck = useSelector((state) => state.currentDeck);
-  const unsavedChanges = useSelector((state) => state.unsavedChanges);
+  // const classes = useStyles();
+  // const dispatch = useDispatch();
+  // const currentDeck = useSelector((state) => state.currentDeck);
+  // const unsavedChanges = useSelector((state) => state.unsavedChanges);
   
   return (
     <div className={classes.editBtnsCell}>

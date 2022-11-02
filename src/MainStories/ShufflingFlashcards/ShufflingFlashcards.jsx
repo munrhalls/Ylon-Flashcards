@@ -2,6 +2,7 @@ import FlippingCard from "./Chapters/FlippingCard";
 import React from "react";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
 import { useStyles } from "./ShufflingFlashcardsStyle";
+import AddingFlashcard from "../../SideStories/AddingFlashcard";
 
 export default function ShufflingFlashcards() {
   const classes = useStyles();
@@ -11,6 +12,9 @@ export default function ShufflingFlashcards() {
       <div className={classes.flashcardCell}>
         <FlippingCard />
         <MarkingDifficultyLevel />
+      </div>
+      <div className={classes.linksCell}>
+        <AddingFlashcard />
       </div>
     </div>
   );

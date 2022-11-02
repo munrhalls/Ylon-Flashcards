@@ -30,5 +30,12 @@ export const useStyles = makeStyles((themes) => {
       zIndex: "1",
       backgroundColor: "#000",
     },
+    linksCell: {
+      gridColumnStart: "2",
+      gridColumnEnd: "2",
+      gridRowStart: "3",
+      gridRowEnd: "3",
+      minWidth: "0",
+    },
   };
 });
