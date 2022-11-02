@@ -1,17 +1,20 @@
 import { OutlinedInput } from "@mui/material";
 import { useStyles } from "./FlippingInputStyle";
-
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import FlipIcon from "@mui/icons-material/FlipCameraAndroidSharp";
+import { Button } from "@material-ui/core";
+import { flip } from "../../../store/store";
 
 export default function FlippingInput() {
   const [q, setQ] = useState("");
   const [a, setA] = useState("");
+  const dispatch = useDispatch();
   const flipped = useSelector((state) => state.flipped);
   const classes = useStyles();
 
   return (
-    <>
+    <div>
       {flipped ? (
         <OutlinedInput
           value={q}
@@ -38,6 +41,13 @@ export default function FlippingInput() {
           placeholder="Please enter text"
         />
       )}
-    </>
+      <Button
+        size="small"
+        variant="contained"
+        onClick={() => dispatch(flip(flipped))}
+      >
+        <FlipIcon />
+      </Button>
+    </div>
   );
 }

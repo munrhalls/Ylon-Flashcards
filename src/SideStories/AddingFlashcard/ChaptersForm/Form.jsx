@@ -17,7 +17,6 @@ export default function Form() {
     <FormControl className={classes.form}>
       <FlippingInput />
       <HelperText normal="Question/Answer" focusTxt="Editing flashcard..." />
-      <FlipBtn />
     </FormControl>
   );
 }

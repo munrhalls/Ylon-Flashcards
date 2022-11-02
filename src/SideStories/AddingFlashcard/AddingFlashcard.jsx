@@ -12,7 +12,10 @@ export default function AddingFlashcard({ children }) {
         <Title title="Add flashcard" />
         <Form />
       </div>
-      <div className={classes.linksCell}>asd</div>
+      <div className={classes.linksCell}>
+        <div>confirm</div>
+        <div>discard</div>
+      </div>
     </div>
   );
 }
