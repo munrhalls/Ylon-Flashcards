@@ -4,7 +4,16 @@ Electronic flashcards.
 
 React / Redux / React Router / Firebase / CSS Grid / Material-UI.
 
-This is a learning and training project. In development.
+This is a learning and training project. In development. 
+
+Few key  points for deliberate practice:
+- thinking in Redux + Redux-Saga
+- Material UI few key syntax things
+- thinking that works for efficient applying of Material UI
+
+Aim-at aftermath: 
+- Feel comfortable using Redux + Redux-Saga and Material UI
+- can think and code up React/Redux + Redux-Saga/Material UI quite quickly
 
 ---
 
