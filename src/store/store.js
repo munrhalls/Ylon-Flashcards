@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, combineReducers } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas";
 
@@ -24,6 +24,17 @@ export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setFlashcard = createAction("SET__FLASHCARD");
 export const flip = createAction("FLIP");
+
+// initial state -> currentDeck
+  // flipped etc
+// initial state -> deckList
+  // new deck etc
+  // deck id etc
+// initial state -> app
+  // save changes
+
+
+// rootRedicer = comb
 
 const rootReducer = createReducer(initialState, (builder) => {
   builder
