@@ -14,17 +14,20 @@ import { setFlashcardDraft } from "../store/store";
 import { setUnsavedChanges } from "../store/store";
 
 export default function FormControl({ mode }) {
-  const state = useSelector((state) => state);
-  console.log(state);
-
+  const classes = useStyles();
   const dispatch = useDispatch();
   const currentFlashcard = useSelector(
     (state) => state.currentDeck.flashcards[0]
   );
-  console.log(currentFlashcard);
   const flashcardDraft = useSelector((state) => state.app.flashcardDraft);
 
-  const classes = useStyles();
+  useEffect(() => {
+    handleDraft();
+
+    return () => {
+      resetDraft();
+    };
+  }, []);
 
   function handleDraft() {
     if (mode === "edit") {
@@ -32,27 +35,43 @@ export default function FormControl({ mode }) {
     }
   }
 
+  function resetDraft() {
+    dispatch(
+      setFlashcardDraft({ question: "Question...", answer: "Answer..." })
+    );
+  }
+
+  function handleAdd() {
+    dispatch(addFlashcard(flashcardDraft));
+    resetDraft();
+  }
+  function handleEdit() {
+    dispatch(setFlashcard(flashcardDraft));
+    resetDraft();
+  }
+
   function handleDispatch() {
     if (mode === "add") {
-      dispatch(addFlashcard(flashcardDraft));
-      dispatch(
-        setFlashcardDraft({ question: "Question...", answer: "Answer..." })
-      );
+      handleAdd();
     }
     if (mode === "edit") {
-      dispatch(setFlashcard(flashcardDraft));
+      handleEdit();
     }
     dispatch(setUnsavedChanges(true));
   }
 
-  useEffect(() => {
-    handleDraft();
-  }, []);
+  function handleFormTitle() {
+    return mode === "add" ? "Add flashcard" : "Edit flashcard";
+  }
+
+  function handleSaveBtnTitle() {
+    return mode === "add" ? "Add" : "Save";
+  }
 
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <Form title={mode === "add" ? "Add flashcard" : "Edit flashcard"} />
+        <Form title={handleFormTitle()} />
 
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
@@ -66,13 +85,12 @@ export default function FormControl({ mode }) {
             startIcon={<SaveIcon />}
           >
             <Hidden xsDown>
-              <Typography variant="subtitle">
-                {mode === "add" ? "Add" : "Save"}
-              </Typography>
+              <Typography variant="subtitle">{handleSaveBtnTitle()}</Typography>
             </Hidden>
           </Button>
           <Button
             size="large"
+            onClick={() => resetDraft()}
             component={Link}
             to={"/"}
             className={classes.editFlashcardDiscardButton}
