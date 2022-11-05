@@ -35,6 +35,9 @@ export default function FormControl({ mode }) {
   function handleDispatch() {
     if (mode === "add") {
       dispatch(addFlashcard(flashcardDraft));
+      dispatch(
+        setFlashcardDraft({ question: "Question...", answer: "Answer..." })
+      );
     }
     if (mode === "edit") {
       dispatch(setFlashcard(flashcardDraft));
