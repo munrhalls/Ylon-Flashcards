@@ -23,6 +23,8 @@ export default function ShufflingFlashcards() {
   const isDrawerOpen = useSelector((state) => state.app.isDrawerOpen);
   console.log(state);
 
+  function toggleDrawer() {}
+
   const DecksStack = (
     <Stack
       spacing={3}
@@ -51,11 +53,13 @@ export default function ShufflingFlashcards() {
     <div className={classes.container}>
       <Drawer
         className={classes.drawer}
-        open={true}
+        variant="persistent"
+        open={isDrawerOpen}
         anchor="left"
         children={DecksStack}
       ></Drawer>
       <div className={classes.flashcardCell}>
+        <Button className={classes.drawerBtn} onClick={toggleDrawer()}></Button>
         <FlippingCard />
         <MarkingDifficultyLevel />
       </div>

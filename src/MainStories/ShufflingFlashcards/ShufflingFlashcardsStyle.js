@@ -22,6 +22,7 @@ export const useStyles = makeStyles((themes) => {
         right: "30%",
         background: "#000",
         padding: ".5rem",
+
         "& .DecksStack": {
           "& .DeckItem": {
             background: "#fff",
