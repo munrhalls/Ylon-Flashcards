@@ -1,7 +1,17 @@
 import FlippingCard from "./Chapters/FlippingCard";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
 import { useStyles } from "./ShufflingFlashcardsStyle";
-import { Drawer, Paper, Stack } from "@mui/material";
+import {
+  Drawer,
+  Paper,
+  Stack,
+  Button,
+  Typography,
+  ListItem,
+  ListItemText,
+  ListSubheader,
+} from "@mui/material";
+import StyleIcon from "@mui/icons-material/Style";
 import { Nav } from "./Nav/Nav";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -14,11 +24,22 @@ export default function ShufflingFlashcards() {
   console.log(state);
 
   const DecksStack = (
-    <Stack spacing={2}>
+    <Stack
+      spacing={3}
+      className="DecksStack"
+      justifyContent="center"
+      alignItems="center"
+    >
       {state.app.decks.map((deck) => {
         return (
-          <Paper key={deck?.title + "KEY"} className="DeckItem">
-            {deck?.title}
+          <Paper
+            variant="contained"
+            key={deck?.title + "KEY"}
+            className="DeckItem"
+          >
+            <Button startIcon={<StyleIcon />}>
+              <Typography variant="subtitle2">{deck?.title}</Typography>
+            </Button>
           </Paper>
         );
       })}

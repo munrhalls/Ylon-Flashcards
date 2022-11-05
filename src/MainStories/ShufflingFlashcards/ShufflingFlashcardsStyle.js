@@ -22,9 +22,21 @@ export const useStyles = makeStyles((themes) => {
         right: "30%",
         background: "#000",
         padding: ".5rem",
-        "& .DeckItem": {
-          background: "#fff",
-          height: "40%",
+        "& .DecksStack": {
+          "& .DeckItem": {
+            background: "#fff",
+
+            maxWidth: "90%",
+            minWidth: "90%",
+            padding: "1rem",
+            cursor: "pointer",
+            color: "#000",
+            textOverflow: "hidden",
+            whitespace: "nowrap",
+            "& Button": {
+              color: "#000",
+            },
+          },
         },
       },
     },
