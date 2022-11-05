@@ -13,8 +13,8 @@ import { setFlashcardDraft } from "./../store/store";
 
 export default function Form({ title }) {
   const dispatch = useDispatch();
-  const flashcardDraft = useSelector((state) => state.flashcardDraft);
-  const flipped = useSelector((state) => state.flipped);
+  const flashcardDraft = useSelector((state) => state.app.flashcardDraft);
+  const flipped = useSelector((state) => state.app.flipped);
   const classes = useStyles();
 
   return (

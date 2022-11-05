@@ -15,13 +15,14 @@ import { setUnsavedChanges } from "../store/store";
 
 export default function FormControl({ mode }) {
   const state = useSelector((state) => state);
-  console.log(state.currentDeck.flashcards);
+  console.log(state);
 
   const dispatch = useDispatch();
   const currentFlashcard = useSelector(
     (state) => state.currentDeck.flashcards[0]
   );
-  const flashcardDraft = useSelector((state) => state.flashcardDraft);
+  console.log(currentFlashcard);
+  const flashcardDraft = useSelector((state) => state.app.flashcardDraft);
 
   const classes = useStyles();
 
@@ -53,6 +54,8 @@ export default function FormControl({ mode }) {
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => handleDispatch()}
+            component={Link}
+            to={"/"}
             size="large"
             className={classes.editFlashcardSubmitButton}
             type="submit"

@@ -6,7 +6,7 @@ import { flip } from "../../../store/store";
 
 export default function FlippingCard() {
   const classes = useStyles();
-  const flipped = useSelector((state) => state.flipped);
+  const flipped = useSelector((state) => state.app.flipped);
   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
   const dispatch = useDispatch();
 

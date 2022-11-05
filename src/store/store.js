@@ -1,16 +1,39 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createAction, createReducer, combineReducers } from "@reduxjs/toolkit";
+
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas";
-
 const sagaMiddleware = createSagaMiddleware();
 
-const initialState = {
+const currentDeck = {
+  title: "Starter deck",
+  flashcards: [{ question: "Question...", answer: "Answer..." }],
+};
+
+export const setCurrentDeck = createAction("SET__CURRENT__DECK");
+export const addFlashcard = createAction("ADD__FLASHCARD");
+export const setFlashcard = createAction("SET__FLASHCARD");
+export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
+export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
+export const flip = createAction("FLIP");
+
+const currentDeckReducer = createReducer(currentDeck, (builder) => {
+  builder
+    .addCase(setCurrentDeck, (state, action) => {
+      state = action.payload;
+    })
+    .addCase(addFlashcard, (state, action) => {
+      state.flashcards = [{ ...action.payload }, ...state.flashcards];
+      state.unsavedChanges = true;
+    })
+    .addCase(setFlashcard, (state, action) => {
+      state.flashcards[0] = action.payload;
+      state.unsavedChanges = true;
+    });
+});
+
+const app = {
   decks: [],
-  currentDeck: {
-    title: "Starter deck",
-    flashcards: [{ question: "Question...", answer: "Answer..." }],
-  },
   flashcardDraft: {
     question: "",
     answer: "",
@@ -18,50 +41,24 @@ const initialState = {
   flipped: false,
   unsavedChanges: false,
 };
-export const setCurrentDeck = createAction("SET__CURRENT__DECK");
-export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
-export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
-export const addFlashcard = createAction("ADD__FLASHCARD");
-export const setFlashcard = createAction("SET__FLASHCARD");
-export const flip = createAction("FLIP");
 
-// initial state -> currentDeck
-  // flipped etc
-// initial state -> deckList
-  // new deck etc
-  // deck id etc
-// initial state -> app
-  // save changes
-
-
-// rootRedicer = comb
-
-const rootReducer = createReducer(initialState, (builder) => {
+const appReducer = createReducer(app, (builder) => {
   builder
-    .addCase(setCurrentDeck, (state, action) => {
-      state.currentDeck = action.payload;
-    })
     .addCase(setFlashcardDraft, (state, action) => {
       state.flashcardDraft = action.payload;
     })
     .addCase(setUnsavedChanges, (state, action) => {
       state.unsavedChanges = action.payload;
     })
-    .addCase(addFlashcard, (state, action) => {
-      state.currentDeck.flashcards = [
-        { ...action.payload },
-        ...state.currentDeck.flashcards,
-      ];
-      state.unsavedChanges = true;
-    })
-    .addCase(setFlashcard, (state, action) => {
-      state.currentDeck.flashcards[0] = action.payload;
-      state.unsavedChanges = true;
-    })
     .addCase(flip, (state, action) => {
       console.log("flip");
       state.flipped = !action.payload;
     });
+});
+
+const rootReducer = combineReducers({
+  currentDeck: currentDeckReducer,
+  app: appReducer,
 });
 
 const store = configureStore({
