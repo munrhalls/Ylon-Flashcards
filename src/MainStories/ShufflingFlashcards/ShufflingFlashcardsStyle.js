@@ -17,6 +17,17 @@ export const useStyles = makeStyles((themes) => {
         gridTemplateRows: "15% 70% 95%",
       },
     },
+    drawer: {
+      "& .MuiPaper-root": {
+        right: "30%",
+        background: "#000",
+        padding: ".5rem",
+        "& .DeckItem": {
+          background: "#fff",
+          height: "40%",
+        },
+      },
+    },
     flashcardCell: {
       gridColumnStart: "2",
       gridColumnEnd: "2",

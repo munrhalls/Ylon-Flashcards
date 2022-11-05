@@ -40,7 +40,25 @@ const currentDeckReducer = createReducer(currentDeck, (builder) => {
 });
 
 const app = {
-  decks: [],
+  decks: [
+    {
+      title: "Starter deck 1",
+      flashcards: [{ question: "Question...", answer: "Answer..." }],
+    },
+    {
+      title: "Starter deck 2",
+      flashcards: [{ question: "Question...", answer: "Answer..." }],
+    },
+    {
+      title: "Starter deck 3",
+      flashcards: [{ question: "Question...", answer: "Answer..." }],
+    },
+    {
+      title: "Starter deck 4",
+      flashcards: [{ question: "Question...", answer: "Answer..." }],
+    },
+  ],
+  isDrawerOpen: false,
   flashcardDraft: {
     question: "",
     answer: "",
