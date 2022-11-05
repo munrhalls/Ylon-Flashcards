@@ -18,7 +18,7 @@ export default function AppStory() {
         <Route path="/" element={<ShufflingFlashcards />} />
         <Route path="/deck/add" element={<FormControl mode={"add"} />} />
         <Route path="/deck/edit" element={<FormControl mode={"edit"} />} />
-        <Route path="/deck/delete" element={<FormControl />} />
+        <Route path="/deck/delete" element={<FormControl mode={"delete"} />} />
       </Routes>
     </Provider>
   );

@@ -8,6 +8,7 @@ import { useStyles } from "./NavStyle";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteFlashcard } from "../../../store/store";
 
 export const Nav = {
   ToAddingFlashcard: function () {
@@ -43,19 +44,30 @@ export const Nav = {
     );
   },
   ToDeletingFlashcard: function () {
+    const flashcards = useSelector((state) => state.currentDeck.flashcards);
+    const isFlashcards = flashcards?.length;
+    const dispatch = useDispatch();
     const classes = useStyles();
 
+    function handleDeleteCard() {
+      const currCardIndex = 0;
+      dispatch(deleteFlashcard(currCardIndex));
+    }
+
     return (
-      <Button
-        component={Link}
-        to={"/deck/delete"}
-        variant="contained"
-        size="medium"
-        className={classes.deleteBtn}
-        startIcon={<DeleteIcon />}
-      >
-        <Hidden xsDown>Delete</Hidden>
-      </Button>
+      <>
+        {isFlashcards && (
+          <Button
+            onClick={() => handleDeleteCard()}
+            variant="contained"
+            size="medium"
+            className={classes.deleteBtn}
+            startIcon={<DeleteIcon />}
+          >
+            <Hidden xsDown>Delete</Hidden>
+          </Button>
+        )}
+      </>
     );
   },
   SavingChanges: function () {

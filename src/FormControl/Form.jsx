@@ -13,7 +13,7 @@ import { setFlashcardDraft } from "./../store/store";
 
 export default function Form({ title }) {
   const dispatch = useDispatch();
-  const flashcardDraft = useSelector((state) => state.app.flashcardDraft);
+  const draftCard = useSelector((state) => state.app.flashcardDraft);
   const flipped = useSelector((state) => state.app.flipped);
   const classes = useStyles();
 
@@ -45,9 +45,9 @@ export default function Form({ title }) {
       <FormControl className={classes.editFlashcardForm}>
         {flipped ? (
           <OutlinedInput
-            value={flashcardDraft?.answer}
+            value={draftCard?.answer}
             onChange={(e) => {
-              let draft = { ...flashcardDraft };
+              let draft = { ...draftCard };
               draft.answer = e.target.value;
               dispatch(setFlashcardDraft(draft));
             }}
@@ -60,9 +60,9 @@ export default function Form({ title }) {
           />
         ) : (
           <OutlinedInput
-            value={flashcardDraft?.question}
+            value={draftCard?.question}
             onChange={(e) => {
-              let draft = { ...flashcardDraft };
+              let draft = { ...draftCard };
               draft.question = e.target.value;
               dispatch(setFlashcardDraft(draft));
             }}

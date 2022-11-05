@@ -13,6 +13,7 @@ const currentDeck = {
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setFlashcard = createAction("SET__FLASHCARD");
+export const deleteFlashcard = createAction("DELETE__FLASHCARD");
 export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 export const flip = createAction("FLIP");
@@ -28,6 +29,12 @@ const currentDeckReducer = createReducer(currentDeck, (builder) => {
     })
     .addCase(setFlashcard, (state, action) => {
       state.flashcards[0] = action.payload;
+      state.unsavedChanges = true;
+    })
+    .addCase(deleteFlashcard, (state, action) => {
+      console.log(state.flashcards);
+      state.flashcards.splice(action.payload, 1);
+
       state.unsavedChanges = true;
     });
 });
