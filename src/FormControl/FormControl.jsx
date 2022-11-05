@@ -16,10 +16,8 @@ import { setUnsavedChanges } from "../store/store";
 export default function FormControl({ mode }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const currentFlashcard = useSelector(
-    (state) => state.currentDeck.flashcards[0]
-  );
-  const flashcardDraft = useSelector((state) => state.app.flashcardDraft);
+  const currCard = useSelector((state) => state.currentDeck.flashcards[0]);
+  const draftCard = useSelector((state) => state.app.flashcardDraft);
 
   useEffect(() => {
     handleDraft();
@@ -31,22 +29,21 @@ export default function FormControl({ mode }) {
 
   function handleDraft() {
     if (mode === "edit") {
-      dispatch(setFlashcardDraft({ ...currentFlashcard }));
+      dispatch(setFlashcardDraft({ ...currCard }));
     }
   }
 
   function resetDraft() {
-    dispatch(
-      setFlashcardDraft({ question: "Question...", answer: "Answer..." })
-    );
+    const draftCard = { question: "Question...", answer: "Answer..." };
+    dispatch(setFlashcardDraft(draftCard));
   }
 
   function handleAdd() {
-    dispatch(addFlashcard(flashcardDraft));
+    dispatch(addFlashcard(draftCard));
     resetDraft();
   }
   function handleEdit() {
-    dispatch(setFlashcard(flashcardDraft));
+    dispatch(setFlashcard(draftCard));
     resetDraft();
   }
 
