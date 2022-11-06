@@ -9,15 +9,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFlashcard } from "../../../store/store";
+import { setIsDrawerOpen } from "../../../store/store";
 
 export const Nav = {
   ToAddingFlashcard: function () {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     return (
       <Button
         component={Link}
         to={"/deck/add"}
+        onClick={() => dispatch(setIsDrawerOpen(true))}
         variant="contained"
         size="medium"
         className={classes.addBtn}

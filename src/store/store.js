@@ -17,6 +17,7 @@ export const deleteFlashcard = createAction("DELETE__FLASHCARD");
 export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 export const flip = createAction("FLIP");
+export const setIsDrawerOpen = createAction("SET__IS__DRAWER__OPEN");
 
 const currentDeckReducer = createReducer(currentDeck, (builder) => {
   builder
@@ -78,6 +79,10 @@ const appReducer = createReducer(app, (builder) => {
     .addCase(flip, (state, action) => {
       console.log("flip");
       state.flipped = !action.payload;
+    })
+    .addCase(setIsDrawerOpen, (state, action) => {
+      console.log("drawer");
+      state.isDrawerOpen = action.payload;
     });
 });
 
