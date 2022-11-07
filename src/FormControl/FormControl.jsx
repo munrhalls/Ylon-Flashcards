@@ -69,7 +69,7 @@ export default function FormControl({ mode }) {
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
         <Form title={handleFormTitle()} />
-        
+
         <div className={classes.editFlashcardSubmitButtonContainer}>
           <Button
             onClick={() => handleDispatch()}

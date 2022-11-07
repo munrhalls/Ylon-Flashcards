@@ -63,6 +63,19 @@ export const useStyles = makeStyles((themes) => {
       alignItems: "center",
       height: "80%",
       width: "90%",
+      wordBreak: "break-word",
+      overflow: "auto",
+      padding: ".5rem 0 3rem 0",
+      "& .MuiInputBase-input": {
+        paddingTop: "1rem",
+        paddingBottom: "3rem",
+        maxHeight: "70%",
+      },
+      "& .MuiOutlinedInput-input": {
+        paddingTop: "1rem",
+        paddingBottom: "3rem",
+        maxHeight: "70%",
+      },
     },
     editFlashcardInput: {
       height: "90%",
