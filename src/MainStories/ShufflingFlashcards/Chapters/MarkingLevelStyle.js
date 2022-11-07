@@ -26,44 +26,34 @@ export const useStyles = makeStyles((themes) => {
       bottom: "2.5%",
       right: "2.5%",
     },
-    hard: {
-      backgroundColor: red[900],
+    btn: {
+      padding: "0",
       flex: "1",
-      width: "80%",
+      minWidth: "0",
+      width: "40%",
       margin: "2.5% 0",
-      [themes.breakpoints.down("xs")]: {
-        maxWidth: "80%",
-        fontSize: "12px",
+      "& .MuiButton-label": {
+        display: "flex",
+        flexDirection: "column",
+      },
+      "& .MuiSvgIcon-root": {
+        width: "2em",
+        fontSize: "1.5rem",
+        [themes.breakpoints.down("sm")]: {
+          maxWidth: "40%",
+          fontSize: "12px",
+        },
       },
     },
-    medium: {
-      backgroundColor: orange[900],
-      flex: "1",
-      width: "80%",
-      margin: "2.5% 0",
-      [themes.breakpoints.down("xs")]: {
-        maxWidth: "80%",
-        fontSize: "12px",
-      },
-    },
-    easy: {
-      backgroundColor: blue[900],
-      flex: "1",
-      width: "80%",
-      margin: "2.5% 0",
-      [themes.breakpoints.down("xs")]: {
-        maxWidth: "80%",
-        fontSize: "12px",
-      },
-    },
-    pass: {
-      backgroundColor: green[900],
-      flex: "1",
-      width: "80%",
-      margin: "2.5% 0",
-      [themes.breakpoints.down("xs")]: {
-        maxWidth: "80%",
-        fontSize: "12px",
+    next: {
+      "&.MuiSvgIcon-root": {
+        width: "4rem",
+        fontSize: "4rem",
+        [themes.breakpoints.down("xs")]: {
+          maxWidth: "40%",
+          width: "4rem",
+          fontSize: "4rem",
+        },
       },
     },
   };

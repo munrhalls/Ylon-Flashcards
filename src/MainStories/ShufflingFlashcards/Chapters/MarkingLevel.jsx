@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Hidden } from "@material-ui/core";
 import MouseIcon from "@mui/icons-material/Mouse";
 import { useStyles } from "./MarkingLevelStyle";
+import SquareRoundedIcon from "@mui/icons-material/SquareRounded";
+import NextPlanIcon from "@mui/icons-material/NextPlan";
+import { red, orange, blue, green } from "@mui/material/colors";
 
 export default function MarkingDifficultyLevel() {
   const classes = useStyles();
@@ -9,52 +12,39 @@ export default function MarkingDifficultyLevel() {
   return (
     <div className={classes.difficultyButtons}>
       <Button
-        endIcon={
-          <Hidden xsDown>
-            <MouseIcon />
-          </Hidden>
-        }
+        style={{ backgroundColor: red[900] }}
         variant="contained"
         size="large"
-        className={classes.hard}
+        className={classes.btn}
       >
-        Hard
+        <SquareRoundedIcon className={classes.lvlIcon} />
+        <SquareRoundedIcon className={classes.lvlIcon} />
+        <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
-        endIcon={
-          <Hidden xsDown>
-            <MouseIcon />
-          </Hidden>
-        }
+        style={{ backgroundColor: orange[900] }}
         variant="contained"
         size="large"
-        className={classes.medium}
+        className={classes.btn}
       >
-        Medium
+        <SquareRoundedIcon className={classes.lvlIcon} />
+        <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
-        endIcon={
-          <Hidden xsDown>
-            <MouseIcon />
-          </Hidden>
-        }
+        style={{ backgroundColor: blue[900] }}
         variant="contained"
         size="large"
-        className={classes.easy}
+        className={classes.btn}
       >
-        Easy
+        <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
-        endIcon={
-          <Hidden xsDown>
-            <MouseIcon />
-          </Hidden>
-        }
+        style={{ backgroundColor: green[900] }}
         variant="contained"
         size="large"
-        className={classes.pass}
+        className={classes.btn}
       >
-        Pass
+        <NextPlanIcon className={classes.next} />
       </Button>
     </div>
   );
