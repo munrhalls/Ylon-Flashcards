@@ -68,7 +68,6 @@ const app = {
   unsavedChanges: false,
 };
 
-
 const appReducer = createReducer(app, (builder) => {
   builder
     .addCase(setFlashcardDraft, (state, action) => {
@@ -86,7 +85,7 @@ const appReducer = createReducer(app, (builder) => {
       state.isDrawerOpen = action.payload;
     });
 });
-  
+
 const rootReducer = combineReducers({
   currentDeck: currentDeckReducer,
   app: appReducer,
