@@ -44,6 +44,10 @@ export const useStyles = makeStyles((themes) => {
     emptyMsg: {
       color: "#fff",
       margin: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
     },
     flashcardCell: {
       gridColumnStart: "2",

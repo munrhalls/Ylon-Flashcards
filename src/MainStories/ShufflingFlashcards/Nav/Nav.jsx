@@ -26,7 +26,7 @@ export const Nav = {
         className={classes.addBtn}
         startIcon={<AddBoxIcon />}
       >
-        <Hidden xsDown>{text ? text : " Add"}</Hidden>
+        {text ? text : <Hidden xsDown>" Add" </Hidden>}
       </Button>
     );
   },
