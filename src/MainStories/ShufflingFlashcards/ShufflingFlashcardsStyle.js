@@ -14,7 +14,7 @@ export const useStyles = makeStyles((themes) => {
       },
       [themes.breakpoints.down("sm")]: {
         gridTemplateColumns: "5% 90% 95%",
-        gridTemplateRows: "15% 70% 95%",
+        gridTemplateRows: "25% 60% 95%",
       },
     },
     drawer: {
@@ -40,6 +40,10 @@ export const useStyles = makeStyles((themes) => {
           },
         },
       },
+    },
+    emptyMsg: {
+      color: "#fff",
+      margin: "auto",
     },
     flashcardCell: {
       gridColumnStart: "2",

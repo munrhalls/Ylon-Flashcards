@@ -47,6 +47,7 @@ export const useStyles = makeStyles((themes) => {
     },
     next: {
       "&.MuiSvgIcon-root": {
+        maxHeight: "2rem",
         width: "4rem",
         fontSize: "4rem",
         [themes.breakpoints.down("xs")]: {

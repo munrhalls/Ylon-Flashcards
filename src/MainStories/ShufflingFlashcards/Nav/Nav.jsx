@@ -12,7 +12,7 @@ import { deleteFlashcard } from "../../../store/store";
 import { setIsDrawerOpen } from "../../../store/store";
 
 export const Nav = {
-  ToAddingFlashcard: function () {
+  ToAddingFlashcard: function ({ text }) {
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export const Nav = {
         className={classes.addBtn}
         startIcon={<AddBoxIcon />}
       >
-        <Hidden xsDown>Add</Hidden>
+        <Hidden xsDown>{text ? text : " Add"}</Hidden>
       </Button>
     );
   },
@@ -47,8 +47,6 @@ export const Nav = {
     );
   },
   ToDeletingFlashcard: function () {
-    const flashcards = useSelector((state) => state.currentDeck.flashcards);
-    const isFlashcards = flashcards?.length;
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -58,27 +56,29 @@ export const Nav = {
     }
 
     return (
-      <>
-        {isFlashcards && (
-          <Button
-            onClick={() => handleDeleteCard()}
-            variant="contained"
-            size="medium"
-            className={classes.deleteBtn}
-            startIcon={<DeleteIcon />}
-          >
-            <Hidden xsDown>Delete</Hidden>
-          </Button>
-        )}
-      </>
+      <Button
+        onClick={() => handleDeleteCard()}
+        variant="contained"
+        size="medium"
+        className={classes.deleteBtn}
+        startIcon={<DeleteIcon />}
+      >
+        <Hidden xsDown>Delete</Hidden>
+      </Button>
     );
+  },
+  DecksList: function () {
+    return <h1>DecksList</h1>;
+  },
+  CurrentDeck: function () {
+    return <h1>deck</h1>;
   },
   SavingChanges: function () {
     const classes = useStyles();
     const dispatch = useDispatch();
     const currentDeck = useSelector((state) => state.currentDeck);
     const unsavedChanges = useSelector((state) => state.unsavedChanges);
-
+    
     return (
       <>
         {unsavedChanges && (

@@ -31,7 +31,7 @@ export default function FlippingCard() {
         className={classes.flashcard}
         style={styles.front}
       >
-        {currFlashcard.question}
+        {currFlashcard?.question}
       </Card>
 
       <Card
@@ -40,7 +40,7 @@ export default function FlippingCard() {
         className={classes.flashcard}
         style={styles.back}
       >
-        {currFlashcard.answer}
+        {currFlashcard?.answer}
       </Card>
     </>
   );

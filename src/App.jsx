@@ -15,9 +15,9 @@ import {
   ListSubheader,
 } from "@mui/material";
 
+import Decks from "./MainStories/Decks/Decks";
 import ShufflingFlashcards from "./MainStories/ShufflingFlashcards/ShufflingFlashcards";
 import FormControl from "./FormControl/FormControl";
-import DrawerControl from "./DrawerControl/DrawerControl";
 
 export default function AppStory() {
   const theme = createTheme({
@@ -41,7 +41,8 @@ export default function AppStory() {
 
         <Routes>
           <Route path="/" element={<ShufflingFlashcards />} />
-          <Route path="/deck/add" element={<ShufflingFlashcards />} />} />
+          <Route path="/decks/list" element={<Decks />} />
+          <Route path="/deck/add" element={<FormControl mode={"add"} />} />
           <Route path="/deck/edit" element={<FormControl mode={"edit"} />} />
           <Route path="/deck/delete" />
         </Routes>
