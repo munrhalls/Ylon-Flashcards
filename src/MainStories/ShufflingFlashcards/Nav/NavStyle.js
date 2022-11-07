@@ -8,9 +8,15 @@ export const useStyles = makeStyles((themes) => {
       display: "flex",
       justifyContent: "flex-start",
       flexWrap: "nowrap",
+
       [themes.breakpoints.down("xs")]: {
+        "& .MuiButtonBase-root": {
+          minWidth: "0",
+          maxWidth: "1.5rem",
+          width: "1.5rem",
+        },
         "& .MuiButton-startIcon": {
-          marginRight: "0",
+          margin: "0",
         },
       },
     },

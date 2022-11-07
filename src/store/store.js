@@ -17,7 +17,6 @@ export const deleteFlashcard = createAction("DELETE__FLASHCARD");
 export const setFlashcardDraft = createAction("SET__FLASHCARD__DRAFT");
 export const setUnsavedChanges = createAction("SET__UNSAVED__CHANGES");
 export const flip = createAction("FLIP");
-export const setIsDrawerOpen = createAction("SET__IS__DRAWER__OPEN");
 
 const currentDeckReducer = createReducer(currentDeck, (builder) => {
   builder
@@ -59,7 +58,6 @@ const app = {
       flashcards: [{ question: "Question...", answer: "Answer..." }],
     },
   ],
-  isDrawerOpen: false,
   flashcardDraft: {
     question: "",
     answer: "",
@@ -74,15 +72,12 @@ const appReducer = createReducer(app, (builder) => {
       state.flashcardDraft = action.payload;
     })
     .addCase(setUnsavedChanges, (state, action) => {
+      console.log(action.payload);
       state.unsavedChanges = action.payload;
     })
     .addCase(flip, (state, action) => {
       console.log("flip");
       state.flipped = !action.payload;
-    })
-    .addCase(setIsDrawerOpen, (state, action) => {
-      console.log("drawer");
-      state.isDrawerOpen = action.payload;
     });
 });
 

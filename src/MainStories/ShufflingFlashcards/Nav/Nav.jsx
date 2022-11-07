@@ -20,7 +20,6 @@ export const Nav = {
       <Button
         component={Link}
         to={"/deck/add"}
-        onClick={() => dispatch(setIsDrawerOpen(true))}
         variant="contained"
         size="medium"
         className={classes.addBtn}
@@ -77,7 +76,7 @@ export const Nav = {
     const classes = useStyles();
     const dispatch = useDispatch();
     const currentDeck = useSelector((state) => state.currentDeck);
-    const unsavedChanges = useSelector((state) => state.unsavedChanges);
+    const unsavedChanges = useSelector((state) => state.app.unsavedChanges);
 
     return (
       <>

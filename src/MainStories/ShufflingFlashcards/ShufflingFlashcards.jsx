@@ -50,9 +50,8 @@ export default function ShufflingFlashcards() {
               
             
           </ToggleButtonGroup> */}
-        <Nav.Group>
-          <Nav.SavingChanges />
-        </Nav.Group>
+
+        <Nav.SavingChanges />
       </div>
     </div>
   );
