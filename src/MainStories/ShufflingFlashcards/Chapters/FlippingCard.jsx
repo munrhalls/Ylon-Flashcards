@@ -20,6 +20,7 @@ export default function FlippingCard() {
       backfaceVisibility: "hidden",
       transition: "transform 1s ease",
       transform: `rotateY(${flipped ? "0" : "-0.5"}turn)`,
+      background: "#a8a8a8",
     },
   };
 
