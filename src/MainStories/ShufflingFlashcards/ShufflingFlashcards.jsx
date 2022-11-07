@@ -32,15 +32,15 @@ export default function ShufflingFlashcards() {
         )}
       </div>
       <div className={classes.linksCell}>
-        <Nav.Group>
-          {isFlashcards ? (
-            <>
-              <Nav.ToAddingFlashcard />
-              <Nav.ToEditingFlashcard />
-              <Nav.ToDeletingFlashcard />
-            </>
-          ) : null}
-          {/* <ToggleButtonGroup onChange={handleNavToggle}>
+        {isFlashcards ? (
+          <Nav.Group>
+            <Nav.ToAddingFlashcard />
+            <Nav.ToEditingFlashcard />
+            <Nav.ToDeletingFlashcard />
+          </Nav.Group>
+        ) : null}
+
+        {/* <ToggleButtonGroup onChange={handleNavToggle}>
             <ToggleButton value={}>
               <ViewListIcon />
               </ToggleButton>
@@ -50,6 +50,7 @@ export default function ShufflingFlashcards() {
               
             
           </ToggleButtonGroup> */}
+        <Nav.Group>
           <Nav.SavingChanges />
         </Nav.Group>
       </div>

@@ -26,7 +26,7 @@ export const Nav = {
         className={classes.addBtn}
         startIcon={<AddBoxIcon />}
       >
-        {text ? text : <Hidden xsDown>" Add" </Hidden>}
+        {text ? text : <Hidden xsDown>Add</Hidden>}
       </Button>
     );
   },
@@ -78,7 +78,7 @@ export const Nav = {
     const dispatch = useDispatch();
     const currentDeck = useSelector((state) => state.currentDeck);
     const unsavedChanges = useSelector((state) => state.unsavedChanges);
-    
+
     return (
       <>
         {unsavedChanges && (

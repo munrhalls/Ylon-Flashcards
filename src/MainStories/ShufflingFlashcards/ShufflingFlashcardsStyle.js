@@ -37,6 +37,7 @@ export const useStyles = makeStyles((themes) => {
       position: "relative",
       zIndex: "1",
       backgroundColor: "#000",
+      borderRadius: "3px",
     },
     linksCell: {
       gridColumnStart: "2",
