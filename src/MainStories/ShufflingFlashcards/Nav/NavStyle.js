@@ -8,6 +8,11 @@ export const useStyles = makeStyles((themes) => {
       display: "flex",
       justifyContent: "flex-start",
       flexWrap: "nowrap",
+      [themes.breakpoints.down("xs")]: {
+        "& .MuiButton-startIcon": {
+          marginRight: "0",
+        },
+      },
     },
     saveBtnActive: {
       background: `${blue[900]} !important `,
