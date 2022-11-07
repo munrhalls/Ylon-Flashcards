@@ -54,9 +54,7 @@ export default function FormControl({ mode }) {
     if (mode === "edit") {
       handleEdit();
     }
-    console.log("?");
     dispatch(setUnsavedChanges(true));
-    console.log("????");
   }
 
   function handleFormTitle() {

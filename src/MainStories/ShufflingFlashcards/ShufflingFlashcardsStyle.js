@@ -45,6 +45,11 @@ export const useStyles = makeStyles((themes) => {
       gridRowStart: "3",
       gridRowEnd: "3",
       minWidth: "0",
+      "& .MuiButtonGroup-root": {
+        width: "initial",
+        display: "flex",
+        maxHeight: "2rem",
+      },
     },
   };
 });

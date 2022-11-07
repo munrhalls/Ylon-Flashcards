@@ -9,7 +9,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFlashcard } from "../../../store/store";
-import { setIsDrawerOpen } from "../../../store/store";
+import { setUnsavedChanges } from "../../../store/store";
 
 export const Nav = {
   ToAddingFlashcard: function ({ text }) {
@@ -52,6 +52,7 @@ export const Nav = {
     function handleDeleteCard() {
       const currCardIndex = 0;
       dispatch(deleteFlashcard(currCardIndex));
+      dispatch(setUnsavedChanges(true));
     }
 
     return (
