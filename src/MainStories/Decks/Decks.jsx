@@ -20,11 +20,17 @@ export default function Decks() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const decks = useSelector((state) => state.app.decks);
-  console.log(decks);
+
   return (
     <div className={classes.container}>
       <div className={classes.decksCell}>
-        <CardHeader className={classes.decksHeader}>DECKS LIST</CardHeader>
+        <CardHeader
+          className={classes.decksHeader}
+          title="DECKS LIST"
+          subheader="Select & Edit"
+        >
+          DECKS LIST
+        </CardHeader>
         <Box className={classes.listContainer}>
           <List>
             {decks.map((deck) => {

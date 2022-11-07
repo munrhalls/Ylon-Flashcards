@@ -32,8 +32,11 @@ export const useStyles = makeStyles((themes) => {
       backgroundColor: "#000",
     },
     decksHeader: {
+      padding: ".5rem",
+      display: "flex",
+      justifyContent: "center",
       background: "#dadada",
-      maxHeight: "3rem",
+      maxHeight: "4rem",
       width: "100%",
       flex: "1",
     },
