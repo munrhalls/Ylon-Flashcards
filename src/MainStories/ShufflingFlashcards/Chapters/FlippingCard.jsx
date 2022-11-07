@@ -15,12 +15,18 @@ export default function FlippingCard() {
       backfaceVisibility: "hidden",
       transition: "transform 1s ease",
       transform: `rotateY(${flipped ? "0.5" : "0"}turn)`,
+      padding: "1rem",
+      wordBreak: "break-word",
+      overflow: "auto",
     },
     back: {
       backfaceVisibility: "hidden",
       transition: "transform 1s ease",
       transform: `rotateY(${flipped ? "0" : "-0.5"}turn)`,
       background: "#a8a8a8",
+      padding: "1rem",
+      wordBreak: "break-word",
+      overflow: "auto",
     },
   };
 
