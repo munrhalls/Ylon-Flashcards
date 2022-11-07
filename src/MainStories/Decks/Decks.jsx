@@ -8,5 +8,11 @@ import { useSelector } from "react-redux";
 import React from "react";
 
 export default function Decks() {
-  return <div>Decks</div>;
+  const classes = useStyles();
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.decksCell}></div>
+    </div>
+  );
 }
