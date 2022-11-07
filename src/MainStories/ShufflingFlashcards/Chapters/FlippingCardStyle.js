@@ -10,6 +10,7 @@ export const useStyles = makeStyles((themes) => {
       width: "55%",
       position: "absolute",
       left: "0",
+      backgroundColor: "#fff",
     },
     flashcardFlipped: {
       cursor: "pointer",
@@ -18,6 +19,7 @@ export const useStyles = makeStyles((themes) => {
       width: "60%",
       webkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
+      backgroundColor: "#a0a0a0",
     },
   };
 });

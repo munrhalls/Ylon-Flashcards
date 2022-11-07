@@ -17,30 +17,6 @@ export const useStyles = makeStyles((themes) => {
         gridTemplateRows: "25% 60% 95%",
       },
     },
-    drawer: {
-      "& .MuiPaper-root": {
-        right: "30%",
-        background: "#000",
-        padding: ".5rem",
-
-        "& .DecksStack": {
-          "& .DeckItem": {
-            background: "#fff",
-
-            maxWidth: "90%",
-            minWidth: "90%",
-            padding: "1rem",
-            cursor: "pointer",
-            color: "#000",
-            textOverflow: "hidden",
-            whitespace: "nowrap",
-            "& Button": {
-              color: "#000",
-            },
-          },
-        },
-      },
-    },
     emptyMsg: {
       color: "#fff",
       margin: "auto",
