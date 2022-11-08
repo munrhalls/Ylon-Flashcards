@@ -20,21 +20,20 @@ export default function MarkingDifficultyLevel() {
     return Math.ceil(Math.random() * (max - min) + min);
   }
 
+  function divideBy(by) {
+    return Math.ceil(cards.length / by);
+  }
   function numToShuffleTo() {
-    let shuffleToNum;
     let shuffleToNumRnd;
 
     if (cards.length > 5 && cards.length < 15) {
-      shuffleToNum = Math.ceil(cards.length / 3);
-      shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
+      shuffleToNumRnd = getRandomArbitrary(divideBy(3) - 1, divideBy(3) + 1);
     }
     if (cards.length > 15) {
-      shuffleToNum = Math.ceil(cards.length / 4);
-      shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
+      shuffleToNumRnd = getRandomArbitrary(divideBy(4) - 1, divideBy(4) + 1);
     }
     if (cards.length < 5 && cards.length > 1) {
-      shuffleToNum = Math.ceil(cards.length / 3);
-      shuffleToNumRnd = getRandomArbitrary(1, cards.length);
+      shuffleToNumRnd = getRandomArbitrary(1, divideBy(1));
     }
     return shuffleToNumRnd;
   }
