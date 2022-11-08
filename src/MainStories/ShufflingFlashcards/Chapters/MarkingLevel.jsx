@@ -30,7 +30,11 @@ export default function MarkingDifficultyLevel() {
       shuffleToNum = Math.ceil(cards.length / 4);
       shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
     }
-    if (cards.length > 5) {
+    if (cards.length < 5 && cards.length > 1) {
+      shuffleToNum = Math.ceil(cards.length / 3);
+      shuffleToNumRnd = getRandomArbitrary(1, cards.length);
+    }
+    if (cards.length > 1) {
       let mvCard = cards.shift();
       mvCard = { ...mvCard, level: "hard" };
       cards.splice(shuffleToNumRnd, 0, mvCard);
@@ -40,14 +44,11 @@ export default function MarkingDifficultyLevel() {
         flashcards: cards,
       };
 
-      // console.log(deck);
       dispatch(setCurrentDeck(deck));
-      // console.log(cards);
     }
-
-    // alter by rnd + - 1 IF length > 5;
-    // by 2 if length > 10
   }
+
+  function shuffleMedium() {}
 
   return (
     <div className={classes.difficultyButtons}>
@@ -63,6 +64,7 @@ export default function MarkingDifficultyLevel() {
         <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
+        onClick={() => shuffleMedium()}
         style={{ backgroundColor: orange[900] }}
         variant="contained"
         size="large"
