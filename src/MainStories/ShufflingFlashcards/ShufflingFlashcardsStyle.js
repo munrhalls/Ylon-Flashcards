@@ -48,7 +48,7 @@ export const useStyles = makeStyles((themes) => {
       position: "absolute",
       top: "-2.5rem",
       zIndex: "10",
-      [themes.breakpoints.down("sm")]: {
+      [themes.breakpoints.down("xs")]: {
         height: "2rem",
         top: "-1.25rem",
       },

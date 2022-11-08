@@ -20,7 +20,10 @@ export default function ShufflingFlashcards() {
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
-        <div className={classes.header}></div>
+        <CardHeader
+          className={classes.header}
+          title={currentDeck?.title}
+        ></CardHeader>
         {isFlashcards ? (
           <>
             <FlippingCard />
