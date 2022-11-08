@@ -22,6 +22,25 @@ export default function MarkingDifficultyLevel() {
     return Math.ceil(cards.length / by);
   }
 
+  //lengths arr
+  // hard = shuffle range 2-5
+  function shuffleToMax(max) {
+    let left = cards.length;
+    if (left < max) max = left;
+    if (left < 3) max = 1;
+
+    return getRndInt(1, max);
+  }
+
+  // medium = shuffle range 4-9
+  function shuffleMediumNum() {
+    return getRndInt(4, 9);
+  }
+  // easy  shuffle range 6-12
+  function shuffleEasy() {
+    return getRndInt(6, 12);
+  }
+
   function numToShuffleTo() {
     if (cards.length > 5 && cards.length < 15)
       return getRndInt(divideBy(3) - 1, divideBy(3) + 1);
@@ -30,7 +49,7 @@ export default function MarkingDifficultyLevel() {
   }
 
   function shuffleHard() {
-    const shuffleToNumRnd = numToShuffleTo();
+    const shuffleToNumRnd = shuffleToMax(6);
     let mvCard = cards.shift();
     cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "hard" });
     dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
