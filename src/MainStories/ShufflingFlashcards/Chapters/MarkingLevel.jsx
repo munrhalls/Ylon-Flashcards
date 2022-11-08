@@ -5,12 +5,15 @@ import { useStyles } from "./MarkingLevelStyle";
 import SquareRoundedIcon from "@mui/icons-material/SquareRounded";
 import NextPlanIcon from "@mui/icons-material/NextPlan";
 import { red, orange, blue, green } from "@mui/material/colors";
-import { shuffleDeck } from "./../../../store/store";
+import { setCurrentDeck } from "./../../../store/store";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function MarkingDifficultyLevel() {
   const classes = useStyles();
-  let cards = useSelector((state) => [...state.currentDeck.flashcards]);
+  let currentDeck = useSelector((state) => state.currentDeck);
+  currentDeck = { ...currentDeck };
+  let cards = [...currentDeck.flashcards];
+
   const dispatch = useDispatch();
 
   function getRandomArbitrary(min, max) {
@@ -28,17 +31,20 @@ export default function MarkingDifficultyLevel() {
       shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
     }
     if (cards.length > 5) {
-      console.log(cards);
       const mvCard = cards.shift();
-      console.log(shuffleToNumRnd);
       cards.splice(shuffleToNumRnd, 0, mvCard);
-      console.log(cards);
+      let deck = {
+        ...currentDeck,
+        flashcards: cards,
+      };
+
+      // console.log(deck);
+      dispatch(setCurrentDeck(deck));
+      // console.log(cards);
     }
 
     // alter by rnd + - 1 IF length > 5;
     // by 2 if length > 10
-
-    //
   }
 
   return (
