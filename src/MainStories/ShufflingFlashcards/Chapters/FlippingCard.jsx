@@ -8,11 +8,13 @@ export default function FlippingCard() {
   const classes = useStyles();
   const flipped = useSelector((state) => state.app.flipped);
 
-  const deck = useSelector((state) => state.currentDeck);
-  const cards = useSelector((state) => state.currentDeck.flashcards);
+  const deck = useSelector((state) => state.currentDeck.currentDeck);
+  const cards = useSelector(
+    (state) => state.currentDeck.currentDeck.flashcards
+  );
 
-  // const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
-  const currDeck = useSelector((state) => state.currentDeck);
+  // const currFlashcard = useSelector((state) => state.currentDeck.currentDeck.flashcards[0]);
+  const currDeck = useSelector((state) => state.currentDeck.currentDeck);
   const currFlashcard = currDeck.flashcards[0];
   console.log(currDeck);
   const dispatch = useDispatch();

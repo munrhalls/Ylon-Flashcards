@@ -10,8 +10,8 @@
 //   const dispatch = useDispatch();
 
 //   const state = useSelector((state) => state);
-//   console.log(state.currentDeck.flashcards);
-//   const currFlashcard = useSelector((state) => state.currentDeck.flashcards[0]);
+//   console.log(state.currentDeck.currentDeck.flashcards);
+//   const currFlashcard = useSelector((state) => state.currentDeck.currentDeck.flashcards[0]);
 //   const classes = useStyles();
 
 //   const flipped = useSelector((state) => state.flipped);

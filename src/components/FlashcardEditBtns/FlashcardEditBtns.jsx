@@ -13,9 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 export default function FlashcardEditBtns({ currFlashcard }) {
   // const classes = useStyles();
   // const dispatch = useDispatch();
-  // const currentDeck = useSelector((state) => state.currentDeck);
+  // const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
   // const unsavedChanges = useSelector((state) => state.unsavedChanges);
-  
+
   return (
     <div className={classes.editBtnsCell}>
       <div className={classes.buttonGroupsWrapper}>

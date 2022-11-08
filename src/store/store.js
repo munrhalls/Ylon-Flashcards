@@ -63,8 +63,8 @@ const appReducer = createReducer(app, (builder) => {
     });
 });
 
-const currentDeckReducer = createReducer(
-  {
+const currentDeck = {
+  currentDeck: {
     id: "",
     title: "Starter deck",
     flashcards: [
@@ -76,30 +76,35 @@ const currentDeckReducer = createReducer(
       { question: "Question...6", answer: "Answer..6." },
     ],
   },
-  (builder) => {
-    builder
-      .addCase(shuffleDeck, (state, action) => {
-        state.flashcards = action.payload;
-      })
-      .addCase(setCurrentDeck, (state, action) => {
-        state = { cool: "cool story bro" };
-      })
-      .addCase(addFlashcard, (state, action) => {
-        state.flashcards = [{ ...action.payload }, ...state.flashcards];
-        state.unsavedChanges = true;
-      })
-      .addCase(setFlashcard, (state, action) => {
-        state.flashcards[0] = action.payload;
-        state.unsavedChanges = true;
-      })
-      .addCase(deleteFlashcard, (state, action) => {
-        console.log(state.flashcards);
-        state.flashcards.splice(action.payload, 1);
+};
 
-        state.unsavedChanges = true;
-      });
-  }
-);
+const currentDeckReducer = createReducer(currentDeck, (builder) => {
+  builder
+    .addCase(shuffleDeck, (state, action) => {
+      state.currentDeck.currentDeck.flashcards = action.payload;
+    })
+    .addCase(setCurrentDeck, (state, action) => {
+      console.log(action.payload);
+      state.currentDeck = { ...action.payload };
+    })
+    .addCase(addFlashcard, (state, action) => {
+      state.currentDeck.currentDeck.flashcards = [
+        { ...action.payload },
+        ...state.currentDeck.currentDeck.flashcards,
+      ];
+      state.currentDeck.currentDeck.unsavedChanges = true;
+    })
+    .addCase(setFlashcard, (state, action) => {
+      state.currentDeck.currentDeck.flashcards[0] = action.payload;
+      state.currentDeck.currentDeck.unsavedChanges = true;
+    })
+    .addCase(deleteFlashcard, (state, action) => {
+      console.log(state.currentDeck.currentDeck.flashcards);
+      state.currentDeck.currentDeck.flashcards.splice(action.payload, 1);
+
+      state.currentDeck.currentDeck.unsavedChanges = true;
+    });
+});
 
 const rootReducer = combineReducers({
   currentDeck: currentDeckReducer,

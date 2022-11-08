@@ -6,30 +6,38 @@ import FlippingCard from "./Chapters/FlippingCard";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
 import CardHeader from "@mui/material/CardHeader";
 import { Drawer } from "@mui/material";
+import { red, orange, blue } from "@mui/material/colors";
 import { setCurrentDeck } from "../../store/store";
 
 import { useStyles } from "./ShufflingFlashcardsStyle";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Nav } from "./Nav/Nav";
 import React from "react";
 
 export default function ShufflingFlashcards() {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const currentDeck = useSelector((state) => state.currentDeck);
+  const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
   const decksList = useSelector((state) => state.app.decks);
 
   const isFlashcards = currentDeck?.flashcards?.length;
+  const bgColors = {
+    hard: red[900],
+    medium: orange[900],
+    easy: blue[900],
+  };
 
-  function initializeCurrentDeck() {
-    if (!currentDeck) {
-      dispatch(setCurrentDeck(decksList[0]));
-    }
+  function setBg() {
+    const currentFlashcard = currentDeck?.flashcards[0];
+    let bg = {
+      backgroundColor: currentFlashcard?.level
+        ? bgColors[currentFlashcard?.level]
+        : "#000",
+    };
+    return bg;
   }
-
   return (
     <div className={classes.container}>
-      <div className={classes.flashcardCell}>
+      <div className={classes.flashcardCell} style={setBg()}>
         <CardHeader className={classes.header} title={currentDeck?.title}>
           <Drawer anchor="top" open={true}>
             {decksList.map((deck) => {

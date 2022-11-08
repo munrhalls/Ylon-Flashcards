@@ -10,8 +10,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function MarkingDifficultyLevel() {
   const classes = useStyles();
-  let currentDeck = useSelector((state) => state.currentDeck);
-  currentDeck = { ...currentDeck };
+  let currentDeck = useSelector((state) => state.currentDeck.currentDeck);
+
   let cards = [...currentDeck.flashcards];
 
   const dispatch = useDispatch();
@@ -31,10 +31,12 @@ export default function MarkingDifficultyLevel() {
       shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
     }
     if (cards.length > 5) {
-      const mvCard = cards.shift();
+      let mvCard = cards.shift();
+      mvCard = { ...mvCard, level: "hard" };
       cards.splice(shuffleToNumRnd, 0, mvCard);
       let deck = {
-        ...currentDeck,
+        id: "",
+        title: "Starter deck",
         flashcards: cards,
       };
 
