@@ -5,7 +5,6 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas";
 const sagaMiddleware = createSagaMiddleware();
 
-export const shuffleDeck = createAction("SHUFFLE__DECK");
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setFlashcard = createAction("SET__FLASHCARD");
@@ -80,29 +79,26 @@ const currentDeck = {
 
 const currentDeckReducer = createReducer(currentDeck, (builder) => {
   builder
-    .addCase(shuffleDeck, (state, action) => {
-      state.currentDeck.currentDeck.flashcards = action.payload;
-    })
     .addCase(setCurrentDeck, (state, action) => {
       console.log(action.payload);
       state.currentDeck = { ...action.payload };
     })
     .addCase(addFlashcard, (state, action) => {
-      state.currentDeck.currentDeck.flashcards = [
+      state.currentDeck.flashcards = [
         { ...action.payload },
-        ...state.currentDeck.currentDeck.flashcards,
+        ...state.currentDeck.flashcards,
       ];
-      state.currentDeck.currentDeck.unsavedChanges = true;
+      state.currentDeck.unsavedChanges = true;
     })
     .addCase(setFlashcard, (state, action) => {
-      state.currentDeck.currentDeck.flashcards[0] = action.payload;
-      state.currentDeck.currentDeck.unsavedChanges = true;
+      state.currentDeck.flashcards[0] = action.payload;
+      state.currentDeck.unsavedChanges = true;
     })
     .addCase(deleteFlashcard, (state, action) => {
-      console.log(state.currentDeck.currentDeck.flashcards);
-      state.currentDeck.currentDeck.flashcards.splice(action.payload, 1);
+      console.log(state.currentDeck.flashcards);
+      state.currentDeck.flashcards.splice(action.payload, 1);
 
-      state.currentDeck.currentDeck.unsavedChanges = true;
+      state.unsavedChanges = true;
     });
 });
 

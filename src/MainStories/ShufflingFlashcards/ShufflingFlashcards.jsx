@@ -26,18 +26,16 @@ export default function ShufflingFlashcards() {
     easy: blue[900],
   };
 
-  function setBg() {
-    const currentFlashcard = currentDeck?.flashcards[0];
-    let bg = {
-      backgroundColor: currentFlashcard?.level
-        ? bgColors[currentFlashcard?.level]
-        : "#000",
-    };
-    return bg;
-  }
+  const currentFlashcard = currentDeck?.flashcards[0];
+  const bg = {
+    backgroundColor: currentFlashcard?.level
+      ? bgColors[currentFlashcard?.level]
+      : "#000",
+  };
+
   return (
     <div className={classes.container}>
-      <div className={classes.flashcardCell} style={setBg()}>
+      <div className={classes.flashcardCell} style={bg}>
         <CardHeader className={classes.header} title={currentDeck?.title}>
           <Drawer anchor="top" open={true}>
             {decksList.map((deck) => {
