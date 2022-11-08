@@ -12,50 +12,42 @@ export default function MarkingDifficultyLevel() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
+
   let cards = [...currentDeck.flashcards];
 
   function getRndInt(min, max) {
     return Math.ceil(Math.random() * (max - min) + min);
   }
 
-  function divideBy(by) {
-    return Math.ceil(cards.length / by);
-  }
-
-  //lengths arr
-  // hard = shuffle range 2-5
-  function shuffleToMax(max) {
+  function shuffleBetween(min, max) {
     let left = cards.length;
+    if (left < 3) return 1;
     if (left < max) max = left;
-    if (left < 3) max = 1;
+    if (left < min) min = left;
 
-    return getRndInt(1, max);
-  }
-
-  // medium = shuffle range 4-9
-  function shuffleMediumNum() {
-    return getRndInt(4, 9);
-  }
-  // easy  shuffle range 6-12
-  function shuffleEasy() {
-    return getRndInt(6, 12);
-  }
-
-  function numToShuffleTo() {
-    if (cards.length > 5 && cards.length < 15)
-      return getRndInt(divideBy(3) - 1, divideBy(3) + 1);
-    if (cards.length > 15) return getRndInt(divideBy(4) - 1, divideBy(4) + 1);
-    if (cards.length < 5 && cards.length > 1) return getRndInt(1, divideBy(1));
+    return getRndInt(min, max);
   }
 
   function shuffleHard() {
-    const shuffleToNumRnd = shuffleToMax(6);
+    const shuffleToNumRnd = shuffleBetween(1, 6);
     let mvCard = cards.shift();
     cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "hard" });
     dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
   }
 
-  function shuffleMedium() {}
+  function shuffleMedium() {
+    const shuffleToNumRnd = shuffleBetween(4, 10);
+    let mvCard = cards.shift();
+    cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "medium" });
+    dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
+  }
+
+  function shuffleEasy() {
+    const shuffleToNumRnd = shuffleBetween(7, 12);
+    let mvCard = cards.shift();
+    cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "easy" });
+    dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
+  }
 
   return (
     <div className={classes.difficultyButtons}>
@@ -82,6 +74,7 @@ export default function MarkingDifficultyLevel() {
         <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
+        onClick={() => shuffleEasy()}
         style={{ backgroundColor: blue[900] }}
         variant="contained"
         size="large"
