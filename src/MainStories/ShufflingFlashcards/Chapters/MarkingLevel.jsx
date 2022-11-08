@@ -21,7 +21,7 @@ export default function MarkingDifficultyLevel() {
     let shuffleToNumRnd;
     if (cards.length > 5 && cards.length < 15) {
       shuffleToNum = Math.ceil(cards.length / 3);
-      // shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
+      // shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);  
     }
     if (cards.length > 15) {
       shuffleToNum = Math.ceil(cards.length / 4);
