@@ -10,41 +10,30 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function MarkingDifficultyLevel() {
   const classes = useStyles();
-  let currentDeck = useSelector((state) => state.currentDeck.currentDeck);
-
+  const dispatch = useDispatch();
+  const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
   let cards = [...currentDeck.flashcards];
 
-  const dispatch = useDispatch();
-
-  function getRandomArbitrary(min, max) {
+  function getRndInt(min, max) {
     return Math.ceil(Math.random() * (max - min) + min);
   }
 
   function divideBy(by) {
     return Math.ceil(cards.length / by);
   }
-  function numToShuffleTo() {
-    let shuffleToNumRnd;
 
-    if (cards.length > 5 && cards.length < 15) {
-      shuffleToNumRnd = getRandomArbitrary(divideBy(3) - 1, divideBy(3) + 1);
-    }
-    if (cards.length > 15) {
-      shuffleToNumRnd = getRandomArbitrary(divideBy(4) - 1, divideBy(4) + 1);
-    }
-    if (cards.length < 5 && cards.length > 1) {
-      shuffleToNumRnd = getRandomArbitrary(1, divideBy(1));
-    }
-    return shuffleToNumRnd;
+  function numToShuffleTo() {
+    if (cards.length > 5 && cards.length < 15)
+      return getRndInt(divideBy(3) - 1, divideBy(3) + 1);
+    if (cards.length > 15) return getRndInt(divideBy(4) - 1, divideBy(4) + 1);
+    if (cards.length < 5 && cards.length > 1) return getRndInt(1, divideBy(1));
   }
 
   function shuffleHard() {
     const shuffleToNumRnd = numToShuffleTo();
-    if (cards.length > 1) {
-      let mvCard = cards.shift();
-      cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "hard" });
-      dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
-    }
+    let mvCard = cards.shift();
+    cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "hard" });
+    dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
   }
 
   function shuffleMedium() {}
@@ -52,6 +41,7 @@ export default function MarkingDifficultyLevel() {
   return (
     <div className={classes.difficultyButtons}>
       <Button
+        disabled={cards.length < 2}
         onClick={() => shuffleHard()}
         style={{ backgroundColor: red[900] }}
         variant="contained"
