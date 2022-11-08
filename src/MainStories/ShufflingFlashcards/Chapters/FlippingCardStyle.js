@@ -5,9 +5,9 @@ export const useStyles = makeStyles((themes) => {
     flashcard: {
       cursor: "pointer",
       border: "1px solid #000",
-      height: "95%",
+      height: "85%",
       margin: "auto 2.5%",
-      width: "55%",
+      width: "50%",
       position: "absolute",
       left: "0",
       backgroundColor: "#fff",
@@ -15,8 +15,8 @@ export const useStyles = makeStyles((themes) => {
     flashcardFlipped: {
       cursor: "pointer",
       border: "1px solid #000",
-      height: "100%",
-      width: "60%",
+      height: "85%",
+      width: "50%",
       webkitBackfaceVisibility: "hidden",
       backfaceVisibility: "hidden",
       backgroundColor: "#a0a0a0",

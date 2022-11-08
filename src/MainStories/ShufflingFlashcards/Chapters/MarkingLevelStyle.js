@@ -12,7 +12,7 @@ import {
 export const useStyles = makeStyles((themes) => {
   return {
     difficultyButtons: {
-      height: "95%",
+      height: "85%",
       width: "35%",
       zIndex: "2",
       display: "flex",
@@ -22,8 +22,6 @@ export const useStyles = makeStyles((themes) => {
 
       position: "absolute",
       margin: "auto 0",
-      top: "2.5%",
-      bottom: "2.5%",
       right: "2.5%",
     },
     btn: {

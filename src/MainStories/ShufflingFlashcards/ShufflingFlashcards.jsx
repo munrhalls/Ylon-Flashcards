@@ -4,6 +4,7 @@ import ViewListIcon from "@mui/icons-material/ViewList";
 import StyleIcon from "@mui/icons-material/Style";
 import FlippingCard from "./Chapters/FlippingCard";
 import MarkingDifficultyLevel from "./Chapters/MarkingLevel";
+import CardHeader from "@mui/material/CardHeader";
 
 import { useStyles } from "./ShufflingFlashcardsStyle";
 import { useSelector } from "react-redux";
@@ -12,13 +13,14 @@ import React from "react";
 
 export default function ShufflingFlashcards() {
   const classes = useStyles();
-  const flashcards = useSelector((state) => state.currentDeck.flashcards);
-  const isFlashcards = flashcards?.length;
+  const currentDeck = useSelector((state) => state.currentDeck);
+  const isFlashcards = currentDeck?.flashcards?.length;
 
   function handleNavToggle() {}
   return (
     <div className={classes.container}>
       <div className={classes.flashcardCell}>
+        <div className={classes.header}></div>
         {isFlashcards ? (
           <>
             <FlippingCard />
