@@ -14,14 +14,14 @@ export default function MarkingDifficultyLevel() {
   const dispatch = useDispatch();
 
   function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.ceil(Math.random() * (max - min) + min);
   }
   function shuffleHard() {
     let shuffleToNum;
     let shuffleToNumRnd;
     if (cards.length > 5 && cards.length < 15) {
       shuffleToNum = Math.ceil(cards.length / 3);
-      // shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);  
+      shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
     }
     if (cards.length > 15) {
       shuffleToNum = Math.ceil(cards.length / 4);
@@ -30,6 +30,7 @@ export default function MarkingDifficultyLevel() {
     if (cards.length > 5) {
       console.log(cards);
       const mvCard = cards.shift();
+      console.log(shuffleToNumRnd);
       cards.splice(shuffleToNumRnd, 0, mvCard);
       console.log(cards);
     }
