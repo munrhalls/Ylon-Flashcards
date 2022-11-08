@@ -19,9 +19,11 @@ export default function MarkingDifficultyLevel() {
   function getRandomArbitrary(min, max) {
     return Math.ceil(Math.random() * (max - min) + min);
   }
-  function shuffleHard() {
+
+  function numToShuffleTo() {
     let shuffleToNum;
     let shuffleToNumRnd;
+
     if (cards.length > 5 && cards.length < 15) {
       shuffleToNum = Math.ceil(cards.length / 3);
       shuffleToNumRnd = getRandomArbitrary(shuffleToNum - 1, shuffleToNum + 1);
@@ -34,17 +36,15 @@ export default function MarkingDifficultyLevel() {
       shuffleToNum = Math.ceil(cards.length / 3);
       shuffleToNumRnd = getRandomArbitrary(1, cards.length);
     }
+    return shuffleToNumRnd;
+  }
+
+  function shuffleHard() {
+    const shuffleToNumRnd = numToShuffleTo();
     if (cards.length > 1) {
       let mvCard = cards.shift();
-      mvCard = { ...mvCard, level: "hard" };
-      cards.splice(shuffleToNumRnd, 0, mvCard);
-      let deck = {
-        id: "",
-        title: "Starter deck",
-        flashcards: cards,
-      };
-
-      dispatch(setCurrentDeck(deck));
+      cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "hard" });
+      dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
     }
   }
 
