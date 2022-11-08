@@ -7,9 +7,17 @@ const sagaMiddleware = createSagaMiddleware();
 
 const currentDeck = {
   title: "Starter deck",
-  flashcards: [{ question: "Question...", answer: "Answer..." }],
+  flashcards: [
+    { question: "Question...", answer: "Answer..." },
+    { question: "Question...", answer: "Answer..." },
+    { question: "Question...", answer: "Answer..." },
+    { question: "Question...", answer: "Answer..." },
+    { question: "Question...", answer: "Answer..." },
+    { question: "Question...", answer: "Answer..." },
+  ],
 };
 
+export const shuffleDeck = createAction("SHUFFLE__DECK");
 export const setCurrentDeck = createAction("SET__CURRENT__DECK");
 export const addFlashcard = createAction("ADD__FLASHCARD");
 export const setFlashcard = createAction("SET__FLASHCARD");
@@ -20,6 +28,9 @@ export const flip = createAction("FLIP");
 
 const currentDeckReducer = createReducer(currentDeck, (builder) => {
   builder
+    .addCase(shuffleDeck, (state, action) => {
+      state.flashcards = action.payload;
+    })
     .addCase(setCurrentDeck, (state, action) => {
       state = action.payload;
     })
