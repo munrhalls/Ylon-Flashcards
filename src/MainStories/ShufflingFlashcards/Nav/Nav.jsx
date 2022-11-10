@@ -52,20 +52,28 @@ export const Nav = {
     const dispatch = useDispatch();
     const classes = useStyles();
     const currentDeck = useSelector((state) => state.currentDeck);
-    const cards = currentDeck?.completedFlashcards?.map((card) => {
-      card.level = "";
-      return card;
-    });
 
-    function handleResetingDeck() {
-      currentDeck.flashcards = cards;
-      currentDeck.completedFlashcards = [];
-      dispatch(setCurrentDeck(currentDeck));
+    function handleDeckReset() {
+      let cards = currentDeck.completedFlashcards.map((card) => {
+        card.level = "";
+        return card;
+      });
+      let deck = { ...currentDeck };
+      deck = {
+        ...deck,
+        flashcards: {
+          ...deck.flashcards,
+          flashcards: cards,
+        },
+        completedCards: { ...deck.completedCards, completedCards: [] },
+      };
+
+      dispatch(setCurrentDeck(deck));
     }
 
     return (
       <Button
-        onClick={() => handleResetingDeck()}
+        onClick={() => handleDeckReset()}
         variant="contained"
         size="medium"
         className={classes.deleteBtn}
