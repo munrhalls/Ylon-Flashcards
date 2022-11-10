@@ -16,7 +16,6 @@ export default function FlippingCard() {
   // const currFlashcard = useSelector((state) => state.currentDeck.currentDeck.flashcards[0]);
   const currDeck = useSelector((state) => state.currentDeck.currentDeck);
   const currFlashcard = currDeck.flashcards[0];
-  console.log(currDeck);
   const dispatch = useDispatch();
 
   const styles = {

@@ -51,22 +51,19 @@ export const Nav = {
   ToRestartingDeck: function () {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const currentDeck = useSelector((state) => state.currentDeck);
+    const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
 
     function handleDeckReset() {
-      let cards = currentDeck.completedFlashcards.map((card) => {
-        card.level = "";
-        return card;
-      });
-      let deck = { ...currentDeck };
-      deck = {
-        ...deck,
-        flashcards: {
-          ...deck.flashcards,
-          flashcards: cards,
-        },
-        completedCards: { ...deck.completedCards, completedCards: [] },
+      let deck = {
+        ...currentDeck,
+        flashcards: [...currentDeck.flashcards],
+        completedFlashcards: [...currentDeck.completedFlashcards],
       };
+      deck.flashcards = deck.completedFlashcards;
+      deck.flashcards.sort((a, b) => {
+        return a.count - b.count;
+      });
+      deck.completedFlashcards = [];
 
       dispatch(setCurrentDeck(deck));
     }

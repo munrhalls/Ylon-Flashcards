@@ -16,9 +16,12 @@ import { setUnsavedChanges } from "../store/store";
 export default function FormControl({ mode }) {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const currCard = useSelector(
-    (state) => state.currentDeck.currentDeck.flashcards[0]
+  const cards = useSelector(
+    (state) => state.currentDeck.currentDeck.flashcards
   );
+  const currCard = cards[0];
+  const count = cards.length;
+
   const draftCard = useSelector((state) => state.app.flashcardDraft);
 
   useEffect(() => {
@@ -41,6 +44,7 @@ export default function FormControl({ mode }) {
   }
 
   function handleAdd() {
+    draftCard.count = count;
     dispatch(addFlashcard(draftCard));
     resetDraft();
   }

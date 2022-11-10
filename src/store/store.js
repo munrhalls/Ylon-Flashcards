@@ -68,12 +68,12 @@ const currentDeck = {
     id: "",
     title: "Starter deck",
     flashcards: [
-      { question: "Question1...", answer: "Answer1..." },
-      { question: "Question2...", answer: "Answer2..." },
-      { question: "Question3...", answer: "Answer.3.." },
-      { question: "Question.4..", answer: "Answer..4." },
-      { question: "Question..5.", answer: "Answer...5" },
-      { question: "Question...6", answer: "Answer..6." },
+      { question: "Question1...", answer: "Answer1...", count: 0 },
+      { question: "Question2...", answer: "Answer2...", count: 1 },
+      { question: "Question3...", answer: "Answer.3..", count: 2 },
+      { question: "Question.4..", answer: "Answer..4.", count: 3 },
+      { question: "Question..5.", answer: "Answer...5", count: 4 },
+      { question: "Question...6", answer: "Answer..6.", count: 5 },
     ],
     completedFlashcards: [],
   },
@@ -82,13 +82,12 @@ const currentDeck = {
 const currentDeckReducer = createReducer(currentDeck, (builder) => {
   builder
     .addCase(setCurrentDeck, (state, action) => {
-      console.log(action.payload);
-      state.currentDeck = { ...action.payload };
+      state.currentDeck = action.payload;
     })
     .addCase(addFlashcard, (state, action) => {
       state.currentDeck.flashcards = [
-        { ...action.payload },
-        ...state.currentDeck.flashcards,
+        action.payload,
+        state.currentDeck.flashcards,
       ];
       state.currentDeck.unsavedChanges = true;
     })
@@ -97,9 +96,7 @@ const currentDeckReducer = createReducer(currentDeck, (builder) => {
       state.currentDeck.unsavedChanges = true;
     })
     .addCase(deleteFlashcard, (state, action) => {
-      console.log(state.currentDeck.flashcards);
       state.currentDeck.flashcards.splice(action.payload, 1);
-
       state.unsavedChanges = true;
     });
 });
