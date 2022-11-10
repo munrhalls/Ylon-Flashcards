@@ -3,6 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/SaveSharp";
 import AddBoxIcon from "@mui/icons-material/AddBox";
+import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
 import { useStyles } from "./NavStyle";
 
 import React from "react";
@@ -74,9 +75,9 @@ export const Nav = {
         variant="contained"
         size="medium"
         className={classes.deleteBtn}
-        startIcon={<DeleteIcon />}
+        startIcon={<RestartAltRoundedIcon />}
       >
-        <Hidden xsDown>Delete</Hidden>
+        <Hidden xsDown>Reset</Hidden>
       </Button>
     );
   },
