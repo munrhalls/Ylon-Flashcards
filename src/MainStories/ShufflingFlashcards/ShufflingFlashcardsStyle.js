@@ -25,6 +25,17 @@ export const useStyles = makeStyles((themes) => {
       alignItems: "center",
       flexDirection: "column",
     },
+    completedMsg: {
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      color: "#fff",
+      [themes.breakpoints.down("xs")]: {
+        fontSize: ".75rem",
+      },
+    },
     flashcardCell: {
       gridColumnStart: "2",
       gridColumnEnd: "2",

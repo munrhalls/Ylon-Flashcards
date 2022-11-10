@@ -14,6 +14,7 @@ export default function MarkingDifficultyLevel() {
   const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
 
   let cards = [...currentDeck.flashcards];
+  let completedCards = [...currentDeck.completedFlashcards];
 
   function getRndInt(min, max) {
     return Math.ceil(Math.random() * (max - min) + min);
@@ -47,6 +48,18 @@ export default function MarkingDifficultyLevel() {
     let mvCard = cards.shift();
     cards.splice(shuffleToNumRnd, 0, { ...mvCard, level: "easy" });
     dispatch(setCurrentDeck({ ...currentDeck, flashcards: cards }));
+  }
+
+  function mvCardToCompleted() {
+    let mvCard = cards.shift();
+    completedCards.unshift(mvCard);
+    dispatch(
+      setCurrentDeck({
+        ...currentDeck,
+        flashcards: cards,
+        completedFlashcards: completedCards,
+      })
+    );
   }
 
   return (
@@ -83,6 +96,7 @@ export default function MarkingDifficultyLevel() {
         <SquareRoundedIcon className={classes.lvlIcon} />
       </Button>
       <Button
+        onClick={() => mvCardToCompleted()}
         style={{ backgroundColor: green[900] }}
         variant="contained"
         size="large"

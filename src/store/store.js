@@ -25,6 +25,7 @@ const app = {
         { question: "Question..5.", answer: "Answer...5" },
         { question: "Question...6", answer: "Answer..6." },
       ],
+      completedFlashcards: [],
     },
     {
       title: "Starter deck 2",
@@ -74,6 +75,7 @@ const currentDeck = {
       { question: "Question..5.", answer: "Answer...5" },
       { question: "Question...6", answer: "Answer..6." },
     ],
+    completedFlashcards: [],
   },
 };
 

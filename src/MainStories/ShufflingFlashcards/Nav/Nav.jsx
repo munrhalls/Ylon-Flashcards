@@ -8,8 +8,11 @@ import { useStyles } from "./NavStyle";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFlashcard } from "../../../store/store";
-import { setUnsavedChanges } from "../../../store/store";
+import {
+  deleteFlashcard,
+  setCurrentDeck,
+  setUnsavedChanges,
+} from "../../../store/store";
 
 export const Nav = {
   ToAddingFlashcard: function ({ text }) {
@@ -42,6 +45,33 @@ export const Nav = {
         startIcon={<EditIcon />}
       >
         <Hidden xsDown>Edit</Hidden>
+      </Button>
+    );
+  },
+  ToRestartingDeck: function () {
+    const dispatch = useDispatch();
+    const classes = useStyles();
+    const currentDeck = useSelector((state) => state.currentDeck);
+    const cards = currentDeck?.completedFlashcards?.map((card) => {
+      card.level = "";
+      return card;
+    });
+
+    function handleResetingDeck() {
+      currentDeck.flashcards = cards;
+      currentDeck.completedFlashcards = [];
+      dispatch(setCurrentDeck(currentDeck));
+    }
+
+    return (
+      <Button
+        onClick={() => handleResetingDeck()}
+        variant="contained"
+        size="medium"
+        className={classes.deleteBtn}
+        startIcon={<DeleteIcon />}
+      >
+        <Hidden xsDown>Delete</Hidden>
       </Button>
     );
   },

@@ -20,6 +20,7 @@ export default function ShufflingFlashcards() {
   const decksList = useSelector((state) => state.app.decks);
 
   const isFlashcards = currentDeck?.flashcards?.length;
+
   const bgColors = {
     hard: red[900],
     medium: orange[900],
@@ -32,6 +33,30 @@ export default function ShufflingFlashcards() {
       ? bgColors[currentFlashcard?.level]
       : "#000",
   };
+
+  function getCompletedOrEmpty() {
+    if (currentDeck?.completedFlashcards?.length) return getCompletedMessage();
+    return getEmptyMessage();
+  }
+
+  function getEmptyMessage() {
+    return (
+      <div className={classes.emptyMsg}>
+        <h1>DECK IS EMPTY</h1>
+        <Nav.ToAddingFlashcard text="Add flashcard" />
+      </div>
+    );
+  }
+
+  function getCompletedMessage() {
+    return (
+      <div className={classes.completedMsg}>
+        <h2>CONGRATULATIONS!</h2>
+        <h3> DECK COMPLETED!</h3>
+        <Nav.ToRestartingDeck text="Restart" />
+      </div>
+    );
+  }
 
   return (
     <div className={classes.container}>
@@ -49,10 +74,7 @@ export default function ShufflingFlashcards() {
             <MarkingDifficultyLevel />
           </>
         ) : (
-          <div className={classes.emptyMsg}>
-            <h1>DECK IS EMPTY</h1>
-            <Nav.ToAddingFlashcard text="Add flashcard" />
-          </div>
+          getCompletedOrEmpty()
         )}
       </div>
       <div className={classes.linksCell}>
