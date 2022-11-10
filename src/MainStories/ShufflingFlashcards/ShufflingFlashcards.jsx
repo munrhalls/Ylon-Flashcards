@@ -29,9 +29,7 @@ export default function ShufflingFlashcards() {
 
   const currentFlashcard = currentDeck?.flashcards[0];
   const bg = {
-    backgroundColor: currentFlashcard?.level
-      ? bgColors[currentFlashcard?.level]
-      : "#000",
+    boxShadow: `inset 0 0 100px -25px ${bgColors[currentFlashcard?.level]}`,
   };
 
   function getCompletedOrEmpty() {
