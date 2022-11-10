@@ -20,9 +20,9 @@ export default function FormControl({ mode }) {
     (state) => state.currentDeck.currentDeck.flashcards
   );
   const currCard = cards[0];
-  const count = cards.length;
-
   const draftCard = useSelector((state) => state.app.flashcardDraft);
+  const draft = { ...draftCard };
+  draft.count = cards.length - 1;
 
   useEffect(() => {
     handleDraft();
@@ -33,19 +33,21 @@ export default function FormControl({ mode }) {
   }, []);
 
   function handleDraft() {
-    if (mode === "edit") {
-      dispatch(setFlashcardDraft({ ...currCard }));
-    }
+    if (mode === "edit") return dispatch(setFlashcardDraft({ ...currCard }));
   }
 
   function resetDraft() {
-    const draftCard = { question: "Question...", answer: "Answer..." };
-    dispatch(setFlashcardDraft(draftCard));
+    dispatch(
+      setFlashcardDraft({
+        question: "Question...",
+        answer: "Answer...",
+        count: 0,
+      })
+    );
   }
 
   function handleAdd() {
-    draftCard.count = count;
-    dispatch(addFlashcard(draftCard));
+    dispatch(addFlashcard(draft));
     resetDraft();
   }
   function handleEdit() {

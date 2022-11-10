@@ -43,6 +43,7 @@ const app = {
   flashcardDraft: {
     question: "",
     answer: "",
+    count: 0,
   },
   flipped: false,
   unsavedChanges: false,
@@ -87,7 +88,7 @@ const currentDeckReducer = createReducer(currentDeck, (builder) => {
     .addCase(addFlashcard, (state, action) => {
       state.currentDeck.flashcards = [
         action.payload,
-        state.currentDeck.flashcards,
+        ...state.currentDeck.flashcards,
       ];
       state.currentDeck.unsavedChanges = true;
     })

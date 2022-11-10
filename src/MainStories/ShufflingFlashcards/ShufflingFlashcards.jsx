@@ -18,7 +18,7 @@ export default function ShufflingFlashcards() {
   const classes = useStyles();
   const currentDeck = useSelector((state) => state.currentDeck.currentDeck);
   const decksList = useSelector((state) => state.app.decks);
-
+  console.log(currentDeck?.flashcards);
   const isFlashcards = currentDeck?.flashcards?.length;
 
   const bgColors = {
